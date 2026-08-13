@@ -84,17 +84,17 @@
 	}
 
 	function formatDate(date: Date): string {
-		return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+		return date.toLocaleDateString('es-ES', { month: 'short', day: 'numeric', year: 'numeric' });
 	}
 
 	function getPopoverText(count: number, hasSkipped: boolean, hasRestDay: boolean, date: Date): string {
-		if (hasSkipped) return `Skipped on ${formatDate(date)}`;
-		if (hasRestDay) return `Rest day on ${formatDate(date)}`;
-		if (count === 0) return `No workouts on ${formatDate(date)}`;
-		return `${count} workout${count > 1 ? 's' : ''} on ${formatDate(date)}`;
+		if (hasSkipped) return `Saltado el ${formatDate(date)}`;
+		if (hasRestDay) return `Día de descanso el ${formatDate(date)}`;
+		if (count === 0) return `Sin entrenamientos el ${formatDate(date)}`;
+		return `${count} entrenamiento${count > 1 ? 's' : ''} el ${formatDate(date)}`;
 	}
 
-	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	const months = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
 	const monthLabels: { month: string; weekIndex: number }[] = [];
 
 	let currentMonth = -1;
@@ -109,7 +109,7 @@
 </script>
 
 <div class="space-y-2">
-	<div class="py-2 text-sm font-semibold">Workout graph</div>
+	<div class="py-2 text-sm font-semibold">Gráfico de entrenamientos</div>
 	<div class="overflow-x-auto pb-2">
 		<div class="inline-block min-w-full">
 			<!-- Month labels -->
@@ -125,13 +125,13 @@
 			<div class="grid gap-[2px]" style="grid-template-columns: auto 1fr;">
 				<!-- Day labels column -->
 				<div class="grid grid-rows-7 items-center gap-[2px] pr-1 text-[10px] text-muted-foreground">
-					<div class="h-3">Sun</div>
-					<div class="h-3">Mon</div>
-					<div class="h-3">Tue</div>
-					<div class="h-3">Wed</div>
-					<div class="h-3">Thu</div>
-					<div class="h-3">Fri</div>
-					<div class="h-3">Sat</div>
+					<div class="h-3">Dom</div>
+					<div class="h-3">Lun</div>
+					<div class="h-3">Mar</div>
+					<div class="h-3">Mié</div>
+					<div class="h-3">Jue</div>
+					<div class="h-3">Vie</div>
+					<div class="h-3">Sáb</div>
 				</div>
 
 				<!-- Weeks grid -->

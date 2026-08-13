@@ -35,7 +35,7 @@
 	{#if session === null}
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild let:builder>
-				<Button builders={[builder]} class="w-fit">Login</Button>
+				<Button builders={[builder]} class="w-fit">Iniciar sesión</Button>
 			</DropdownMenu.Trigger>
 			<LoginProviderMenu />
 		</DropdownMenu.Root>

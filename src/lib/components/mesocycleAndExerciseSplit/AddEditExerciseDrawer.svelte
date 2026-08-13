@@ -156,7 +156,7 @@
 		}
 
 		if (!result) {
-			toast.error('Exercise names should be unique');
+			toast.error('Los nombres de los ejercicios deben ser únicos');
 			return;
 		}
 		resetDrawerState();
@@ -185,17 +185,17 @@
 	</Sheet.Trigger>
 	<Sheet.Content class="w-11/12 overflow-y-auto px-4" side="right">
 		<Sheet.Header>
-			<Sheet.Title>{mode} exercise</Sheet.Title>
+			<Sheet.Title>{mode === 'Add' ? 'Agregar' : 'Editar'} ejercicio</Sheet.Title>
 		</Sheet.Header>
 		<form class="mt-8 grid h-fit grid-cols-2 gap-x-2 gap-y-4" onsubmit={submitForm}>
 			<div class="col-span-2 flex w-full flex-col gap-1.5">
-				<span class="text-sm font-medium">Exercise name</span>
+				<span class="text-sm font-medium">Nombre del ejercicio</span>
 				<Command.Root class="flex-1 bg-background" shouldFilter={false}>
 					<div class="flex w-full items-center justify-between">
 						<Command.Input
 							class="w-full pr-10"
 							onfocus={() => (searching = true)}
-							placeholder="Type here or search..."
+							placeholder="Escribí acá o buscá..."
 							required
 							bind:value={currentExercise.name}
 						/>

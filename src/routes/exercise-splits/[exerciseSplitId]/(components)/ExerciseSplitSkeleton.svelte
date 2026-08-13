@@ -7,7 +7,7 @@
 <Tabs.Root class="w-full" value="info">
 	<Tabs.List class="grid w-full grid-cols-2">
 		<Tabs.Trigger value="info">Info</Tabs.Trigger>
-		<Tabs.Trigger value="exercises">Exercises</Tabs.Trigger>
+		<Tabs.Trigger value="exercises">Ejercicios</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="info">
 		<Card.Root>

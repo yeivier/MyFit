@@ -38,9 +38,14 @@
 	);
 
 	const chartTypes = ['Maximum volume', 'Set increase amount', 'Regardless of progress'] as const;
+	const chartTypeLabels: Record<(typeof chartTypes)[number], string> = {
+		'Maximum volume': 'Volumen máximo',
+		'Set increase amount': 'Series añadidas',
+		'Regardless of progress': 'Sin importar el progreso'
+	};
 	let selectedChartType: Selected<(typeof chartTypes)[number]> = $state({
 		value: 'Maximum volume',
-		label: 'Maximum volume'
+		label: chartTypeLabels['Maximum volume']
 	});
 
 	$effect(() => {

@@ -7,7 +7,7 @@ export const load = async (event) => {
 	const session = await event.locals.auth();
 
 	if (session === null) {
-		error(401, 'Not logged in');
+		error(401, 'No has iniciado sesión');
 	}
 
 	const trpc = createCaller(await createContext(event));

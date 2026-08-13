@@ -42,7 +42,7 @@
 		if (currentFilters.selectedMesocycles) {
 			selectedMesocycles = currentFilters.selectedMesocycles.map((mesocycleName) => ({
 				value: mesocycleName,
-				label: mesocycleName ?? 'Non-meso workouts'
+				label: mesocycleName ?? 'Entrenamientos sin mesociclo'
 			}));
 		}
 		if (currentFilters.selectedWorkoutStatuses) {
@@ -69,21 +69,21 @@
 
 <Popover.Root bind:open>
 	<Popover.Trigger asChild let:builder>
-		<Button class="grow gap-2" aria-label="search" builders={[builder]} variant="secondary">
-			Filters <FilterIcon />
+		<Button class="grow gap-2" aria-label="buscar" builders={[builder]} variant="secondary">
+			Filtros <FilterIcon />
 		</Button>
 	</Popover.Trigger>
 	<Popover.Content class="flex w-11/12 max-w-xl flex-col gap-1">
-		<span class="text-sm font-semibold">Date range</span>
+		<span class="text-sm font-semibold">Rango de fechas</span>
 		<DateRangePicker bind:value={selectedDateRange} {...filterData} />
 
-		<span class="mt-2 text-sm font-semibold">Mesocycles</span>
+		<span class="mt-2 text-sm font-semibold">Mesociclos</span>
 		<Select.Root multiple bind:selected={selectedMesocycles}>
 			<Select.Trigger class="w-full">
-				<Select.Value placeholder="Select a value" />
+				<Select.Value placeholder="Selecciona un valor" />
 			</Select.Trigger>
 			<Select.Content>
-				<Select.Item class="italic" value={null}>Non-meso workouts</Select.Item>
+				<Select.Item class="italic" value={null}>Entrenamientos sin mesociclo</Select.Item>
 				{#each filterData.allMesocycles as mesocycle}
 					{@const isActive = mesocycle.startDate && mesocycle.endDate === null}
 					<Select.Item class="flex items-center justify-between" value={mesocycle.name}>
@@ -96,7 +96,7 @@
 			</Select.Content>
 		</Select.Root>
 
-		<span class="mt-2 text-sm font-semibold">Workout types</span>
+		<span class="mt-2 text-sm font-semibold">Tipos de entrenamiento</span>
 		<div class="flex justify-between rounded-md border p-3">
 			{#each selectedWorkoutStatuses as [workoutStatus, selected]}
 				<div class="flex items-center gap-2">
@@ -114,6 +114,6 @@
 				</div>
 			{/each}
 		</div>
-		<Button class="mt-2" onclick={applyFilters}>Apply</Button>
+		<Button class="mt-2" onclick={applyFilters}>Aplicar</Button>
 	</Popover.Content>
 </Popover.Root>

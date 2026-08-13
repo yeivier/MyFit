@@ -11,22 +11,22 @@
 	let { entityCounts }: PropsType = $props();
 
 	const taskList = $derived([
-		{ task: 'Login', completion: entityCounts !== null, link: '/' },
+		{ task: 'Inicia sesión', completion: entityCounts !== null, link: '/' },
 		{
-			task: 'Create an exercise split',
+			task: 'Crea una rutina de ejercicios',
 			completion: Number(entityCounts?.exerciseSplits) > 0,
 			link: '/exercise-splits'
 		},
-		{ task: 'Create a mesocycle', completion: Number(entityCounts?.mesocycles) > 0, link: '/mesocycles' },
-		{ task: 'Start a mesocycle', completion: Number(entityCounts?.startedMesocycles) > 0, link: '/mesocycles' },
-		{ task: 'Create workout', completion: Number(entityCounts?.workouts) > 0, link: '/workouts' }
+		{ task: 'Crea un mesociclo', completion: Number(entityCounts?.mesocycles) > 0, link: '/mesocycles' },
+		{ task: 'Inicia un mesociclo', completion: Number(entityCounts?.startedMesocycles) > 0, link: '/mesocycles' },
+		{ task: 'Crea un entrenamiento', completion: Number(entityCounts?.workouts) > 0, link: '/workouts' }
 	]);
 
 	const tasksDone = $derived(taskList.filter(({ completion }) => completion).length);
 </script>
 
 {#if tasksDone < taskList.length}
-	<H3>Get started</H3>
+	<H3>Primeros pasos</H3>
 	{#if entityCounts === undefined}
 		<Skeleton class="h-[174px] w-full" />
 	{:else}

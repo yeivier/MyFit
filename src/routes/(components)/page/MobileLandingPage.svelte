@@ -11,10 +11,10 @@
 
 <div class="flex flex-col justify-evenly gap-6 px-4">
 	<span class="text-center text-3xl font-bold">
-		Free <span class="text-primary">science-based</span> workout tracking
+		Entrenamiento <span class="text-primary">basado en ciencia</span> y gratis
 	</span>
 	<span class="text-md text-center leading-tight text-muted-foreground">
-		With automatic progression, detailed statistics, and highly customizable features
+		Con progresión automática, estadísticas detalladas y funciones altamente personalizables
 	</span>
 	<CarouselComponent />
 	<StatsComponent {...counts} />

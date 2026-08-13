@@ -9,33 +9,34 @@
 	<Card.Root>
 		<Card.Header>
 			<Card.Title class="flex items-center justify-between">
-				Progression
+				Progresión
 				<TrendingUp />
 			</Card.Title>
 			<Card.Description class="text-justify lg:text-left">
-				Automatically increase reps and load based on your past performances to ensure you're always making progress
+				Aumenta automáticamente las repeticiones y la carga según tu rendimiento anterior, para asegurarte de que
+				siempre estás progresando
 			</Card.Description>
 		</Card.Header>
 	</Card.Root>
 	<Card.Root>
 		<Card.Header>
 			<Card.Title class="flex items-center justify-between">
-				Stats
+				Estadísticas
 				<ChartColumn />
 			</Card.Title>
 			<Card.Description class="text-justify lg:text-left">
-				All the charts you can think of! Make well-balanced routines and compare past performances
+				¡Todos los gráficos que se te ocurran! Crea rutinas equilibradas y compara tu rendimiento anterior
 			</Card.Description>
 		</Card.Header>
 	</Card.Root>
 	<Card.Root>
 		<Card.Header>
 			<Card.Title class="flex items-center justify-between">
-				Customizable
+				Personalizable
 				<Settings />
 			</Card.Title>
 			<Card.Description class="text-justify lg:text-left">
-				Edit split during mesocycles, override progression for specific exercises, and much more!
+				Edita tu split durante los mesociclos, anula la progresión para ejercicios específicos, ¡y mucho más!
 			</Card.Description>
 		</Card.Header>
 	</Card.Root>

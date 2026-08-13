@@ -37,7 +37,7 @@
 		</Button>
 	{:else if showInstallButton}
 		<Button
-			aria-label="Download"
+			aria-label="Descargar"
 			onclick={() => {
 				// @ts-expect-error Not standard API yet, so need this ignore
 				deferredPrompt.prompt();
@@ -60,12 +60,12 @@
 				variant="outline"
 			>
 				<UpdateIcon class={cn({ 'animate-spin': reloading })} />
-				Reload
+				Recargar
 			</Button>
 		{:else if showInstallButton}
 			<Button
 				class="w-full gap-2 text-base"
-				aria-label="Download"
+				aria-label="Descargar"
 				onclick={() => {
 					// @ts-expect-error Not standard API yet, so need this ignore
 					deferredPrompt.prompt();
@@ -74,7 +74,7 @@
 				size="lg"
 				variant="outline"
 			>
-				<DownloadIcon /> Download
+				<DownloadIcon /> Descargar
 			</Button>
 		{/if}
 	</div>

@@ -6,21 +6,21 @@
 	export let sheetOpen: boolean | undefined = undefined;
 
 	const linkItems: ({ text: string; href: string } | null)[] = [
-		{ text: 'Dashboard', href: '/dashboard' },
-		{ text: 'Exercise stats', href: '/exercise-stats' },
+		{ text: 'Panel', href: '/dashboard' },
+		{ text: 'Estadísticas de ejercicios', href: '/exercise-stats' },
 		null,
-		{ text: 'Exercise splits', href: '/exercise-splits' },
-		{ text: 'Mesocycles', href: '/mesocycles' },
-		{ text: 'Workouts', href: '/workouts' },
+		{ text: 'Splits de ejercicios', href: '/exercise-splits' },
+		{ text: 'Mesociclos', href: '/mesocycles' },
+		{ text: 'Entrenamientos', href: '/workouts' },
 		null,
 		{ text: 'GitHub', href: 'https://github.com/WhyAsh5114/MyFit' },
 		{ text: 'Discord', href: 'https://discord.com/invite/2g9YPD6PQu' },
 		null,
-		{ text: 'Docs', href: '/docs' },
-		{ text: 'Changelog', href: '/changelog' },
-		{ text: 'Donations', href: '/donations' },
-		{ text: 'Privacy policy', href: '/privacy-policy' },
-		{ text: 'Terms of service', href: '/terms-of-service' }
+		{ text: 'Documentación', href: '/docs' },
+		{ text: 'Registro de cambios', href: '/changelog' },
+		{ text: 'Donaciones', href: '/donations' },
+		{ text: 'Política de privacidad', href: '/privacy-policy' },
+		{ text: 'Términos de servicio', href: '/terms-of-service' }
 	];
 </script>
 

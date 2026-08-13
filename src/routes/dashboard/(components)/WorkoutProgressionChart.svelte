@@ -44,7 +44,7 @@
 						},
 						borderColor: `hsl(${primaryColor})`,
 						borderWidth: 1,
-						label: 'Work volume'
+						label: 'Volumen de trabajo'
 					}
 				]
 			}

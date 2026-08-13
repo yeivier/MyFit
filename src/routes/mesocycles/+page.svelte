@@ -57,12 +57,12 @@
 	}
 </script>
 
-<H2>Mesocycles</H2>
+<H2>Mesociclos</H2>
 
 <div class="flex grow flex-col gap-2">
 	<div class="flex gap-1">
 		<form class="contents" onsubmit={updateSearchParam}>
-			<Input id="search-mesocycles" placeholder="Search" type="search" bind:value={searchString} />
+			<Input id="search-mesocycles" placeholder="Buscar" type="search" bind:value={searchString} />
 			<Button aria-label="search" type="submit" variant="secondary">
 				<SearchIcon />
 			</Button>
@@ -72,7 +72,7 @@
 		>
 	</div>
 	<div class="flex items-center gap-2">
-		<span class="text-sm font-medium text-muted-foreground">Active</span>
+		<span class="text-sm font-medium text-muted-foreground">Activo</span>
 		<Separator class="w-px grow" />
 	</div>
 	{#if activeMesocycle === 'loading'}
@@ -81,7 +81,7 @@
 			<Skeleton class="badge-skeleton" />
 		</div>
 	{:else if activeMesocycle === null}
-		<div class="muted-text-box">No active mesocycle</div>
+		<div class="muted-text-box">No hay un mesociclo activo</div>
 	{:else}
 		<Button
 			class="mb-1 flex h-12 items-center justify-between rounded-md border bg-card p-2"
@@ -89,12 +89,12 @@
 			variant="outline"
 		>
 			<span class="text-lg font-semibold">{activeMesocycle.name}</span>
-			<Badge>Active</Badge>
+			<Badge>Activo</Badge>
 		</Button>
 	{/if}
 
 	<div class="flex items-center gap-2">
-		<span class="text-sm font-medium text-muted-foreground">All</span>
+		<span class="text-sm font-medium text-muted-foreground">Todos</span>
 		<Separator class="w-px grow" />
 	</div>
 	<div class="flex h-px grow flex-col gap-1 overflow-y-auto">
@@ -106,11 +106,11 @@
 			>
 				<span class="text-lg font-semibold">{mesocycle.name}</span>
 				{#if !mesocycle.startDate}
-					<Badge variant="secondary">Unused</Badge>
+					<Badge variant="secondary">Sin usar</Badge>
 				{:else if !mesocycle.endDate}
-					<Badge>Active</Badge>
+					<Badge>Activo</Badge>
 				{:else}
-					<Badge variant="outline">Completed</Badge>
+					<Badge variant="outline">Completado</Badge>
 				{/if}
 			</Button>
 		{/each}

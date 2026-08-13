@@ -19,7 +19,7 @@
 	<div class="grid grid-cols-3 gap-1">
 		<Card.Root class="bg-background">
 			<Card.Header class="flex p-4">
-				<Card.Title class="text-center text-sm font-medium">Workouts</Card.Title>
+				<Card.Title class="text-center text-sm font-medium">Entrenamientos</Card.Title>
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
 				{#await counts.workoutCount}
@@ -31,7 +31,7 @@
 		</Card.Root>
 		<Card.Root class="bg-background">
 			<Card.Header class="flex p-4">
-				<Card.Title class="text-center text-sm font-medium">Exercises</Card.Title>
+				<Card.Title class="text-center text-sm font-medium">Ejercicios</Card.Title>
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
 				{#await counts.exerciseCount}
@@ -43,7 +43,7 @@
 		</Card.Root>
 		<Card.Root class="bg-background">
 			<Card.Header class="flex p-4">
-				<Card.Title class="text-center text-sm font-medium">Sets</Card.Title>
+				<Card.Title class="text-center text-sm font-medium">Series</Card.Title>
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
 				{#await counts.setsCount}
@@ -54,5 +54,5 @@
 			</Card.Content>
 		</Card.Root>
 	</div>
-	<span class="mt-1 text-center italic text-muted-foreground">have been logged already!</span>
+	<span class="mt-1 text-center italic text-muted-foreground">¡ya se han registrado!</span>
 </div>

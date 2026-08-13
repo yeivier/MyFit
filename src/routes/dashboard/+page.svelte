@@ -30,17 +30,17 @@
 	});
 </script>
 
-<H2>Home</H2>
+<H2>Inicio</H2>
 <GetStartedComponent {entityCounts} />
 
-<H3>Today's workout</H3>
+<H3>Entrenamiento de hoy</H3>
 <TodaysWorkoutCard {...data} />
 
 {#if !dismissDiscord}
 	<Card.Root class="mt-2">
 		<Card.Header>
-			<Card.Title class="Title">We have a Discord</Card.Title>
-			<Card.Description>Join to stay updated, connect with others, and get support!</Card.Description>
+			<Card.Title class="Title">Tenemos un Discord</Card.Title>
+			<Card.Description>¡Únete para mantenerte al día, conectar con otros y recibir ayuda!</Card.Description>
 		</Card.Header>
 		<Card.Footer class="flex justify-between">
 			<Button
@@ -50,11 +50,11 @@
 					localStorage.setItem('discord-dismiss', 'true');
 				}}
 			>
-				Dismiss
+				Descartar
 			</Button>
 			<Button class="gap-2" href="https://discord.com/invite/2g9YPD6PQu">
 				<DiscordIcon />
-				Join
+				Unirme
 			</Button>
 		</Card.Footer>
 	</Card.Root>
@@ -63,17 +63,17 @@
 {#if !dismissDomainMove}
 	<Card.Root class="mt-2">
 		<Card.Header>
-			<Card.Title class="text-primary">🚀 MyFit has moved to a new domain!</Card.Title>
+			<Card.Title class="text-primary">🚀 ¡MyFit se mudó a un nuevo dominio!</Card.Title>
 			<Card.Description>
-				We've moved to <strong>myfit.fit</strong> for a better experience!
+				Nos mudamos a <strong>myfit.fit</strong> para ofrecerte una mejor experiencia!
 				<br /><br />
-				<strong>Please follow these steps:</strong>
+				<strong>Sigue estos pasos:</strong>
 				<br />
-				1. Uninstall this current app
+				1. Desinstala esta app actual
 				<br />
-				2. Visit myfit.fit and reinstall from there
+				2. Visita myfit.fit y reinstálala desde ahí
 				<br />
-				3. Dismiss this message once completed
+				3. Descarta este mensaje cuando termines
 			</Card.Description>
 		</Card.Header>
 		<Card.Footer class="flex justify-between">
@@ -84,11 +84,11 @@
 					localStorage.setItem('domain-move-dismiss', 'true');
 				}}
 			>
-				Dismiss
+				Descartar
 			</Button>
 			<Button class="gap-2" href="https://myfit.fit" target="_blank" rel="noopener noreferrer">
 				<ExternalLinkIcon />
-				Visit myfit.fit
+				Visitar myfit.fit
 			</Button>
 		</Card.Footer>
 	</Card.Root>

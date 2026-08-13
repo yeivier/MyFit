@@ -22,7 +22,7 @@
 
 <header class="flex shrink-0 items-center gap-2 border-b bg-muted p-1">
 	<Sheet.Root bind:open={sheetOpen}>
-		<Sheet.Trigger class="px-2" aria-label="Menu">
+		<Sheet.Trigger class="px-2" aria-label="Menú">
 			<MenuIcon />
 		</Sheet.Trigger>
 		<Sheet.Content side="left">
@@ -34,7 +34,7 @@
 					}}
 				>
 					<Button class="pointer-events-none justify-start gap-2 text-foreground" variant="link">
-						<img alt="MyFit logo" height={52} src="/favicon.webp" width={52} />
+						<img alt="Logo de MyFit" height={52} src="/favicon.webp" width={52} />
 						<h1 class="text-2xl font-bold">MyFit</h1>
 					</Button>
 				</Sheet.Title>

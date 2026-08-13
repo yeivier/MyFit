@@ -27,15 +27,15 @@
 	}
 </script>
 
-<ResponsiveDialog title="Update app?" bind:open={updateDataLossDialog.open}>
+<ResponsiveDialog title="¿Actualizar la app?" bind:open={updateDataLossDialog.open}>
 	{#snippet description()}
-		<p>Any unsaved data, like a workout in progress, or an unsaved mesocycle will be lost.</p>
+		<p>Se perderá cualquier dato sin guardar, como un entrenamiento en curso o un mesociclo sin guardar.</p>
 	{/snippet}
 	<Button disabled={updating} onclick={updateApp} class="gap-2">
 		{#if updating}
 			<LoaderCircle class="animate-spin" />
 		{:else}
-			Update
+			Actualizar
 		{/if}
 	</Button>
 </ResponsiveDialog>

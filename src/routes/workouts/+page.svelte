@@ -103,7 +103,7 @@
 	}
 </script>
 
-<H2>Workouts</H2>
+<H2>Entrenamientos</H2>
 
 <div class="flex grow flex-col gap-2">
 	<div class="flex gap-1">
@@ -116,7 +116,7 @@
 				<NoWorkoutsFilterComponent />
 			{/if}
 		{/await}
-		<Button aria-label="create-workout" onclick={createNewWorkout}><AddIcon /></Button>
+		<Button aria-label="crear-entrenamiento" onclick={createNewWorkout}><AddIcon /></Button>
 	</div>
 	<div class="flex h-px grow flex-col gap-1 overflow-y-auto">
 		{#each workouts as workout}
@@ -139,8 +139,8 @@
 					{@const splitDayName =
 						workoutOfMesocycle.mesocycle.mesocycleExerciseSplitDays[workoutOfMesocycle.splitDayIndex].name}
 					<span class="truncate text-right text-muted-foreground">
-						{splitDayName === '' ? 'Rest' : splitDayName}
-						{workoutOfMesocycle.workoutStatus === 'Skipped' ? '(skipped)' : ''}
+						{splitDayName === '' ? 'Descanso' : splitDayName}
+						{workoutOfMesocycle.workoutStatus === 'Skipped' ? '(omitido)' : ''}
 					</span>
 				{/if}
 			</Button>

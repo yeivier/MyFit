@@ -43,7 +43,7 @@
 						{wm.splitDayName}
 						<Badge variant="secondary">{getRIRForWeek(wm.mesocycle.RIRProgression, wm.cycleNumber)} RIR</Badge>
 					{:else}
-						<span class="text-primary">Rest</span>
+						<span class="text-primary">Descanso</span>
 					{/if}
 				</Card.Title>
 				<Card.Description>{wm?.mesocycle.name}</Card.Description>
@@ -59,21 +59,22 @@
 			{/if}
 			<Card.Footer>
 				<Button class="ml-auto gap-2" onclick={createNewWorkout}>
-					Start
+					Empezar
 					<ChevronRight />
 				</Button>
 			</Card.Footer>
 		{:else}
 			<Card.Header>
-				<Card.Title>No workout found</Card.Title>
-				<Card.Description>No active mesocycle</Card.Description>
+				<Card.Title>No se encontró ningún entrenamiento</Card.Title>
+				<Card.Description>No hay ningún mesociclo activo</Card.Description>
 			</Card.Header>
 			<Card.Content class="h-20 text-sm leading-snug">
-				You can log workouts even without a mesocycle, you'll miss out on automatic progression and mesocycle statistics
+				Puedes registrar entrenamientos incluso sin un mesociclo, pero te perderás la progresión automática y las
+				estadísticas del mesociclo
 			</Card.Content>
 			<Card.Footer class="flex flex-col items-end gap-2">
-				<Button href="/workouts/manage/start" variant="secondary">Start a workout without mesocycle</Button>
-				<Button href="/mesocycles">Go to mesocycles</Button>
+				<Button href="/workouts/manage/start" variant="secondary">Empezar un entrenamiento sin mesociclo</Button>
+				<Button href="/mesocycles">Ir a mesociclos</Button>
 			</Card.Footer>
 		{/if}
 	{/await}

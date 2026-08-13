@@ -46,7 +46,7 @@
 
 				<span class="flex-1 capitalize">{displayName}</span>
 				{#if name === lastUsedProvider}
-					<Badge.Badge variant="secondary" class="ml-auto px-1.5 py-0 text-[10px]">Last used</Badge.Badge>
+					<Badge.Badge variant="secondary" class="ml-auto px-1.5 py-0 text-[10px]">Última usada</Badge.Badge>
 				{/if}
 			</DropdownMenu.Item>
 		{/each}

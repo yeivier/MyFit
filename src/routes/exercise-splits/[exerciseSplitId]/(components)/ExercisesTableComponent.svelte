@@ -15,7 +15,7 @@
 	<Tabs.List class="w-full shrink-0 justify-start overflow-x-auto">
 		{#each exerciseSplitDays as splitDay, i}
 			<Tabs.Trigger class="shrink-0 grow basis-20" disabled={splitDay.isRestDay} value={i.toString()}>
-				{splitDay.isRestDay ? 'Rest' : splitDay.name}
+				{splitDay.isRestDay ? 'Descanso' : splitDay.name}
 			</Tabs.Trigger>
 		{/each}
 	</Tabs.List>
@@ -25,7 +25,7 @@
 				<div class="mr-auto flex flex-col">
 					<span class="truncate text-lg font-semibold">{selectedSplitDay.name}</span>
 					<span class="font-sembold text-sm text-muted-foreground">
-						Day {parseInt(selectedDayIndex) + 1}
+						Día {parseInt(selectedDayIndex) + 1}
 					</span>
 				</div>
 			</div>

@@ -35,7 +35,7 @@
 				{:else if firstWorkoutDate}
 					{df.format(dateToCalendarDate(firstWorkoutDate).toDate(getLocalTimeZone()))}
 				{:else}
-					Pick a date
+					Elige una fecha
 				{/if}
 			</Button>
 		</Popover.Trigger>
