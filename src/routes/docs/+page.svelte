@@ -4,7 +4,7 @@
 </svelte:head>
 
 <div class="prose prose-neutral max-w-none dark:prose-invert lg:prose-lg">
-	<h1>Docs</h1>
+	<h1>Documentación</h1>
 	<blockquote>Solo un resumen básico de cómo funcionan las cosas en esta app, ya que hay algunas diferencias respecto a la V2</blockquote>
 
 	<h2>Splits de ejercicios</h2>

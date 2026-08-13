@@ -195,7 +195,7 @@
 <ResponsiveDialog title="Nota" bind:open={editExerciseSplitNoteDrawerOpen}>
 	{#snippet description()}
 		Editar un split de ejercicios no cambiará el split del mesociclo en el que se usa. Para modificar ese, usa la
-		pestaña <b>Split</b> en <b>View mesocycle</b>
+		pestaña <b>Split</b> en <b>Ver mesociclo</b>
 	{/snippet}
 	<Button onclick={editExerciseSplit}>Continuar</Button>
 </ResponsiveDialog>
