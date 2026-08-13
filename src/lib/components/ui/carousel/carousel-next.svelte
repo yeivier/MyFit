@@ -30,5 +30,5 @@
 	{...$$restProps}
 >
 	<ArrowRight class="h-4 w-4" />
-	<span class="sr-only">Next slide</span>
+	<span class="sr-only">Siguiente diapositiva</span>
 </Button>

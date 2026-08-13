@@ -40,7 +40,7 @@
 	onMount(async () => {
 		const serverExerciseSplit = await data.exerciseSplit;
 		if (serverExerciseSplit) exerciseSplit = serverExerciseSplit;
-		else toast.error('Exercise split not found');
+		else toast.error('No se encontró el split de ejercicios');
 	});
 
 	async function deleteExerciseSplit() {
@@ -112,7 +112,7 @@
 	}
 </script>
 
-<H2 showChartIcon={selectedTabValue === 'exercises'} bind:chartMode>View exercise split</H2>
+<H2 showChartIcon={selectedTabValue === 'exercises'} bind:chartMode>Ver split de ejercicios</H2>
 
 {#if exerciseSplit === 'loading'}
 	<ExerciseSplitSkeleton />
@@ -120,7 +120,7 @@
 	<Tabs.Root class="flex w-full grow flex-col" bind:value={selectedTabValue}>
 		<Tabs.List class="grid w-full grid-cols-2">
 			<Tabs.Trigger value="info">Info</Tabs.Trigger>
-			<Tabs.Trigger value="exercises">Exercises</Tabs.Trigger>
+			<Tabs.Trigger value="exercises">Ejercicios</Tabs.Trigger>
 		</Tabs.List>
 		<Tabs.Content value="info">
 			<Card.Root>
@@ -134,16 +134,16 @@
 							<DropdownMenu.Content align="end">
 								<DropdownMenu.Group>
 									<DropdownMenu.Item class="gap-2" onclick={() => loadExerciseSplit('edit')}>
-										<EditIcon /> Edit
+										<EditIcon /> Editar
 									</DropdownMenu.Item>
 									<DropdownMenu.Item class="gap-2" onclick={() => loadExerciseSplit('clone')}>
-										<CloneIcon /> Clone
+										<CloneIcon /> Clonar
 									</DropdownMenu.Item>
 									<DropdownMenu.Item class="gap-2" onclick={() => exportSplit()}>
-										<FileUpIcon /> Export
+										<FileUpIcon /> Exportar
 									</DropdownMenu.Item>
 									<DropdownMenu.Item class="gap-2 text-red-500" onclick={() => (deleteConfirmDrawerOpen = true)}>
-										<DeleteIcon /> Delete
+										<DeleteIcon /> Eliminar
 									</DropdownMenu.Item>
 								</DropdownMenu.Group>
 							</DropdownMenu.Content>
@@ -153,7 +153,7 @@
 						<div class="mt-1 flex flex-wrap gap-1">
 							{#each exerciseSplit.exerciseSplitDays as splitDay}
 								<Badge variant={splitDay.isRestDay ? 'outline' : 'secondary'}>
-									{splitDay.isRestDay ? 'Rest' : splitDay.name}
+									{splitDay.isRestDay ? 'Descanso' : splitDay.name}
 								</Badge>
 							{/each}
 						</div>
@@ -178,24 +178,24 @@
 			{/if}
 		</Tabs.Content>
 	</Tabs.Root>
-	<ResponsiveDialog title="Delete split?" bind:open={deleteConfirmDrawerOpen}>
+	<ResponsiveDialog title="¿Eliminar split?" bind:open={deleteConfirmDrawerOpen}>
 		{#snippet description()}
-			This action cannot be undone.
+			Esta acción no se puede deshacer.
 		{/snippet}
 		<Button disabled={callingDeleteEndpoint} onclick={deleteExerciseSplit} variant="destructive">
 			{#if callingDeleteEndpoint}
 				<LoaderCircle class="animate-spin" />
 			{:else}
-				Yes, delete
+				Sí, eliminar
 			{/if}
 		</Button>
 	</ResponsiveDialog>
 {/if}
 
-<ResponsiveDialog title="Note" bind:open={editExerciseSplitNoteDrawerOpen}>
+<ResponsiveDialog title="Nota" bind:open={editExerciseSplitNoteDrawerOpen}>
 	{#snippet description()}
-		Editing an exercise split won't change the mesocycle split it is used in. To modify that, use the <b>Split</b> tab
-		in <b>View mesocycle</b>
+		Editar un split de ejercicios no cambiará el split del mesociclo en el que se usa. Para modificar ese, usa la
+		pestaña <b>Split</b> en <b>View mesocycle</b>
 	{/snippet}
-	<Button onclick={editExerciseSplit}>Continue</Button>
+	<Button onclick={editExerciseSplit}>Continuar</Button>
 </ResponsiveDialog>

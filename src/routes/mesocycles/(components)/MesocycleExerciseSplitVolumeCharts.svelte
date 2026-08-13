@@ -38,9 +38,13 @@
 	);
 
 	const chartTypes = ['Microcycle volume distribution', 'Muscle group volume distribution'] as const;
+	const chartTypeLabels: Record<(typeof chartTypes)[number], string> = {
+		'Microcycle volume distribution': 'Distribución de volumen por microciclo',
+		'Muscle group volume distribution': 'Distribución de volumen por grupo muscular'
+	};
 	let selectedChartType: Selected<(typeof chartTypes)[number]> = $state({
 		value: 'Microcycle volume distribution',
-		label: 'Microcycle volume distribution'
+		label: chartTypeLabels['Microcycle volume distribution']
 	});
 
 	$effect(() => {
@@ -56,7 +60,7 @@
 					labels: mesocycleSplitExercises.map((_, idx) => `D${idx + 1}`),
 					datasets: [
 						{
-							label: 'Volume',
+							label: 'Volumen',
 							data: mesocycleSplitExercises.map((dayExercises) =>
 								arraySum(dayExercises.map((exercise) => exercise.sets))
 							)
@@ -92,21 +96,21 @@
 
 <div class="flex flex-col gap-1">
 	<Select.Root bind:selected={selectedChartType}>
-		<Select.Label class="p-0">Chart</Select.Label>
+		<Select.Label class="p-0">Gráfico</Select.Label>
 		<Select.Trigger class="mb-2 w-full">
-			<Select.Value placeholder="Select chart" />
+			<Select.Value placeholder="Selecciona un gráfico" />
 		</Select.Trigger>
 		<Select.Content class="max-h-48 overflow-y-auto">
 			{#each chartTypes as chartType}
-				<Select.Item value={chartType}>{chartType}</Select.Item>
+				<Select.Item value={chartType}>{chartTypeLabels[chartType]}</Select.Item>
 			{/each}
 		</Select.Content>
 	</Select.Root>
 	{#if selectedChartType.value === 'Muscle group volume distribution'}
 		<Select.Root multiple bind:selected={selectedMuscleGroups}>
-			<Select.Label class="p-0">Selected muscle groups</Select.Label>
+			<Select.Label class="p-0">Grupos musculares seleccionados</Select.Label>
 			<Select.Trigger class="w-full">
-				<Select.Value placeholder="Select muscle groups" />
+				<Select.Value placeholder="Selecciona grupos musculares" />
 			</Select.Trigger>
 			<Select.Content class="max-h-48 overflow-y-auto">
 				{#each muscleGroups as muscleGroup}

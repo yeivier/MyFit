@@ -68,7 +68,7 @@
 					),
 					datasets: [
 						{
-							label: 'Maximum volume',
+							label: 'Volumen máximo',
 							data: selectedSetChanges.map((setChange) => setChange.maxVolume)
 						}
 					]
@@ -82,7 +82,7 @@
 					labels: possibleSetIncreaseAmounts.map((n) => n.toString()),
 					datasets: [
 						{
-							label: 'Total muscle groups',
+							label: 'Total de grupos musculares',
 							data: possibleSetIncreaseAmounts.map(
 								(setIncreaseAmount) =>
 									cyclicSetChanges.filter((setChange) => setChange.setIncreaseAmount === setIncreaseAmount).length
@@ -96,10 +96,10 @@
 			chart = new Chart(chartCanvas, {
 				type: 'pie',
 				data: {
-					labels: ['Yes', 'No'],
+					labels: ['Sí', 'No'],
 					datasets: [
 						{
-							label: 'Regardless of progress',
+							label: 'Sin importar el progreso',
 							data: [totalRegardlessOfProgress, cyclicSetChanges.length - totalRegardlessOfProgress],
 							borderWidth: 0,
 							backgroundColor: [`hsl(${primaryColor})`, `hsl(${secondaryColor})`]
@@ -121,21 +121,21 @@
 
 <div class="flex flex-col gap-1">
 	<Select.Root bind:selected={selectedChartType}>
-		<Select.Label class="p-0">Chart</Select.Label>
+		<Select.Label class="p-0">Gráfico</Select.Label>
 		<Select.Trigger class="mb-2 w-full">
-			<Select.Value placeholder="Select chart" />
+			<Select.Value placeholder="Selecciona un gráfico" />
 		</Select.Trigger>
 		<Select.Content class="max-h-48 overflow-y-auto">
 			{#each chartTypes as chartType}
-				<Select.Item value={chartType}>{chartType}</Select.Item>
+				<Select.Item value={chartType}>{chartTypeLabels[chartType]}</Select.Item>
 			{/each}
 		</Select.Content>
 	</Select.Root>
 	{#if selectedChartType.value === 'Maximum volume'}
 		<Select.Root multiple bind:selected={selectedMuscleGroups}>
-			<Select.Label class="p-0">Selected muscle groups</Select.Label>
+			<Select.Label class="p-0">Grupos musculares seleccionados</Select.Label>
 			<Select.Trigger class="w-full">
-				<Select.Value placeholder="Select muscle groups" />
+				<Select.Value placeholder="Selecciona grupos musculares" />
 			</Select.Trigger>
 			<Select.Content class="max-h-48 overflow-y-auto">
 				{#each muscleGroups as muscleGroup}

@@ -212,7 +212,7 @@
 							</Popover.Trigger>
 							<Popover.Content class="w-80 p-4" side="top" align="start">
 								<div class="flex flex-col gap-4">
-									<h4 class="font-medium leading-none">Filter by muscle group</h4>
+									<h4 class="font-medium leading-none">Filtrar por grupo muscular</h4>
 									<div class="grid grid-cols-2 gap-2">
 										{#each allGroupedExercises.filter((g) => g.exercises.length > 0) as group}
 											<Button
@@ -234,10 +234,10 @@
 											}}
 										>
 											<XIcon />
-											Clear
+											Limpiar
 										</Button>
 										<Button class="gap-2" onclick={() => (filterOpen = false)}>
-											Done
+											Listo
 											<CheckIcon />
 										</Button>
 									</div>
@@ -254,7 +254,7 @@
 											<Command.Item onSelect={() => selectExercise(exercise)}>
 												{exercise.name}
 												{#if 'isUserExercise' in exercise && exercise.isUserExercise}
-													<span class="text-xs italic text-muted-foreground">&nbsp;(user)</span>
+													<span class="text-xs italic text-muted-foreground">&nbsp;(usuario)</span>
 												{/if}
 											</Command.Item>
 										{/each}
@@ -282,9 +282,9 @@
 						label: convertCamelCaseToNormal(currentExercise.targetMuscleGroup)
 					}}
 				>
-					<Select.Label class="p-0 text-sm font-medium leading-none">Target muscle group</Select.Label>
+					<Select.Label class="p-0 text-sm font-medium leading-none">Grupo muscular objetivo</Select.Label>
 					<Select.Trigger>
-						<Select.Value placeholder="Pick one" />
+						<Select.Value placeholder="Elegí uno" />
 					</Select.Trigger>
 					<Select.Content class="h-48 overflow-y-auto">
 						{#each Object.values(MuscleGroup) as muscleGroup}
@@ -295,10 +295,10 @@
 			</div>
 			{#if currentExercise.targetMuscleGroup === 'Custom'}
 				<div class="flex w-full flex-col gap-1.5">
-					<Label for="exercise-custom-muscle-group">Muscle group</Label>
+					<Label for="exercise-custom-muscle-group">Grupo muscular</Label>
 					<Input
 						id="exercise-custom-muscle-group"
-						placeholder="Type here"
+						placeholder="Escribí acá"
 						required
 						bind:value={currentExercise.customMuscleGroup}
 					/>
@@ -306,20 +306,20 @@
 			{/if}
 			{#if props.context !== 'exerciseSplit' && 'sets' in currentExercise}
 				<div class="flex w-full flex-col gap-1.5">
-					<Label for="exercise-sets">Sets</Label>
+					<Label for="exercise-sets">Series</Label>
 					<Input
 						id="exercise-sets"
 						min={0}
-						placeholder="Type here"
+						placeholder="Escribí acá"
 						required
 						type="number"
 						bind:value={currentExercise.sets}
 					/>
 				</div>
 				<div class="flex flex-col gap-1.5">
-					<span class="text-sm font-medium leading-none">Progression</span>
+					<span class="text-sm font-medium leading-none">Progresión</span>
 					<Button class="gap-2" onclick={() => (overridesSheetOpen = true)} variant="secondary">
-						<span class="pointer-events-none">Overrides</span>
+						<span class="pointer-events-none">Anulaciones</span>
 						<ChevronRight class="pointer-events-none" />
 					</Button>
 				</div>
@@ -328,7 +328,7 @@
 				<Label
 					for={currentExercise.bodyweightFraction !== null
 						? 'exercise-bodyweight-fraction'
-						: 'exercise-involves-bodyweight'}>Bodyweight fraction</Label
+						: 'exercise-involves-bodyweight'}>Fracción de peso corporal</Label
 				>
 				<div class="flex gap-0.5">
 					{#if currentExercise.bodyweightFraction !== null}
@@ -366,9 +366,9 @@
 							label: convertCamelCaseToNormal(currentExercise.setType)
 						}}
 					>
-						<Select.Label class="p-0 text-sm font-medium leading-none">Set type</Select.Label>
+						<Select.Label class="p-0 text-sm font-medium leading-none">Tipo de serie</Select.Label>
 						<Select.Trigger>
-							<Select.Value placeholder="Pick one" />
+							<Select.Value placeholder="Elegí uno" />
 						</Select.Trigger>
 						<Select.Content>
 							{#each Object.values(SetType) as setTemplate}
@@ -396,9 +396,9 @@
 							label: convertCamelCaseToNormal(currentExercise.changeType)
 						}}
 					>
-						<Select.Label class="p-0 text-sm font-medium leading-none">Load change type</Select.Label>
+						<Select.Label class="p-0 text-sm font-medium leading-none">Tipo de cambio de carga</Select.Label>
 						<Select.Trigger>
-							<Select.Value placeholder="Pick one" />
+							<Select.Value placeholder="Elegí uno" />
 						</Select.Trigger>
 						<Select.Content>
 							{#each Object.values(ChangeType) as changeType}
@@ -408,10 +408,10 @@
 					</Select.Root>
 				</div>
 				<div class="flex w-full flex-col gap-1.5">
-					<Label for="exercise-rep-range-end">Load change</Label>
+					<Label for="exercise-rep-range-end">Cambio de carga</Label>
 					<Input
 						id="exercise-set-decrement"
-						placeholder="Type here"
+						placeholder="Escribí acá"
 						required
 						step={0.5}
 						type="number"

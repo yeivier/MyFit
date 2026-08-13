@@ -25,11 +25,11 @@
 		if (!bodyweight || !duration) return;
 		try {
 			migratingToV2 = true;
-			toast.warning("Don't close this window or reload the page");
+			toast.warning('No cierres esta ventana ni recargues la página');
 			await trpc().users.migrateFromV2.mutate({ bodyweight, duration });
 			await goto('/');
 			migratingToV2 = false;
-			toast.success('Migration completed successfully');
+			toast.success('Migración completada correctamente');
 		} catch (error) {
 			if (error instanceof TRPCClientError) {
 				toast.error(error.message);
@@ -47,16 +47,16 @@
 	}
 </script>
 
-<H2>Profile</H2>
+<H2>Perfil</H2>
 
 <div class="mb-4 flex flex-col gap-4">
 	<div class="flex flex-col">
-		<span class="text-sm text-muted-foreground">Email</span>
+		<span class="text-sm text-muted-foreground">Correo electrónico</span>
 		<span>{$page.data.session?.user?.email}</span>
 	</div>
 
 	<div class="flex flex-col">
-		<span class="text-sm text-muted-foreground">Username</span>
+		<span class="text-sm text-muted-foreground">Nombre de usuario</span>
 		<span>{$page.data.session?.user?.name}</span>
 	</div>
 </div>
@@ -64,7 +64,7 @@
 <div class="mb-4 grid grid-cols-3 gap-2">
 	<Card.Root class="bg-background">
 		<Card.Header class="flex p-4">
-			<Card.Title class="text-center text-sm font-medium">Workouts</Card.Title>
+			<Card.Title class="text-center text-sm font-medium">Entrenamientos</Card.Title>
 		</Card.Header>
 		<Card.Content class="p-4 pt-0 text-center text-2xl font-bold">
 			{#await data.userCounts.workouts}
@@ -76,7 +76,7 @@
 	</Card.Root>
 	<Card.Root class="bg-background">
 		<Card.Header class="flex p-4">
-			<Card.Title class="text-center text-sm font-medium">Exercises</Card.Title>
+			<Card.Title class="text-center text-sm font-medium">Ejercicios</Card.Title>
 		</Card.Header>
 		<Card.Content class="p-4 pt-0 text-center text-2xl font-bold">
 			{#await data.userCounts.exercises}
@@ -88,7 +88,7 @@
 	</Card.Root>
 	<Card.Root class="bg-background">
 		<Card.Header class="flex p-4">
-			<Card.Title class="text-center text-sm font-medium">Sets</Card.Title>
+			<Card.Title class="text-center text-sm font-medium">Series</Card.Title>
 		</Card.Header>
 		<Card.Content class="p-4 pt-0 text-center text-2xl font-bold">
 			{#await data.userCounts.sets}

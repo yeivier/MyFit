@@ -48,7 +48,7 @@
 				<LoaderCircle class="animate-spin text-primary" height={24} width={24} />
 			</div>
 		{:else}
-			<img alt="MyFit logo" height={40} src="/favicon.webp" width={40} />
+			<img alt="Logo de MyFit" height={40} src="/favicon.webp" width={40} />
 		{/if}
 	</a>
 	<PWAButtons isMobile={true} />
@@ -65,7 +65,7 @@
 	{:else}
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild let:builder>
-				<Button builders={[builder]} size="sm" variant="ghost">Login</Button>
+				<Button builders={[builder]} size="sm" variant="ghost">Iniciar sesión</Button>
 			</DropdownMenu.Trigger>
 			<LoginProviderMenu />
 		</DropdownMenu.Root>

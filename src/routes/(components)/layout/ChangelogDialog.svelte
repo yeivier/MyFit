@@ -45,7 +45,7 @@
 </script>
 
 {#if $needRefresh}
-	<ResponsiveDialog title="What's new?" bind:open dismissible={false}>
+	<ResponsiveDialog title="¿Qué hay de nuevo?" bind:open dismissible={false}>
 		{#if dialogText}
 			<ScrollArea class="h-96">
 				<article class="prose prose-sm dark:prose-invert">
@@ -61,12 +61,12 @@
 					} else open = false;
 				}}
 			>
-				Update & reload <ReloadIcon />
+				Actualizar y recargar <ReloadIcon />
 			</Button>
 		{:else}
 			<div class="flex items-center justify-center gap-2 p-2 text-sm text-muted-foreground">
 				<LoaderCircle class="animate-spin" />
-				<span>Loading changelog</span>
+				<span>Cargando registro de cambios</span>
 			</div>
 		{/if}
 	</ResponsiveDialog>

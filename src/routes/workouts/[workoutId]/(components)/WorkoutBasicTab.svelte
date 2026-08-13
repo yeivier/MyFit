@@ -58,18 +58,18 @@
 				month: 'long'
 			})}
 			<DropdownMenu.Root>
-				<DropdownMenu.Trigger aria-label="workout-options">
+				<DropdownMenu.Trigger aria-label="opciones-de-entrenamiento">
 					<MenuIcon />
 				</DropdownMenu.Trigger>
 				<DropdownMenu.Content align="end">
 					<DropdownMenu.Group>
 						{#if workout.workoutOfMesocycle === null || workout.workoutOfMesocycle.workoutStatus === null}
 							<DropdownMenu.Item class="gap-2" onclick={editWorkout}>
-								<EditIcon /> Edit
+								<EditIcon /> Editar
 							</DropdownMenu.Item>
 						{/if}
 						<DropdownMenu.Item class="gap-2 text-red-500" on:click={() => (deleteConfirmDrawerOpen = true)}>
-							<DeleteIcon /> Delete
+							<DeleteIcon /> Eliminar
 						</DropdownMenu.Item>
 					</DropdownMenu.Group>
 				</DropdownMenu.Content>
@@ -80,14 +80,14 @@
 				hour: '2-digit',
 				minute: '2-digit'
 			})}
-			to
+			a
 			{workout.endedAt.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}
-			({getMinuteDifference(workout.endedAt, workout.startedAt)} minutes)
+			({getMinuteDifference(workout.endedAt, workout.startedAt)} minutos)
 		</Card.Description>
 	</Card.Header>
 	<Card.Content class="space-y-3">
 		<div class="flex flex-col">
-			<span class="text-sm text-muted-foreground">Mesocycle</span>
+			<span class="text-sm text-muted-foreground">Mesociclo</span>
 			{#if workout.workoutOfMesocycle}
 				{@const wm = workout.workoutOfMesocycle}
 				{@const splitDay = wm.mesocycle.mesocycleExerciseSplitDays[wm.splitDayIndex]}
@@ -100,22 +100,22 @@
 					</Badge>
 				</div>
 			{:else}
-				<span class="font-semibold">No mesocycle</span>
+				<span class="font-semibold">Sin mesociclo</span>
 			{/if}
 		</div>
 		<div class="flex flex-col">
-			<span class="text-sm text-muted-foreground">User bodyweight</span>
+			<span class="text-sm text-muted-foreground">Peso corporal</span>
 			<span class="font-semibold">{workout.userBodyweight}</span>
 		</div>
 		{#if workout.note}
 			<div class="flex flex-col">
-				<span class="text-sm text-muted-foreground">Workout note</span>
+				<span class="text-sm text-muted-foreground">Nota del entrenamiento</span>
 				<span class="font-semibold">{workout.note}</span>
 			</div>
 		{/if}
 		{#if workout.workoutOfMesocycle?.workoutStatus === null}
 			<div class="flex flex-col gap-1">
-				<span class="text-sm text-muted-foreground">Targeted muscle groups</span>
+				<span class="text-sm text-muted-foreground">Grupos musculares objetivo</span>
 				<div class="flex flex-wrap gap-1">
 					{#each targetedMuscleGroups as muscleGroup}
 						<Badge variant="secondary">{convertCamelCaseToNormal(muscleGroup)}</Badge>
@@ -126,15 +126,15 @@
 	</Card.Content>
 </Card.Root>
 
-<ResponsiveDialog title="Delete workout?" bind:open={deleteConfirmDrawerOpen}>
+<ResponsiveDialog title="¿Eliminar entrenamiento?" bind:open={deleteConfirmDrawerOpen}>
 	{#snippet description()}
-		This action cannot be undone.
+		Esta acción no se puede deshacer.
 	{/snippet}
 	<Button class="mt-2 gap-2" disabled={callingDeleteEndpoint} onclick={deleteWorkout} variant="destructive">
 		{#if callingDeleteEndpoint}
 			<LoaderCircle class="animate-spin" />
 		{:else}
-			Yes, delete
+			Sí, eliminar
 		{/if}
 	</Button>
 </ResponsiveDialog>

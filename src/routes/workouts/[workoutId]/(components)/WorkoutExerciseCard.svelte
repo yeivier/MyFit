@@ -26,11 +26,11 @@
 	<div class="flex items-center gap-0.5">
 		<span class="mr-auto text-sm lowercase text-muted-foreground">
 			{exercise.sets.length}
-			{convertCamelCaseToNormal(exercise.setType)} sets of
-			{exercise.repRangeStart} to {exercise.repRangeEnd} reps
+			series de {convertCamelCaseToNormal(exercise.setType)} de
+			{exercise.repRangeStart} a {exercise.repRangeEnd} repeticiones
 		</span>
 		{#if exercise.bodyweightFraction}
-			<Badge variant="outline">BW</Badge>
+			<Badge variant="outline">PC</Badge>
 		{/if}
 		<Badge class="whitespace-nowrap" variant="secondary">
 			{exercise.targetMuscleGroup === 'Custom'
@@ -48,7 +48,7 @@
 			<Table.Row class="h-2 border-none bg-secondary">
 				<Table.Head class="h-7 w-5"></Table.Head>
 				<Table.Head class="h-7 text-center text-foreground">Reps</Table.Head>
-				<Table.Head class="h-7 text-center text-foreground">Load</Table.Head>
+				<Table.Head class="h-7 text-center text-foreground">Peso</Table.Head>
 				<Table.Head class="h-7 text-center text-foreground">RIR</Table.Head>
 			</Table.Row>
 		</Table.Header>
@@ -62,7 +62,7 @@
 						<Table.Cell class="px-1 py-1.5 text-center font-light">{set.RIR}</Table.Cell>
 					{:else}
 						<Table.Cell colspan={3} class="px-1 py-1.5 text-center italic text-muted-foreground">
-							<span>skipped</span>
+							<span>omitido</span>
 						</Table.Cell>
 					{/if}
 				</Table.Row>

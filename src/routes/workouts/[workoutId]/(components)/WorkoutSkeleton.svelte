@@ -9,8 +9,8 @@
 
 <Tabs.Root class="flex w-full grow flex-col" bind:value={selectedTabValue}>
 	<Tabs.List class="grid grid-cols-2">
-		<Tabs.Trigger value="basics">Basics</Tabs.Trigger>
-		<Tabs.Trigger value="exercises">Exercises</Tabs.Trigger>
+		<Tabs.Trigger value="basics">Básicos</Tabs.Trigger>
+		<Tabs.Trigger value="exercises">Ejercicios</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="basics">
 		<Card.Root>
@@ -25,18 +25,18 @@
 			</Card.Header>
 			<Card.Content class="space-y-3">
 				<div class="flex flex-col">
-					<span class="text-sm text-muted-foreground">Mesocycle</span>
+					<span class="text-sm text-muted-foreground">Mesociclo</span>
 					<div class="flex items-center justify-between">
 						<Skeleton class="text-base-skeleton" />
 						<Skeleton class="badge-skeleton" />
 					</div>
 				</div>
 				<div class="flex flex-col">
-					<span class="text-sm text-muted-foreground">User bodyweight</span>
+					<span class="text-sm text-muted-foreground">Peso corporal</span>
 					<Skeleton class="text-base-skeleton" />
 				</div>
 				<div class="flex flex-col gap-1">
-					<span class="text-sm text-muted-foreground">Targeted muscle groups</span>
+					<span class="text-sm text-muted-foreground">Grupos musculares objetivo</span>
 					<div class="flex flex-wrap gap-1">
 						{#each Array(4) as _}
 							<Skeleton class="badge-skeleton" />

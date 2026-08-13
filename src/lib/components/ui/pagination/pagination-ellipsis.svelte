@@ -11,5 +11,5 @@
 
 <span class={cn('flex h-9 w-9 items-center justify-center', className)} aria-hidden="true" {...$$restProps}>
 	<Ellipsis class="h-4 w-4" />
-	<span class="sr-only">More pages</span>
+	<span class="sr-only">Más páginas</span>
 </span>

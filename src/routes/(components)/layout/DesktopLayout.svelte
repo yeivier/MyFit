@@ -23,7 +23,7 @@
 				<LoaderCircle class="animate-spin text-primary" height={48} width={48} />
 			</div>
 		{:else}
-			<img alt="MyFit logo" height={72} src="/favicon.webp" width={72} />
+			<img alt="Logo de MyFit" height={72} src="/favicon.webp" width={72} />
 		{/if}
 		<h1 class="text-4xl font-bold">MyFit</h1>
 	</Button>
@@ -45,7 +45,9 @@
 	{:else}
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild let:builder>
-				<Button class="mt-1 justify-around text-base" builders={[builder]} size="lg" variant="outline">Login</Button>
+				<Button class="mt-1 justify-around text-base" builders={[builder]} size="lg" variant="outline"
+					>Iniciar sesión</Button
+				>
 			</DropdownMenu.Trigger>
 			<LoginProviderMenu />
 		</DropdownMenu.Root>

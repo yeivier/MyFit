@@ -16,8 +16,8 @@
 	}
 </script>
 
-<H2>Exercise split</H2>
-<H3>Templates</H3>
+<H2>Split de ejercicios</H2>
+<H3>Plantillas</H3>
 
 {#each exerciseSplitTemplates as { description, exerciseSplit }}
 	<Button
@@ -27,7 +27,7 @@
 	>
 		<div class="pointer-events-none flex w-full items-center justify-between">
 			<span class="text-lg font-semibold">{exerciseSplit.name}</span>
-			<Badge>{exerciseSplit.exerciseSplitDays.length} days / cycle</Badge>
+			<Badge>{exerciseSplit.exerciseSplitDays.length} días / ciclo</Badge>
 		</div>
 		<span class="pointer-events-none w-full text-wrap text-left text-muted-foreground">
 			{description}
@@ -36,5 +36,5 @@
 {/each}
 
 <Button variant="secondary" class="gap-2" href="https://github.com/WhyAsh5114/MyFit/discussions/173" target="_blank">
-	Community-made splits <ExternalLink />
+	Splits creados por la comunidad <ExternalLink />
 </Button>

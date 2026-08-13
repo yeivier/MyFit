@@ -15,7 +15,7 @@
 	<Button class={cn('gap-1 pl-2.5', className)} builders={[builder]} variant="ghost" on:click {...$$restProps}>
 		<slot>
 			<ChevronLeft class="h-4 w-4" />
-			<span>Previous</span>
+			<span>Anterior</span>
 		</slot>
 	</Button>
 </PaginationPrimitive.PrevButton>

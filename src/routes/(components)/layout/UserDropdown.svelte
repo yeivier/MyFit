@@ -15,15 +15,15 @@
 	<DropdownMenu.Group>
 		<DropdownMenu.Item class="gap-2" href="/profile">
 			<UserIcon />
-			Profile
+			Perfil
 		</DropdownMenu.Item>
 		<DropdownMenu.Item class="gap-2" href="/settings">
 			<SettingsIcon />
-			Settings
+			Configuración
 		</DropdownMenu.Item>
 		<DropdownMenu.Item class="gap-2 text-red-500" onclick={logOut}>
 			<LogoutIcon />
-			Logout
+			Cerrar sesión
 		</DropdownMenu.Item>
 	</DropdownMenu.Group>
 </DropdownMenu.Content>

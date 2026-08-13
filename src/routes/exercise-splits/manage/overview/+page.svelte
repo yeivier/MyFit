@@ -66,11 +66,11 @@
 	}
 </script>
 
-<H3>Overview</H3>
+<H3>Resumen</H3>
 <Tabs.Root class="w-full" value="exercises">
 	<Tabs.List class="grid grid-cols-2">
-		<Tabs.Trigger value="exercises">Exercises</Tabs.Trigger>
-		<Tabs.Trigger value="muscleGroups">Muscle groups</Tabs.Trigger>
+		<Tabs.Trigger value="exercises">Ejercicios</Tabs.Trigger>
+		<Tabs.Trigger value="muscleGroups">Grupos musculares</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="exercises">
 		<Card.Root class="p-4">
