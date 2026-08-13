@@ -9,7 +9,7 @@
 
 <svelte:head>
 	<title>Changelog - MyFit</title>
-	<meta name="description" content="See what's new in MyFit with regular updates and feature improvements." />
+	<meta name="description" content="Descubre las novedades de MyFit con actualizaciones y mejoras regulares." />
 </svelte:head>
 
 <H2>Changelog</H2>

@@ -97,7 +97,7 @@ export const mesocycles = t.router({
 
 		if (input.startImmediately) {
 			const activeMesocycle = await getActiveMesocycle(ctx.userId);
-			if (activeMesocycle) throw new TRPCError({ code: 'BAD_REQUEST', message: 'A mesocycle is already active' });
+			if (activeMesocycle) throw new TRPCError({ code: 'BAD_REQUEST', message: 'Ya tenés un mesociclo activo' });
 			mesocycle.startDate = new Date();
 		}
 
@@ -130,7 +130,7 @@ export const mesocycles = t.router({
 		];
 
 		await prisma.$transaction(transactionQueries);
-		return { message: 'Mesocycle created successfully' };
+		return { message: 'Mesociclo creado correctamente' };
 	}),
 
 	editById: t.procedure
@@ -150,12 +150,12 @@ export const mesocycles = t.router({
 					}))
 				});
 			});
-			return { message: 'Mesocycle edited successfully' };
+			return { message: 'Mesociclo editado correctamente' };
 		}),
 
 	deleteById: t.procedure.input(z.string().cuid2()).mutation(async ({ input, ctx }) => {
 		await prisma.mesocycle.delete({ where: { userId: ctx.userId, id: input } });
-		return { message: 'Mesocycle deleted successfully' };
+		return { message: 'Mesociclo eliminado correctamente' };
 	}),
 
 	progressToNextStage: t.procedure
@@ -171,12 +171,12 @@ export const mesocycles = t.router({
 			let updateClause: Prisma.MesocycleUpdateInput;
 			if (!input.startDate) updateClause = { startDate: now };
 			else if (!input.endDate) updateClause = { endDate: now };
-			else throw new TRPCError({ code: 'BAD_REQUEST', message: 'Mesocycle already completed' });
+			else throw new TRPCError({ code: 'BAD_REQUEST', message: 'El mesociclo ya está completado' });
 
 			if (!input.startDate) {
 				const activeMesocycle = await getActiveMesocycle(ctx.userId);
 				if (activeMesocycle) {
-					throw new TRPCError({ code: 'BAD_REQUEST', message: 'A mesocycle is already active' });
+					throw new TRPCError({ code: 'BAD_REQUEST', message: 'Ya tenés un mesociclo activo' });
 				}
 			}
 
@@ -185,7 +185,7 @@ export const mesocycles = t.router({
 				data: updateClause
 			});
 			return {
-				message: `Mesocycle ${!input.startDate ? 'started' : 'stopped'} successfully`,
+				message: `Mesociclo ${!input.startDate ? 'iniciado' : 'detenido'} correctamente`,
 				startDate: updatedMesocycle.startDate,
 				endDate: updatedMesocycle.endDate
 			};
@@ -218,7 +218,7 @@ export const mesocycles = t.router({
 			})
 		});
 		await prisma.$transaction([deleteQuery, createSplitDaysQuery, createSplitExercisesQuery]);
-		return { message: 'Mesocycle exercise split edited successfully' };
+		return { message: 'Rutina de ejercicios del mesociclo editada correctamente' };
 	}),
 
 	getWorkouts: t.procedure.input(z.enum(['nextSplitDay', 'allSplitDays'])).query(async ({ ctx, input }) => {

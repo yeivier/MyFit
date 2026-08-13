@@ -17,8 +17,8 @@
 
 	async function submitStructure(warningAcknowledged = false) {
 		if (!exerciseSplitRunes.validateSplitStructure()) {
-			toast.error('Workout names should be unique', {
-				description: 'For example: Push A, Push B'
+			toast.error('Los nombres de los entrenamientos deben ser únicos', {
+				description: 'Por ejemplo: Push A, Push B'
 			});
 			return;
 		}
@@ -33,7 +33,7 @@
 	}
 </script>
 
-<H3>Structure</H3>
+<H3>Estructura</H3>
 <form
 	id="exercise-split-structure-form"
 	class="contents"
@@ -43,16 +43,16 @@
 	}}
 >
 	<div class="mb-4 flex w-full flex-col gap-1.5">
-		<Label for="exercise-split-name">Exercise split name</Label>
-		<Input id="exercise-split-name" placeholder="Type here" required bind:value={exerciseSplitRunes.splitName} />
+		<Label for="exercise-split-name">Nombre del split de ejercicios</Label>
+		<Input id="exercise-split-name" placeholder="Escribe aquí" required bind:value={exerciseSplitRunes.splitName} />
 	</div>
-	<span class="mb-1.5 text-sm font-medium">Exercise split structure</span>
+	<span class="mb-1.5 text-sm font-medium">Estructura del split de ejercicios</span>
 	<Table.Root>
 		<Table.Header class="border-t">
 			<Table.Row>
 				<Table.Head></Table.Head>
-				<Table.Head>Name</Table.Head>
-				<Table.Head class="text-center">Rest</Table.Head>
+				<Table.Head>Nombre</Table.Head>
+				<Table.Head class="text-center">Descanso</Table.Head>
 			</Table.Row>
 		</Table.Header>
 		<Table.Body>
@@ -63,7 +63,7 @@
 						<Input
 							id="exercise-split-day-{dayNumber + 1}-name"
 							disabled={splitDay.isRestDay}
-							placeholder={splitDay.isRestDay ? 'Rest' : `Day ${dayNumber + 1}`}
+							placeholder={splitDay.isRestDay ? 'Descanso' : `Día ${dayNumber + 1}`}
 							required
 							bind:value={splitDay.name}
 						/>
@@ -90,20 +90,20 @@
 		onclick={exerciseSplitRunes.removeSplitDay}
 		variant="secondary"
 	>
-		<RemoveIcon /> Remove
+		<RemoveIcon /> Quitar
 	</Button>
 	<Button class="gap-2" onclick={exerciseSplitRunes.addSplitDay} variant="secondary">
-		<AddIcon /> Add
+		<AddIcon /> Agregar
 	</Button>
 </div>
-<Button form="exercise-split-structure-form" type="submit">Next</Button>
+<Button form="exercise-split-structure-form" type="submit">Siguiente</Button>
 
-<ResponsiveDialog title="Warning" bind:open={warningDialogOpen}>
+<ResponsiveDialog title="Advertencia" bind:open={warningDialogOpen}>
 	{#snippet description()}
-		You'll lose exercise data from the following days:
+		Perderás los datos de ejercicios de los siguientes días:
 		<span class="font-semibold text-yellow-500">
-			{dataLossDays.map((day) => `Day ${day + 1}`).join(', ')}
+			{dataLossDays.map((day) => `Día ${day + 1}`).join(', ')}
 		</span>.
 	{/snippet}
-	<Button onclick={() => submitStructure(true)} variant="destructive">Continue</Button>
+	<Button onclick={() => submitStructure(true)} variant="destructive">Continuar</Button>
 </ResponsiveDialog>

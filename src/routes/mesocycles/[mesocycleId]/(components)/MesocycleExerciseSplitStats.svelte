@@ -12,9 +12,9 @@
 
 <Tabs.Root class="mb-auto w-full" value="volume">
 	<Tabs.List class="grid grid-cols-3">
-		<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
-		<Tabs.Trigger value="exercises">Exercises</Tabs.Trigger>
-		<Tabs.Trigger value="muscleGroups">MuscleGroups</Tabs.Trigger>
+		<Tabs.Trigger value="volume">Volumen</Tabs.Trigger>
+		<Tabs.Trigger value="exercises">Ejercicios</Tabs.Trigger>
+		<Tabs.Trigger value="muscleGroups">Grupos musculares</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="volume">
 		<Card class="p-4">

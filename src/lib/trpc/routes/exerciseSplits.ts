@@ -88,18 +88,18 @@ export const exerciseSplits = t.router({
 
 	create: t.procedure.input(zodExerciseSplitInput).mutation(async ({ input, ctx }) => {
 		await createOrEditExerciseSplit(input, ctx.userId);
-		return { message: 'Exercise split created successfully' };
+		return { message: 'Rutina de ejercicios creada correctamente' };
 	}),
 
 	editById: t.procedure
 		.input(z.strictObject({ id: z.string().cuid2(), splitData: zodExerciseSplitInput }))
 		.mutation(async ({ input, ctx }) => {
 			await createOrEditExerciseSplit(input.splitData, ctx.userId, input.id);
-			return { message: 'Exercise split edited successfully' };
+			return { message: 'Rutina de ejercicios editada correctamente' };
 		}),
 
 	deleteById: t.procedure.input(z.string().cuid2()).mutation(async ({ input, ctx }) => {
 		await prisma.exerciseSplit.delete({ where: { userId: ctx.userId, id: input } });
-		return { message: 'Exercise split deleted successfully' };
+		return { message: 'Rutina de ejercicios eliminada correctamente' };
 	})
 });

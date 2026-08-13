@@ -335,7 +335,7 @@
 						<Input
 							id="exercise-bodyweight-fraction"
 							min={0.01}
-							placeholder="Fraction"
+							placeholder="Fracción"
 							required
 							step={0.01}
 							type="number"
@@ -421,22 +421,22 @@
 			{/if}
 			{#if currentExercise.setType === 'TopBackoff'}
 				<div class="flex w-full flex-col gap-1.5">
-					<Label for="exercise-top-rep-range-start">Top set rep range start</Label>
+					<Label for="exercise-top-rep-range-start">Inicio del rango de reps de la serie top</Label>
 					<Input
 						id="exercise-top-rep-range-start"
 						min={1}
-						placeholder="Type here"
+						placeholder="Escribí acá"
 						required
 						type="number"
 						bind:value={currentExercise.topRepRangeStart}
 					/>
 				</div>
 				<div class="flex w-full flex-col gap-1.5">
-					<Label for="exercise-top-rep-range-end">Top set rep range end</Label>
+					<Label for="exercise-top-rep-range-end">Fin del rango de reps de la serie top</Label>
 					<Input
 						id="exercise-top-rep-range-end"
 						min={(currentExercise.topRepRangeStart ?? 0) + 1}
-						placeholder="Type here"
+						placeholder="Escribí acá"
 						required
 						type="number"
 						bind:value={currentExercise.topRepRangeEnd}
@@ -446,15 +446,15 @@
 			<div class="flex w-full flex-col gap-1.5">
 				<Label for="exercise-rep-range-start">
 					{#if currentExercise.setType === 'TopBackoff'}
-						Backoff sets rep range start
+						Inicio del rango de reps de las series backoff
 					{:else}
-						Rep range start
+						Inicio del rango de reps
 					{/if}
 				</Label>
 				<Input
 					id="exercise-rep-range-start"
 					min={1}
-					placeholder="Type here"
+					placeholder="Escribí acá"
 					required
 					type="number"
 					bind:value={currentExercise.repRangeStart}
@@ -463,30 +463,30 @@
 			<div class="flex w-full flex-col gap-1.5">
 				<Label for="exercise-rep-range-end">
 					{#if currentExercise.setType === 'TopBackoff'}
-						Backoff sets rep range end
+						Fin del rango de reps de las series backoff
 					{:else}
-						Rep range end
+						Fin del rango de reps
 					{/if}
 				</Label>
 				<Input
 					id="exercise-rep-range-end"
 					min={(currentExercise.repRangeStart ?? 0) + 1}
-					placeholder="Type here"
+					placeholder="Escribí acá"
 					required
 					type="number"
 					bind:value={currentExercise.repRangeEnd}
 				/>
 			</div>
 			<div class="col-span-2 flex w-full flex-col gap-1.5">
-				<Label for="exercise-note">Note</Label>
+				<Label for="exercise-note">Nota</Label>
 				<Textarea
 					id="exercise-note"
 					class="resize-none"
-					placeholder="Exercise cues, machine heights, etc."
+					placeholder="Indicaciones del ejercicio, altura de la máquina, etc."
 					bind:value={currentExercise.note as string}
 				/>
 			</div>
-			<Button class="col-span-2" type="submit">{mode} exercise</Button>
+			<Button class="col-span-2" type="submit">{mode === 'Add' ? 'Agregar' : 'Editar'} ejercicio</Button>
 		</form>
 	</Sheet.Content>
 </Sheet.Root>
@@ -495,16 +495,16 @@
 	<Sheet.Root closeOnOutsideClick={false} bind:open={overridesSheetOpen}>
 		<Sheet.Content class="w-10/12 overflow-y-auto px-4">
 			<Sheet.Header>
-				<Sheet.Title>Overrides</Sheet.Title>
+				<Sheet.Title>Anulaciones</Sheet.Title>
 				<Sheet.Description>
-					Exercise progressions are based on the mesocycle by default, you can override (customize) them here for each
-					exercise
+					Las progresiones de los ejercicios se basan en el mesociclo por defecto, acá podés anularlas (personalizarlas)
+					para cada ejercicio
 				</Sheet.Description>
 			</Sheet.Header>
 			<form class="mt-8 grid h-fit gap-x-2 gap-y-4" onsubmit={submitOverrides}>
 				<div class="flex flex-col gap-1">
 					<div class="flex items-center justify-between">
-						<Label for="exercise-minimum-weight-change-value">Minimum weight change</Label>
+						<Label for="exercise-minimum-weight-change-value">Cambio mínimo de peso</Label>
 						<Checkbox
 							id="exercise-override-minimum-weight-change"
 							checked={currentExercise.minimumWeightChange !== null}
@@ -526,7 +526,7 @@
 				</div>
 				<div class="flex flex-col gap-1">
 					<div class="flex items-center justify-between">
-						<Label for="exercise-override-overload-percentage-value">Overload percentage</Label>
+						<Label for="exercise-override-overload-percentage-value">Porcentaje de sobrecarga</Label>
 						<Checkbox
 							id="exercise-override-overload-percentage"
 							checked={currentExercise.overloadPercentage !== null}
@@ -548,7 +548,7 @@
 				</div>
 				<div class="flex flex-col gap-1">
 					<div class="flex items-center justify-between">
-						<Label for="exercise-override-force-RIR-matching-value">Force RIR matching</Label>
+						<Label for="exercise-override-force-RIR-matching-value">Forzar coincidencia de RIR</Label>
 						<Checkbox
 							id="exercise-override-force-RIR-matching"
 							checked={currentExercise.forceRIRMatching !== null}
@@ -574,7 +574,7 @@
 				</div>
 				<div class="flex flex-col gap-1">
 					<div class="flex items-center justify-between">
-						<Label for="exercise-override-last-set-to-failure-value">Last set to failure</Label>
+						<Label for="exercise-override-last-set-to-failure-value">Última serie al fallo</Label>
 						<Checkbox
 							id="exercise-override-last-set-to-failure"
 							checked={currentExercise.lastSetToFailure !== null}
@@ -600,7 +600,7 @@
 				</div>
 				<Button class="gap-2" type="submit" variant="secondary">
 					<ChevronLeft />
-					Basics
+					Básicos
 				</Button>
 			</form>
 		</Sheet.Content>

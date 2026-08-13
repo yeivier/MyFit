@@ -5,5 +5,5 @@
 	const { children } = $props();
 </script>
 
-<H2>{exerciseSplitRunes.editingExerciseSplitId ? 'Edit' : 'New'} exercise split</H2>
+<H2>{exerciseSplitRunes.editingExerciseSplitId ? 'Editar' : 'Nuevo'} split de ejercicios</H2>
 {@render children()}

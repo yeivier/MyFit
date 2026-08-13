@@ -29,9 +29,9 @@
 			.map((muscleGroup) => ({ value: muscleGroup, label: convertCamelCaseToNormal(muscleGroup) }))
 	);
 
-	let currentFilter: Selected<'Frequency' | 'Exercises'> = $state({
-		value: 'Frequency',
-		label: 'Frequency'
+	let currentFilter: Selected<'Frecuencia' | 'Ejercicios'> = $state({
+		value: 'Frecuencia',
+		label: 'Frecuencia'
 	});
 
 	function getTotalFrequency(muscleGroup: string) {
@@ -49,7 +49,7 @@
 
 	$effect(() => {
 		if (chart) chart.destroy();
-		const dataFunction = currentFilter.value == 'Frequency' ? getTotalFrequency : getTotalExercises;
+		const dataFunction = currentFilter.value == 'Frecuencia' ? getTotalFrequency : getTotalExercises;
 		chart = new Chart(chartCanvasElement, {
 			type: 'bar',
 			data: {
@@ -79,20 +79,20 @@
 
 <div class="flex flex-col gap-1">
 	<Select.Root bind:selected={currentFilter}>
-		<Select.Label class="p-0">Chart type</Select.Label>
+		<Select.Label class="p-0">Tipo de gráfico</Select.Label>
 		<Select.Trigger class="mb-2 w-full">
-			<Select.Value placeholder="Select chart type" />
+			<Select.Value placeholder="Selecciona el tipo de gráfico" />
 		</Select.Trigger>
 		<Select.Content class="max-h-48 overflow-y-auto">
-			{#each ['Frequency', 'Exercises'] as filter}
+			{#each ['Frecuencia', 'Ejercicios'] as filter}
 				<Select.Item value={filter}>{filter}</Select.Item>
 			{/each}
 		</Select.Content>
 	</Select.Root>
 	<Select.Root multiple bind:selected={selectedMuscleGroups}>
-		<Select.Label class="p-0">Selected muscle groups</Select.Label>
+		<Select.Label class="p-0">Grupos musculares seleccionados</Select.Label>
 		<Select.Trigger class="w-full">
-			<Select.Value placeholder="Select muscle groups" />
+			<Select.Value placeholder="Selecciona grupos musculares" />
 		</Select.Trigger>
 		<Select.Content class="max-h-48 overflow-y-auto">
 			{#each sortedMuscleGroups as muscleGroup}

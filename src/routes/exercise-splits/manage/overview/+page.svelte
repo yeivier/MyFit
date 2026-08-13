@@ -85,12 +85,12 @@
 </Tabs.Root>
 
 <div class="mt-auto grid grid-cols-2 gap-1">
-	<Button href="./exercises" variant="secondary">Previous</Button>
+	<Button href="./exercises" variant="secondary">Anterior</Button>
 	<Button disabled={savingExerciseSplit} onclick={createOrEditExerciseSplit}>
 		{#if savingExerciseSplit}
 			<LoaderCircle class="animate-spin" />
 		{:else}
-			Save
+			Guardar
 		{/if}
 	</Button>
 </div>

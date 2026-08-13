@@ -33,8 +33,8 @@
 			return !splitDay.isRestDay && mesocycleExerciseSplitRunes.splitExercises[idx].length === 0;
 		});
 		if (noExerciseAddedDays.length > 0) {
-			toast.error(`Add at least one exercise to each workout`, {
-				description: `Missing in: ${noExerciseAddedDays.map((splitDay) => splitDay.name).join(', ')}`
+			toast.error(`Añade al menos un ejercicio a cada entrenamiento`, {
+				description: `Falta en: ${noExerciseAddedDays.map((splitDay) => splitDay.name).join(', ')}`
 			});
 			return;
 		}
@@ -42,7 +42,7 @@
 	}
 </script>
 
-<H3>Exercises</H3>
+<H3>Ejercicios</H3>
 <Tabs.Root
 	class="flex w-full grow flex-col"
 	onValueChange={(v) => {
@@ -56,7 +56,7 @@
 		{#each mesocycleExerciseSplitRunes.splitExercises as _, idx}
 			{@const { name, isRestDay } = mesocycleExerciseSplitRunes.splitDays[idx]}
 			<Tabs.Trigger class="px-4" disabled={isRestDay} value={name}>
-				{name !== '' ? name : 'Rest'}
+				{name !== '' ? name : 'Descanso'}
 			</Tabs.Trigger>
 		{/each}
 	</Tabs.List>
@@ -66,7 +66,7 @@
 				<div class="mr-auto flex flex-col">
 					<span class="text-xl font-semibold">{splitDayName}</span>
 					<span class="font-medium text-muted-foreground">
-						Day {mesocycleExerciseSplitRunes.selectedSplitDayIndex + 1}
+						Día {mesocycleExerciseSplitRunes.selectedSplitDayIndex + 1}
 					</span>
 				</div>
 				<AddEditExerciseDrawer
@@ -97,24 +97,24 @@
 								disabled={selectedSplitDayExercises.length === 0}
 								onclick={mesocycleExerciseSplitRunes.cutExercises}
 							>
-								<CutIcon /> Cut
+								<CutIcon /> Cortar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item
 								class="gap-2"
 								disabled={selectedSplitDayExercises.length === 0}
 								onclick={mesocycleExerciseSplitRunes.copyExercises}
 							>
-								<CopyIcon /> Copy
+								<CopyIcon /> Copiar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item
 								class="gap-2"
 								disabled={mesocycleExerciseSplitRunes.copiedExercises === undefined}
 								onclick={mesocycleExerciseSplitRunes.pasteExercises}
 							>
-								<PasteIcon /> Paste
+								<PasteIcon /> Pegar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item class="gap-2" onclick={() => (swapDialogOpen = true)}>
-								<SwapIcon /> Swap
+								<SwapIcon /> Intercambiar
 							</DropdownMenu.Item>
 						</DropdownMenu.Group>
 					</DropdownMenu.Content>
@@ -138,8 +138,8 @@
 </Tabs.Root>
 
 <div class="mt-2 grid grid-cols-2 gap-1">
-	<Button href="./structure" variant="secondary">Previous</Button>
-	<Button onclick={submitExercises}>Next</Button>
+	<Button href="./structure" variant="secondary">Anterior</Button>
+	<Button onclick={submitExercises}>Siguiente</Button>
 </div>
 
 <SwapExercisesDialog

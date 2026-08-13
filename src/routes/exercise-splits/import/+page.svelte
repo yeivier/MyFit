@@ -43,11 +43,11 @@
 	}
 </script>
 
-<H2>Exercise splits</H2>
-<H3>Import</H3>
+<H2>Splits de ejercicios</H2>
+<H3>Importar</H3>
 
 <div class="grid w-full items-center gap-1.5">
-	<Label for="picture">Exercise split JSON file</Label>
+	<Label for="picture">Archivo JSON del split de ejercicios</Label>
 	<Input
 		id="picture"
 		type="file"
@@ -59,4 +59,4 @@
 	/>
 </div>
 
-<Button class="mt-auto" onclick={validateAndImportSplit}>Import</Button>
+<Button class="mt-auto" onclick={validateAndImportSplit}>Importar</Button>

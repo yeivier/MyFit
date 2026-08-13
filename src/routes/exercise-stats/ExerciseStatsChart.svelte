@@ -106,7 +106,7 @@
 			data: {
 				labels: nonSkippedExercises.map((ex) => new Date(ex.workout.startedAt)),
 				datasets: dataValues.map((data, idx) => ({
-					label: `Set ${idx + 1}`,
+					label: `Serie ${idx + 1}`,
 					data,
 					borderColor: colors[idx],
 					tension: 0.2,
@@ -137,29 +137,29 @@
 		<div class="flex justify-between gap-6">
 			<Card.Title class="truncate">{selectedExercise}</Card.Title>
 			<Popover.Root>
-				<Popover.Trigger aria-label="Menu"><MenuIcon /></Popover.Trigger>
+				<Popover.Trigger aria-label="Menú"><MenuIcon /></Popover.Trigger>
 				<Popover.Content align="end">
-					<span class="font-semibold">Chart type</span>
+					<span class="font-semibold">Tipo de gráfico</span>
 					<RadioGroup.Root class="py-2" bind:value={chartType}>
 						<div class="flex items-center space-x-2">
 							<RadioGroup.Item value="relative-overload" id="relative-overload" />
-							<Label for="relative-overload">Relative overload</Label>
+							<Label for="relative-overload">Sobrecarga relativa</Label>
 						</div>
 						<div class="flex items-center space-x-2">
 							<RadioGroup.Item value="absolute-load" id="absolute-load" />
-							<Label for="absolute-load">Absolute load</Label>
+							<Label for="absolute-load">Carga absoluta</Label>
 						</div>
 						{#if typeof exercises.at(0)?.bodyweightFraction === 'number'}
 							<div class="flex items-center space-x-2">
 								<RadioGroup.Item value="load-and-bodyweight" id="load-and-bodyweight" />
-								<Label for="load-and-bodyweight">Load + BW</Label>
+								<Label for="load-and-bodyweight">Carga + peso corporal</Label>
 							</div>
 						{/if}
 					</RadioGroup.Root>
 
 					<Separator class="my-2" />
 
-					<span class="font-semibold">Sets to graph</span>
+					<span class="font-semibold">Series a graficar</span>
 					<ToggleGroup.Root class="justify-start py-1" type="multiple" bind:value={selectedSets}>
 						{#each Array.from({ length: maxSets }) as _, idx}
 							<ToggleGroup.Item size="sm" value={idx.toString()}>{idx + 1}</ToggleGroup.Item>
@@ -172,7 +172,7 @@
 	<Card.Content>
 		{#if exercises.length === 0}
 			<div class="flex items-center gap-2 px-2 text-sm text-muted-foreground">
-				<LoaderCircle class="animate-spin" /> Fetching performances
+				<LoaderCircle class="animate-spin" /> Cargando rendimiento
 			</div>
 		{:else}
 			<canvas bind:this={chartCanvas} height="240"></canvas>

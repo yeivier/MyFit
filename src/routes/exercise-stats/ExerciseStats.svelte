@@ -27,7 +27,7 @@
 	type WorkoutExercise = RouterOutputs['workouts']['getExerciseHistory'][number];
 	type BasicExerciseData = Pick<WorkoutExercise, 'name' | 'targetMuscleGroup' | 'customMuscleGroup'>;
 
-	const df = new DateFormatter('en-US', {
+	const df = new DateFormatter('es-ES', {
 		dateStyle: 'medium'
 	});
 
@@ -135,7 +135,7 @@
 			oldName: selectedExercise!,
 			newName: newExerciseName!
 		});
-		toast.success(`Renamed ${count} exercises`);
+		toast.success(`Se renombraron ${count} ejercicios`);
 		await invalidateAll();
 		renamingExercise = false;
 	}
@@ -145,13 +145,13 @@
 	<Popover.Root bind:open={searchOpen}>
 		<Popover.Trigger asChild let:builder>
 			<Button builders={[builder]} variant="outline" role="combobox" class="mb-2 grow justify-between truncate">
-				<span class="truncate">{selectedExercise ?? 'Search for an exercise'}</span>
+				<span class="truncate">{selectedExercise ?? 'Buscar un ejercicio'}</span>
 				<ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Button>
 		</Popover.Trigger>
 		<Popover.Content sameWidth>
 			<Command.Root class="mb-6 h-fit" shouldFilter={false}>
-				<Command.Input placeholder="Type here" bind:value={searchText} />
+				<Command.Input placeholder="Escribe aquí" bind:value={searchText} />
 				<Command.List>
 					{#if exercisesByMuscleGroup === undefined}
 						<Command.Loading>
@@ -159,11 +159,11 @@
 								class="flex h-full w-full flex-row items-center justify-center gap-2 p-4 text-sm text-muted-foreground"
 							>
 								<LoaderCircle class="animate-spin" />
-								<span>Fetching exercises...</span>
+								<span>Cargando ejercicios...</span>
 							</div>
 						</Command.Loading>
 					{:else}
-						<Command.Empty>No results found.</Command.Empty>
+						<Command.Empty>No se encontraron resultados.</Command.Empty>
 						{#each filteredExercisesByMuscleGroup as { group, exercises }}
 							<Command.Group heading={group}>
 								{#each exercises as ex}
@@ -182,7 +182,7 @@
 				builders={[builder]}
 				size="icon"
 				variant="secondary"
-				aria-label="Rename exercise"
+				aria-label="Renombrar ejercicio"
 				class="shrink-0"
 				disabled={selectedExercise === undefined}
 			>
@@ -190,15 +190,15 @@
 			</Button>
 		</Popover.Trigger>
 		<Popover.Content class="w-fit">
-			<span class="font-semibold">Bulk rename to</span>
+			<span class="font-semibold">Renombrar en bloque a</span>
 			<form class="my-2 flex w-full max-w-sm flex-col gap-1.5" onsubmit={renameExercise}>
-				<Label for="new-name">New name</Label>
-				<Input required id="new-name" placeholder="Type here" bind:value={newExerciseName} />
+				<Label for="new-name">Nuevo nombre</Label>
+				<Input required id="new-name" placeholder="Escribe aquí" bind:value={newExerciseName} />
 				<Button size="sm" type="submit" disabled={renamingExercise}>
 					{#if renamingExercise}
 						<LoaderCircle class="animate-spin" />
 					{:else}
-						Rename
+						Renombrar
 					{/if}
 				</Button>
 			</form>
@@ -209,7 +209,7 @@
 			<Button
 				builders={[builder]}
 				size="icon"
-				aria-label="Filter exercises"
+				aria-label="Filtrar ejercicios"
 				class="shrink-0"
 				disabled={(exerciseInstances?.length ?? 0) === 0}
 			>
@@ -217,7 +217,7 @@
 			</Button>
 		</Popover.Trigger>
 		<Popover.Content class="w-fit">
-			<span class="font-semibold">Filter by date</span>
+			<span class="font-semibold">Filtrar por fecha</span>
 			<div class="my-2 flex w-full max-w-sm flex-col gap-1.5">
 				<Popover.Root openFocus>
 					<Popover.Trigger asChild let:builder>
@@ -238,7 +238,7 @@
 							{:else if dateRange.start}
 								{df.format(dateRange.start.toDate(getLocalTimeZone()))}
 							{:else}
-								Pick a date
+								Elige una fecha
 							{/if}
 						</Button>
 					</Popover.Trigger>
@@ -246,15 +246,15 @@
 						<RangeCalendar bind:value={dateRange} initialFocus placeholder={dateRange?.start} />
 					</Popover.Content>
 				</Popover.Root>
-				<span class="font-semibold">Filter by mesocycles</span>
+				<span class="font-semibold">Filtrar por mesociclos</span>
 				<Select.Root multiple bind:selected={selectedMesocycleNames}>
 					<Select.Trigger class="w-[300px]">
-						<Select.Value placeholder="All mesocycles" />
+						<Select.Value placeholder="Todos los mesociclos" />
 					</Select.Trigger>
 					<Select.Content>
 						{#each mesocycleNames as mesocycleName}
 							<Select.Item class={cn({ italic: mesocycleName === null })} value={mesocycleName}>
-								{mesocycleName === null ? 'Non-mesocycle' : mesocycleName}
+								{mesocycleName === null ? 'Sin mesociclo' : mesocycleName}
 							</Select.Item>
 						{/each}
 					</Select.Content>
@@ -271,7 +271,7 @@
 			{#each filteredExerciseInstances as instance}
 				<WorkoutExerciseCard exercise={instance} date={new Date(instance.workout.startedAt)} />
 			{/each}
-			<DefaultInfiniteLoader {loadMore} identifier={selectedExercise} entityPlural="exercises" />
+			<DefaultInfiniteLoader {loadMore} identifier={selectedExercise} entityPlural="ejercicios" />
 		{/if}
 	{/if}
 </div>

@@ -22,14 +22,14 @@
 	/>
 
 	<Select.Root bind:selected={selectedExerciseSplitDayIndex}>
-		<Select.Label class="pl-0">Split day name</Select.Label>
+		<Select.Label class="pl-0">Nombre del día del split</Select.Label>
 		<Select.Trigger class="w-full">
 			<Select.Value />
 		</Select.Trigger>
 		<Select.Content>
 			{#each mesocycle.mesocycleExerciseSplitDays as splitDay}
 				<Select.Item disabled={splitDay.isRestDay} value={splitDay.dayIndex}>
-					{splitDay.isRestDay ? 'Rest' : splitDay.name}
+					{splitDay.isRestDay ? 'Descanso' : splitDay.name}
 				</Select.Item>
 			{/each}
 		</Select.Content>

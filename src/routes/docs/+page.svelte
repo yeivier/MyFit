@@ -1,104 +1,109 @@
 <svelte:head>
 	<title>Docs - MyFit</title>
-	<meta name="description" content="Read MyFit documentation to learn how to use the app effectively." />
+	<meta name="description" content="Lee la documentación de MyFit para aprender a usar la app de forma efectiva." />
 </svelte:head>
 
 <div class="prose prose-neutral max-w-none dark:prose-invert lg:prose-lg">
 	<h1>Docs</h1>
-	<blockquote>Just a basic overview of things work in this app, as there are some differences from V2</blockquote>
+	<blockquote>Solo un resumen básico de cómo funcionan las cosas en esta app, ya que hay algunas diferencias respecto a la V2</blockquote>
 
-	<h2>Exercise splits</h2>
+	<h2>Splits de ejercicios</h2>
 	<p>
-		An exercise split refers to how workout sessions are divided across different days to target specific muscle groups
-		or movement patterns. Examples: <i>Push Pull Legs</i>, <i>Upper Lower</i>, and <i>Full Body.</i>
+		Un split de ejercicios se refiere a cómo se dividen las sesiones de entrenamiento entre distintos días para
+		enfocarse en grupos musculares o patrones de movimiento específicos. Ejemplos: <i>Push Pull Legs</i>,
+		<i>Upper Lower</i>, y <i>Full Body.</i>
 	</p>
-	<p>Tha app supports both synchronous (weekly) splits, and asynchronous splits (non-weekly) splits.</p>
+	<p>La app admite tanto splits sincrónicos (semanales) como splits asincrónicos (no semanales).</p>
 
-	<h2>Mesocycle</h2>
+	<h2>Mesociclo</h2>
 	<p>
-		A mesocycle is a unit of training consisting of several microcycles (repeated splits), usually lasting 4-6 weeks.
-		The mesocycle structures progression and recovery, with increasing intensity or volume followed by deload phases to
-		avoid overtraining. Deload feature will be coming soon!
-	</p>
-
-	<h2>Workouts</h2>
-	<p>
-		A single workout, consisting of multiple exercises, each with their own sets and options. Workouts can be done with
-		or without an active mesocycle.
-	</p>
-	<p>Using an active mesocycle allows the app to progress performance and sets every microcycle.</p>
-
-	<h2>Mesocycle exercise split</h2>
-	<p>
-		Whenever you create a mesocycle with an exercise split, that split is actually cloned for that mesocycle. This
-		allows you and the app to make changes to the mesocycle's split without altering the original split.
+		Un mesociclo es una unidad de entrenamiento formada por varios microciclos (splits repetidos), que suele durar
+		entre 4 y 6 semanas. El mesociclo estructura la progresión y la recuperación, con intensidad o volumen crecientes
+		seguidos de fases de descarga para evitar el sobreentrenamiento. ¡La función de descarga llegará pronto!
 	</p>
 
-	<h2>Set types</h2>
+	<h2>Entrenamientos</h2>
 	<p>
-		Inspired by this:
+		Un entrenamiento individual, formado por varios ejercicios, cada uno con sus propias series y opciones. Los
+		entrenamientos pueden hacerse con o sin un mesociclo activo.
+	</p>
+	<p>Usar un mesociclo activo permite que la app progrese el rendimiento y las series en cada microciclo.</p>
+
+	<h2>Split de ejercicios del mesociclo</h2>
+	<p>
+		Cada vez que creas un mesociclo con un split de ejercicios, ese split en realidad se clona para ese mesociclo.
+		Esto te permite, tanto a ti como a la app, hacer cambios en el split del mesociclo sin alterar el split
+		original.
+	</p>
+
+	<h2>Tipos de series</h2>
+	<p>
+		Inspirado en esto:
 		<a href="https://www.youtube.com/watch?v=XX1GD3sA1_c&list=PLjojr41yPbkCCADYomCimD_-H_e9tyZ6N&index=7">
-			RP YouTube video.
+			video de YouTube de RP.
 		</a>
-		You can utilize various set types in this app to make your workouts more interesting and challenging.
+		Puedes usar varios tipos de series en esta app para hacer tus entrenamientos más interesantes y desafiantes.
 	</p>
 
 	<h3>Straight sets</h3>
-	<p>Sets with the same weight but can vary in reps. Easy and straightforward.</p>
+	<p>Series con el mismo peso pero que pueden variar en repeticiones. Fáciles y directas.</p>
 
 	<h3>V2 sets</h3>
 	<p>
-		Or also default sets, reps and load can be changed in any way as desired.
-		<i>This used to be the only default set type in V2 of the app.</i>
+		También llamadas series predeterminadas, las repeticiones y la carga pueden cambiarse de la forma que quieras.
+		<i>Este solía ser el único tipo de serie predeterminado en la V2 de la app.</i>
 	</p>
 
 	<h3>Down sets</h3>
 	<p>
-		Sets where load keeps on decreasing after the first set. Useful for exercises where rep drop-off is high and creates
-		very low reps after load increases.
+		Series donde la carga sigue disminuyendo después de la primera serie. Útiles para ejercicios donde la caída de
+		repeticiones es alta y genera repeticiones muy bajas al aumentar la carga.
 	</p>
 
 	<h3>Drop sets</h3>
 	<p>
-		A set followed by mini-sets where load decreases after each mini-set. Useful for accumulating high training volume
-		in a short amount of time. Convenient for dumbbell and pin-loaded machine exercises.
+		Una serie seguida de mini-series donde la carga disminuye después de cada mini-serie. Útiles para acumular mucho
+		volumen de entrenamiento en poco tiempo. Convenientes para ejercicios con mancuernas y máquinas de pin.
 	</p>
 
 	<h3>Myorep sets</h3>
 	<p>
-		Similar to drop sets, a set followed by mini-sets where load doesn't decrease after each mini-set. Same benefits as
-		drop sets, but can be used for barbells as well.
+		Similares a las drop sets, una serie seguida de mini-series donde la carga no disminuye después de cada
+		mini-serie. Los mismos beneficios que las drop sets, pero también pueden usarse con barras.
 	</p>
 
 	<h3>Myorep match sets</h3>
 	<p>
-		All sets subsequent to the first one should match the reps of the first set. The subsequent sets maybe made up of
-		multiple mini-sets with short breaks in between to achieve the same reps.
+		Todas las series posteriores a la primera deben igualar las repeticiones de la primera serie. Las series
+		posteriores pueden estar compuestas por varias mini-series con descansos cortos entre ellas para lograr las
+		mismas repeticiones.
 	</p>
 
 	<h3>Myorep match down sets</h3>
-	<p>Similar to myorep match sets, but load can be decreased after the first set.</p>
+	<p>Similares a las myorep match sets, pero la carga puede disminuir después de la primera serie.</p>
 
-	<h2>Exercise configuration</h2>
-	<h3>Bodyweight fraction</h3>
+	<h2>Configuración de ejercicios</h2>
+	<h3>Fracción de peso corporal</h3>
 	<p>
-		Exercises may or may not involve bodyweight. For example, bench press doesn't involve bodyweight significantly, so
-		its fraction is 0. Pull-ups involve full bodyweight, so their fraction is 1. Push-ups typically involve about 2/3 of
-		your bodyweight, so their fraction is 0.67.
+		Los ejercicios pueden implicar peso corporal o no. Por ejemplo, el press de banca no involucra peso corporal de
+		forma significativa, por lo que su fracción es 0. Las dominadas involucran todo el peso corporal, por lo que su
+		fracción es 1. Las flexiones suelen involucrar aproximadamente 2/3 de tu peso corporal, por lo que su fracción es
+		0.67.
 	</p>
 
-	<h3>Set options</h3>
+	<h3>Opciones de series</h3>
 	<p>
-		When creating an exercise split, you only input the exercise and set types. During mesocycle implementation, you can
-		distribute volume across exercises per muscle group. For example, if you set 10 starting sets for Quads and hit
-		Quads 2x per microcycle, the sets will be split evenly (5, 5). The failure on last set option can be set globally
-		for a mesocycle and overridden for individual exercises. To do so: Mesocycles > [your mesocycle name] > Split tab >
-		Edit. Currently, for lengthened partials, you can add a note to each exercise.
+		Al crear un split de ejercicios, solo indicas el ejercicio y los tipos de series. Durante la implementación del
+		mesociclo, puedes distribuir el volumen entre los ejercicios por grupo muscular. Por ejemplo, si estableces 10
+		series iniciales para Quads y entrenas Quads 2 veces por microciclo, las series se repartirán de forma
+		equitativa (5, 5). La opción de fallo en la última serie se puede establecer globalmente para un mesociclo y
+		anularse para ejercicios individuales. Para hacerlo: Mesocycles > [nombre de tu mesociclo] > pestaña Split >
+		Edit. Actualmente, para las parciales en posición alargada, puedes agregar una nota a cada ejercicio.
 	</p>
 
-	<h2 class="italic">"I need more help!"</h2>
+	<h2 class="italic">"¡Necesito más ayuda!"</h2>
 	<p>
-		Feel free to <a href="https://github.com/WhyAsh5114/issues">open an issue</a> on the GitHub repository, will be glad
-		to help you out and add more details to the docs
+		No dudes en <a href="https://github.com/WhyAsh5114/issues">abrir un issue</a> en el repositorio de GitHub, con
+		gusto te ayudaremos y agregaremos más detalles a la documentación
 	</p>
 </div>

@@ -43,7 +43,7 @@ export const load: PageServerLoad = async (event) => {
 				motivationalQuotesEnabled: false,
 				quotesDisplayModes: [QuotesDisplayModeSchema.Values.PRE_WORKOUT]
 			},
-			errorMessage: error instanceof Error ? error.message : 'Failed to load settings:'
+			errorMessage: error instanceof Error ? error.message : 'No se pudieron cargar los ajustes:'
 		};
 	}
 };

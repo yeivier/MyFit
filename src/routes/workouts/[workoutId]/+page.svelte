@@ -16,21 +16,21 @@
 
 	onMount(async () => {
 		workout = await data.workout;
-		if (workout === null) toast.error('Workout not found');
+		if (workout === null) toast.error('Entrenamiento no encontrado');
 	});
 </script>
 
-<H2 showChartIcon={selectedTabValue !== 'basics'} bind:chartMode>View workout</H2>
+<H2 showChartIcon={selectedTabValue !== 'basics'} bind:chartMode>Ver entrenamiento</H2>
 
 {#if workout === 'loading'}
 	<WorkoutSkeleton />
 {:else if workout === null}
-	<div class="muted-text-box">Workout not found</div>
+	<div class="muted-text-box">Entrenamiento no encontrado</div>
 {:else}
 	<Tabs.Root class="flex w-full grow flex-col" bind:value={selectedTabValue}>
 		<Tabs.List class="grid grid-cols-2">
-			<Tabs.Trigger value="basics">Basics</Tabs.Trigger>
-			<Tabs.Trigger value="exercises">Exercises</Tabs.Trigger>
+			<Tabs.Trigger value="basics">Básicos</Tabs.Trigger>
+			<Tabs.Trigger value="exercises">Ejercicios</Tabs.Trigger>
 		</Tabs.List>
 		<Tabs.Content value="basics">
 			<WorkoutBasicTab {workout} />

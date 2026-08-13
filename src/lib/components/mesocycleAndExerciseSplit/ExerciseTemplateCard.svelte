@@ -65,7 +65,7 @@
 									else props.setEditingExercise(props.exerciseTemplate);
 								}}
 							>
-								<EditIcon /> Edit
+								<EditIcon /> Editar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item
 								class="gap-2 text-red-500"
@@ -74,7 +74,7 @@
 									isContextMenuOpen = false;
 								}}
 							>
-								<DeleteIcon /> Delete
+								<DeleteIcon /> Eliminar
 							</DropdownMenu.Item>
 						</DropdownMenu.Group>
 					</DropdownMenu.Content>
@@ -87,11 +87,11 @@
 			{#if props.context === 'mesocycle'}
 				{props.exerciseTemplate.sets}
 			{/if}
-			{convertCamelCaseToNormal(props.exerciseTemplate.setType)} sets of
-			{props.exerciseTemplate.repRangeStart} to {props.exerciseTemplate.repRangeEnd} reps
+			series {convertCamelCaseToNormal(props.exerciseTemplate.setType)} de
+			{props.exerciseTemplate.repRangeStart} a {props.exerciseTemplate.repRangeEnd} reps
 		</span>
 		{#if props.exerciseTemplate.bodyweightFraction}
-			<Badge variant="outline">BW</Badge>
+			<Badge variant="outline">PC</Badge>
 		{/if}
 		<Badge class="whitespace-nowrap" variant="secondary">
 			{props.exerciseTemplate.targetMuscleGroup === 'Custom'

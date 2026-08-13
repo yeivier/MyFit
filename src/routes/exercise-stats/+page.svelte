@@ -5,6 +5,6 @@
 	let { data } = $props();
 </script>
 
-<H2>Exercise stats</H2>
+<H2>Estadísticas de ejercicios</H2>
 
 <ExerciseStats {data} />

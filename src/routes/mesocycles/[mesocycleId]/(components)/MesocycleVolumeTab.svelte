@@ -13,10 +13,10 @@
 	<Table.Root>
 		<Table.Header>
 			<Table.Row>
-				<Table.Head>Muscle group</Table.Head>
-				<Table.Head>Max volume</Table.Head>
-				<Table.Head>Set increase amount</Table.Head>
-				<Table.Head>Regardless of progress</Table.Head>
+				<Table.Head>Grupo muscular</Table.Head>
+				<Table.Head>Volumen máximo</Table.Head>
+				<Table.Head>Series añadidas</Table.Head>
+				<Table.Head>Sin importar el progreso</Table.Head>
 			</Table.Row>
 		</Table.Header>
 		<Table.Body data-testid="mesocycle-volume-table-body">
@@ -39,7 +39,8 @@
 				<Table.Row>
 					<Table.Cell class="font-medium" colspan={4}>
 						<div class="text-box">
-							No cyclic set changes found for this mesocycle, normal for mesocycles migrated from V2
+							No se encontraron cambios cíclicos de series para este mesociclo, es normal en mesociclos migrados
+							desde V2
 						</div>
 					</Table.Cell>
 				</Table.Row>

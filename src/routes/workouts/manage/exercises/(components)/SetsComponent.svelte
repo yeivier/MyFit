@@ -177,19 +177,20 @@
 <div class="grid grid-cols-4 gap-1">
 	<span class="text-center text-sm font-medium">Reps</span>
 	<span class="text-center text-sm font-medium">
-		Load
+		Peso
 		{#if typeof exercise.bodyweightFraction === 'number'}
 			<Popover.Root>
 				<Popover.Trigger>
-					<span class="text-xs font-semibold text-muted-foreground underline">(+BW)</span>
+					<span class="text-xs font-semibold text-muted-foreground underline">(+PC)</span>
 				</Popover.Trigger>
 				<Popover.Content>
 					<p class="text-sm text-muted-foreground">
-						{exercise.bodyweightFraction * 100}% of your bodyweight is taken into account for this exercise. No need to
-						adjust the load manually.
+						Se tiene en cuenta el {exercise.bodyweightFraction * 100}% de tu peso corporal para este ejercicio. No hace
+						falta ajustar el peso manualmente.
 						<br /><br />
-						{Math.round(exercise.bodyweightFraction * workoutRunes.workoutData!.userBodyweight! * 100) / 100} kg will be
-						automatically added to the load of each set.
+						Se sumarán automáticamente
+						{Math.round(exercise.bodyweightFraction * workoutRunes.workoutData!.userBodyweight! * 100) / 100} kg al peso
+						de cada serie.
 					</p>
 				</Popover.Content>
 			</Popover.Root>
@@ -203,7 +204,7 @@
 				<div class="col-span-full flex items-center gap-2 text-muted-foreground">
 					<Separator class="w-px grow" />
 					<ArrowDownIcon />
-					<span class="text-center text-sm"> Backoff sets</span>
+					<span class="text-center text-sm"> Series backoff</span>
 					<ArrowDownIcon />
 					<Separator class="w-px grow" />
 				</div>
@@ -241,7 +242,7 @@
 			{:else}
 				<div class="col-span-3 flex items-center gap-2">
 					<Separator class="w-px grow" />
-					<span class="text-sm text-muted-foreground">skipped</span>
+					<span class="text-sm text-muted-foreground">omitido</span>
 					<Separator class="w-px grow" />
 				</div>
 			{/if}
@@ -283,7 +284,7 @@
 				{#if set.skipped}
 					<div class="col-span-3 flex items-center gap-2">
 						<Separator class="w-px grow" />
-						<span class="text-sm text-muted-foreground">skipped</span>
+						<span class="text-sm text-muted-foreground">omitido</span>
 						<Separator class="w-px grow" />
 					</div>
 					<Button class="place-self-end" disabled size="icon" variant="secondary">
@@ -339,14 +340,14 @@
 				{/if}
 			{/each}
 			<Button
-				aria-label="add-mini-set-to-set-{idx + 1}-of-{exercise.name}"
+				aria-label="agregar-mini-serie-a-serie-{idx + 1}-de-{exercise.name}"
 				onclick={() => addMiniSet(idx)}
 				variant="secondary"
 			>
 				<AddIcon />
 			</Button>
 			<Button
-				aria-label="remove-mini-set-from-set-{idx + 1}-of-{exercise.name}"
+				aria-label="quitar-mini-serie-de-serie-{idx + 1}-de-{exercise.name}"
 				disabled={set.miniSets.length === 0}
 				onclick={() => set.miniSets.pop()}
 				variant="secondary"
@@ -357,9 +358,9 @@
 				{@const repsLeft = getRemainingMyorepMatchReps(idx)}
 				<span class="grid place-items-center text-sm font-medium text-primary">
 					{#if repsLeft && repsLeft > 0}
-						{repsLeft} {repsLeft === 1 ? 'rep' : 'reps'} left
+						quedan {repsLeft} {repsLeft === 1 ? 'rep' : 'reps'}
 					{:else if typeof repsLeft === 'number'}
-						matched
+						igualado
 					{/if}
 				</span>
 			{:else}

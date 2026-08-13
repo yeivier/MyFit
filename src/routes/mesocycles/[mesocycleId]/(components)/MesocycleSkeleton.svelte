@@ -7,10 +7,10 @@
 
 <Tabs.Root class="flex w-full grow flex-col" value="basics">
 	<Tabs.List class="grid grid-cols-4">
-		<Tabs.Trigger value="basics">Basics</Tabs.Trigger>
+		<Tabs.Trigger value="basics">Básicos</Tabs.Trigger>
 		<Tabs.Trigger value="split">Split</Tabs.Trigger>
-		<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
-		<Tabs.Trigger value="workouts">Workouts</Tabs.Trigger>
+		<Tabs.Trigger value="volume">Volumen</Tabs.Trigger>
+		<Tabs.Trigger value="workouts">Entrenamientos</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="basics">
 		<Card.Root>
@@ -29,29 +29,29 @@
 			<Card.Content class="flex flex-col gap-3">
 				<div class="flex flex-col gap-1">
 					<div class="flex justify-between">
-						<span class="text-sm text-muted-foreground">RIR progression</span>
+						<span class="text-sm text-muted-foreground">Progresión de RIR</span>
 						<Skeleton class="h-5 w-16 rounded-full" />
 					</div>
 					<Skeleton class="min-h-10 w-full rounded-lg" />
 				</div>
 				<div class="flex flex-col">
-					<span class="text-sm text-muted-foreground">Exercise split</span>
+					<span class="text-sm text-muted-foreground">Split de ejercicios</span>
 					<Skeleton class="text-base-skeleton" />
 				</div>
 				<div class="flex flex-col">
-					<span class="text-sm text-muted-foreground">Preferred progression</span>
+					<span class="text-sm text-muted-foreground">Progresión preferida</span>
 					<Skeleton class="text-base-skeleton" />
 				</div>
 				<div class="flex flex-col">
-					<span class="text-sm text-muted-foreground">Preferred overload percentage</span>
+					<span class="text-sm text-muted-foreground">Porcentaje de sobrecarga preferido</span>
 					<Skeleton class="text-base-skeleton" />
 				</div>
 				<div class="flex flex-col gap-1">
-					<span class="text-sm text-muted-foreground">Last set to failure</span>
+					<span class="text-sm text-muted-foreground">Última serie al fallo</span>
 					<Skeleton class="switch-skeleton" />
 				</div>
 				<div class="flex flex-col gap-1">
-					<span class="text-sm text-muted-foreground">Force RIR matching</span>
+					<span class="text-sm text-muted-foreground">Forzar coincidencia de RIR</span>
 					<Skeleton class="switch-skeleton" />
 				</div>
 			</Card.Content>

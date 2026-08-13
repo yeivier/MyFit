@@ -58,7 +58,7 @@
 	<div class="grid grid-cols-2 gap-1">
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Completion</Card.Title>
+				<Card.Title class="text-sm font-medium">Completado</Card.Title>
 				<CircleCheck />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -66,14 +66,14 @@
 					{((totalWorkoutsOfMesocycle / totalMesocycleLength) * 100).toFixed(2)}%
 				</div>
 				<p class="text-xs text-muted-foreground">
-					{totalWorkoutsOfMesocycle}/{totalMesocycleLength} workouts
+					{totalWorkoutsOfMesocycle}/{totalMesocycleLength} entrenamientos
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Skipped</Card.Title>
+				<Card.Title class="text-sm font-medium">Omitidos</Card.Title>
 				<CircleX />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -82,14 +82,14 @@
 					<span class="text-sm">/ {totalWorkoutsOfMesocycle}</span>
 				</p>
 				<p class="text-xs text-muted-foreground">
-					Most skipped: <span class="font-semibold">{mostSkippedWorkoutDay}</span>
+					Más omitido: <span class="font-semibold">{mostSkippedWorkoutDay}</span>
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Best muscle</Card.Title>
+				<Card.Title class="text-sm font-medium">Mejor músculo</Card.Title>
 				<BicepsFlexed />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -97,14 +97,14 @@
 					{convertCamelCaseToNormal(performanceChangesPerMuscleGroups.at(-1)!.muscleGroup)}
 				</div>
 				<p class="text-xs text-muted-foreground">
-					{performanceChangesPerMuscleGroups.at(-1)!.averagePercentageChange.toFixed(2)}% cyclic increase
+					{performanceChangesPerMuscleGroups.at(-1)!.averagePercentageChange.toFixed(2)}% de aumento cíclico
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Worst muscle</Card.Title>
+				<Card.Title class="text-sm font-medium">Peor músculo</Card.Title>
 				<Frown />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -112,14 +112,14 @@
 					{convertCamelCaseToNormal(performanceChangesPerMuscleGroups[0].muscleGroup)}
 				</div>
 				<p class="text-xs text-muted-foreground">
-					{performanceChangesPerMuscleGroups[0].averagePercentageChange.toFixed(2)}% cyclic increase
+					{performanceChangesPerMuscleGroups[0].averagePercentageChange.toFixed(2)}% de aumento cíclico
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Best day</Card.Title>
+				<Card.Title class="text-sm font-medium">Mejor día</Card.Title>
 				<CalendarHeart />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -127,14 +127,14 @@
 					{performanceChangesPerSplitDay.at(-1)!.splitDayName}
 				</div>
 				<p class="text-xs text-muted-foreground">
-					{performanceChangesPerSplitDay.at(-1)!.averagePercentageChange.toFixed(2)}% cyclic increase
+					{performanceChangesPerSplitDay.at(-1)!.averagePercentageChange.toFixed(2)}% de aumento cíclico
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Worst day</Card.Title>
+				<Card.Title class="text-sm font-medium">Peor día</Card.Title>
 				<CalendarArrowDown />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -142,14 +142,14 @@
 					{performanceChangesPerSplitDay[0].splitDayName}
 				</div>
 				<p class="text-xs text-muted-foreground">
-					{performanceChangesPerSplitDay[0].averagePercentageChange.toFixed(2)}% cyclic increase
+					{performanceChangesPerSplitDay[0].averagePercentageChange.toFixed(2)}% de aumento cíclico
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Most sets</Card.Title>
+				<Card.Title class="text-sm font-medium">Más series</Card.Title>
 				<ChartColumnIncreasing />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -157,14 +157,14 @@
 					{setsPerformedPerMuscleGroup.at(-1)!.muscleGroup}
 				</div>
 				<p class="text-xs text-muted-foreground">
-					Total: {setsPerformedPerMuscleGroup.at(-1)!.totalSets} sets
+					Total: {setsPerformedPerMuscleGroup.at(-1)!.totalSets} series
 				</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 p-4 pb-1.5">
-				<Card.Title class="text-sm font-medium">Least sets</Card.Title>
+				<Card.Title class="text-sm font-medium">Menos series</Card.Title>
 				<ChartColumnDecreasing />
 			</Card.Header>
 			<Card.Content class="p-4 pt-0">
@@ -172,11 +172,11 @@
 					{setsPerformedPerMuscleGroup[0].muscleGroup}
 				</div>
 				<p class="text-xs text-muted-foreground">
-					Total: {setsPerformedPerMuscleGroup[0].totalSets} sets
+					Total: {setsPerformedPerMuscleGroup[0].totalSets} series
 				</p>
 			</Card.Content>
 		</Card.Root>
 	</div>
 {:else}
-	<div class="muted-text-box">No workouts for stat generation</div>
+	<div class="muted-text-box">No hay entrenamientos para generar estadísticas</div>
 {/if}

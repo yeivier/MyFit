@@ -9,10 +9,10 @@ export const load = async (event) => {
 	if (!useActiveMesocycle || editing || keepCurrent) return { workoutExercises: [] };
 
 	const userBodyweight = parseFloat(event.url.searchParams.get('userBodyweight') ?? '');
-	if (isNaN(userBodyweight) || userBodyweight <= 0) error(400, 'Invalid bodyweight');
+	if (isNaN(userBodyweight) || userBodyweight <= 0) error(400, 'Peso corporal inválido');
 
 	const splitDayIndex = parseInt(event.url.searchParams.get('splitDayIndex') ?? '');
-	if (isNaN(splitDayIndex) || splitDayIndex < 0) error(400, 'Invalid split day index');
+	if (isNaN(splitDayIndex) || splitDayIndex < 0) error(400, 'Índice de día del split inválido');
 
 	const trpc = createCaller(await createContext(event));
 	const serverData = trpc.workouts.getWorkoutExercisesWithPreviousData({

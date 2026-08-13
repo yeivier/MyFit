@@ -65,7 +65,7 @@
 		<Card.Header>
 			<Card.Title class="text-primary">🚀 ¡MyFit se mudó a un nuevo dominio!</Card.Title>
 			<Card.Description>
-				Nos mudamos a <strong>myfit.fit</strong> para ofrecerte una mejor experiencia!
+				¡Nos mudamos a <strong>myfit.fit</strong> para ofrecerte una mejor experiencia!
 				<br /><br />
 				<strong>Sigue estos pasos:</strong>
 				<br />

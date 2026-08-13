@@ -6,7 +6,7 @@ export const exerciseSplitTemplates: {
 	exerciseSplit: FullExerciseSplitWithoutIdsOrIndex;
 }[] = [
 	{
-		description: 'A weekly PPL split with 4 exercises each day, and 2x frequency for most muscle groups',
+		description: 'Una rutina semanal PPL con 4 ejercicios por día y frecuencia 2x para la mayoría de los grupos musculares',
 		exerciseSplit: {
 			name: 'Pull Push Legs',
 			exerciseSplitDays: [

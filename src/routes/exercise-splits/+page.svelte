@@ -53,12 +53,12 @@
 	}
 </script>
 
-<H2>Exercise splits</H2>
+<H2>Splits de ejercicios</H2>
 
 <div class="flex grow flex-col gap-2">
 	<div class="flex gap-1">
 		<form class="contents" onsubmit={updateSearchParam}>
-			<Input id="search-exercise-splits" placeholder="Search" type="search" bind:value={searchString} />
+			<Input id="search-exercise-splits" placeholder="Buscar" type="search" bind:value={searchString} />
 			<Button aria-label="search" type="submit" variant="secondary">
 				<SearchIcon />
 			</Button>
@@ -69,9 +69,9 @@
 			</DropdownMenu.Trigger>
 			<DropdownMenu.Content align="end">
 				<DropdownMenu.Group>
-					<DropdownMenu.Item onclick={createNewExerciseSplit}>Start from scratch</DropdownMenu.Item>
-					<DropdownMenu.Item href="/exercise-splits/templates">Use template</DropdownMenu.Item>
-					<DropdownMenu.Item href="/exercise-splits/import">Import</DropdownMenu.Item>
+					<DropdownMenu.Item onclick={createNewExerciseSplit}>Empezar desde cero</DropdownMenu.Item>
+					<DropdownMenu.Item href="/exercise-splits/templates">Usar plantilla</DropdownMenu.Item>
+					<DropdownMenu.Item href="/exercise-splits/import">Importar</DropdownMenu.Item>
 				</DropdownMenu.Group>
 			</DropdownMenu.Content>
 		</DropdownMenu.Root>
@@ -84,13 +84,13 @@
 				variant="outline"
 			>
 				<span class="truncate text-lg font-semibold">{exerciseSplit.name}</span>
-				<Badge>{exerciseSplit.exerciseSplitDays.length} days / cycle</Badge>
+				<Badge>{exerciseSplit.exerciseSplitDays.length} días / ciclo</Badge>
 			</Button>
 		{/each}
 		<DefaultInfiniteLoader
 			{loadMore}
 			identifier={$page.url.searchParams.get('search')}
-			entityPlural="exercise splits"
+			entityPlural="splits de ejercicios"
 		/>
 	</div>
 </div>

@@ -38,7 +38,7 @@
 		const workoutExercisesMiniSets = workoutExercisesSets.map((sets) => sets.map((set) => set.miniSets));
 
 		if (typeof workoutRunes.workoutData?.userBodyweight !== 'number') {
-			toast.error('Invalid user bodyweight at start page');
+			toast.error('Peso corporal del usuario inválido en la página de inicio');
 			return;
 		}
 		const userBodyweight = workoutRunes.workoutData.userBodyweight;
@@ -53,7 +53,7 @@
 				sets.map((set) => {
 					const { miniSets, ...rest } = set;
 					if (rest.reps === undefined || rest.load === undefined || rest.RIR === undefined) {
-						throw new Error('Rep, Load, or RIR is undefined');
+						throw new Error('Reps, peso o RIR está indefinido');
 					}
 					return {
 						...rest,
@@ -71,7 +71,7 @@
 						if (exercises[exerciseIndex].sets[setIndex].skipped) [miniSet.reps, miniSet.load, miniSet.RIR] = [0, 0, 0];
 
 						if (miniSet.reps === undefined || miniSet.load === undefined || miniSet.RIR === undefined) {
-							throw new Error('Rep, Load, or RIR is undefined');
+							throw new Error('Reps, peso o RIR está indefinido');
 						}
 						return {
 							...miniSet,
@@ -93,7 +93,7 @@
 			createData = preProcessSetData();
 		} catch (error) {
 			if (error instanceof Error) {
-				toast.error('Failed to preprocess set data', { description: error.message });
+				toast.error('Error al procesar los datos de las series', { description: error.message });
 				navigator.clipboard.writeText(JSON.stringify(workoutRunes.workoutExercises));
 				console.log(workoutRunes.workoutExercises);
 			}
@@ -136,7 +136,7 @@
 	}
 </script>
 
-<H3>Overview</H3>
+<H3>Resumen</H3>
 
 {#if shouldShowQuote}
 	<Quotes mode="POST_WORKOUT" class="mb-6" />
@@ -144,8 +144,8 @@
 
 <Tabs.Root class="w-full" value="progression">
 	<Tabs.List class="grid grid-cols-2">
-		<Tabs.Trigger value="progression">Progression</Tabs.Trigger>
-		<Tabs.Trigger value="basic">Basic</Tabs.Trigger>
+		<Tabs.Trigger value="progression">Progreso</Tabs.Trigger>
+		<Tabs.Trigger value="basic">Básico</Tabs.Trigger>
 	</Tabs.List>
 	<Tabs.Content value="progression">
 		{#if workoutRunes.previousWorkoutData && workoutRunes.workoutExercises && workoutRunes.workoutData?.userBodyweight}
@@ -157,7 +157,7 @@
 				}}
 			/>
 		{:else}
-			<div class="muted-text-box">No previous workout available to compare</div>
+			<div class="muted-text-box">No hay entrenamiento anterior para comparar</div>
 		{/if}
 	</Tabs.Content>
 	<Tabs.Content class="rounded-md border bg-card p-4" value="basic">
@@ -166,17 +166,21 @@
 </Tabs.Root>
 
 <div class="mt-4 flex w-full flex-col gap-1.5">
-	<Label for="workout-note">Workout note</Label>
-	<Textarea id="workout-note" placeholder="Type here (optional)" bind:value={workoutRunes.workoutData!.note}></Textarea>
+	<Label for="workout-note">Nota del entrenamiento</Label>
+	<Textarea
+		id="workout-note"
+		placeholder="Escribe aquí (opcional)"
+		bind:value={workoutRunes.workoutData!.note}
+	></Textarea>
 </div>
 
 <div class="mt-auto grid grid-cols-2 gap-1">
-	<Button onclick={() => window.history.back()} variant="secondary">Previous</Button>
+	<Button onclick={() => window.history.back()} variant="secondary">Anterior</Button>
 	<Button disabled={savingWorkout} onclick={saveWorkout}>
 		{#if savingWorkout}
 			<LoaderCircle class="animate-spin" />
 		{:else}
-			Save
+			Guardar
 		{/if}
 	</Button>
 </div>

@@ -24,7 +24,7 @@
 {#if currentQuote}
 	<div
 		role="region"
-		aria-label="Motivational quote"
+		aria-label="Frase motivacional"
 		class="rounded-lg border border-border bg-secondary/50 p-4 {className}"
 	>
 		<div class="flex items-start gap-3">

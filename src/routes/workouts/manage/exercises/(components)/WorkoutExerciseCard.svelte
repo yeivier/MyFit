@@ -57,16 +57,16 @@
 					<DropdownMenu.Content align="end">
 						<DropdownMenu.Group>
 							<DropdownMenu.Item class="gap-2" onclick={() => workoutRunes.setEditingExercise(exercise)}>
-								<EditIcon /> Edit
+								<EditIcon /> Editar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item class="gap-2" onclick={() => workoutRunes.openExerciseWarmupDialog(exercise)}>
-								<ChartIcon /> Warm up
+								<ChartIcon /> Calentamiento
 							</DropdownMenu.Item>
 							<DropdownMenu.Item class="gap-2" onclick={skipSetsLeft}>
-								<SkipIcon /> Skip sets left
+								<SkipIcon /> Omitir series restantes
 							</DropdownMenu.Item>
 							<DropdownMenu.Item class="gap-2" onclick={() => workoutRunes.openExerciseHistorySheet(exercise.name)}>
-								<HistoryIcon /> History
+								<HistoryIcon /> Historial
 							</DropdownMenu.Item>
 							<DropdownMenu.Item
 								class="gap-2 text-red-500"
@@ -75,7 +75,7 @@
 									isContextMenuOpen = false;
 								}}
 							>
-								<DeleteIcon /> Delete
+								<DeleteIcon /> Eliminar
 							</DropdownMenu.Item>
 						</DropdownMenu.Group>
 					</DropdownMenu.Content>
@@ -86,11 +86,11 @@
 	<div class="flex items-center gap-0.5">
 		<span class="mr-auto text-sm lowercase text-muted-foreground">
 			{exercise.sets.length}
-			{convertCamelCaseToNormal(exercise.setType)} sets of
-			{exercise.repRangeStart} to {exercise.repRangeEnd} reps
+			series de {convertCamelCaseToNormal(exercise.setType)} de
+			{exercise.repRangeStart} a {exercise.repRangeEnd} repeticiones
 		</span>
 		{#if exercise.bodyweightFraction !== null}
-			<Badge variant="outline">BW</Badge>
+			<Badge variant="outline">PC</Badge>
 		{/if}
 		<Badge class="whitespace-nowrap" variant="secondary">
 			{exercise.targetMuscleGroup === 'Custom'

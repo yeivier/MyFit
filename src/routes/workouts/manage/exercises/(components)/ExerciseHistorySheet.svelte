@@ -43,14 +43,14 @@
 <Sheet.Root bind:open={workoutRunes.exerciseHistorySheetOpen}>
 	<Sheet.Content class="flex w-11/12 flex-col px-2">
 		<Sheet.Header>
-			<Sheet.Title>History</Sheet.Title>
+			<Sheet.Title>Historial</Sheet.Title>
 			<Sheet.Description>
 				{workoutRunes.exerciseHistorySheetName}
 			</Sheet.Description>
 		</Sheet.Header>
 		<Accordion.Root>
 			<Accordion.Item value="item-1">
-				<Accordion.Trigger>Show progression chart?</Accordion.Trigger>
+				<Accordion.Trigger>¿Mostrar gráfico de progreso?</Accordion.Trigger>
 				<Accordion.Content>
 					<ExerciseStatsChart exercises={exercisesFound} selectedExercise={workoutRunes.exerciseHistorySheetName!} />
 				</Accordion.Content>

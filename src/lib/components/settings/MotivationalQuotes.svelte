@@ -27,19 +27,19 @@
 
 	const displayModeOptions: { label: string; value: QuotesDisplayMode; description: string }[] = [
 		{
-			label: 'Pre-Workout',
+			label: 'Antes del entrenamiento',
 			value: 'PRE_WORKOUT',
-			description: 'Show quotes before starting your workout'
+			description: 'Mostrar frases antes de empezar tu entrenamiento'
 		},
 		{
-			label: 'Post-Workout',
+			label: 'Después del entrenamiento',
 			value: 'POST_WORKOUT',
-			description: 'Show quotes after completing your workout'
+			description: 'Mostrar frases después de terminar tu entrenamiento'
 		},
 		{
-			label: 'Between Sets',
+			label: 'Entre series',
 			value: 'BETWEEN_SETS',
-			description: 'Show quotes during rest periods between sets'
+			description: 'Mostrar frases durante los descansos entre series'
 		}
 	];
 
@@ -52,10 +52,10 @@
 
 		try {
 			await onUpdateSettings(checked);
-			toast.success(checked ? 'Motivational quotes enabled' : 'Motivational quotes disabled');
+			toast.success(checked ? 'Frases motivacionales activadas' : 'Frases motivacionales desactivadas');
 		} catch (error) {
 			localEnabled = previousState;
-			toast.error('Failed to toggle quotes');
+			toast.error('No se pudieron cambiar las frases');
 			console.error('Failed to toggle quotes:', error);
 		} finally {
 			isUpdating = false;
@@ -68,7 +68,7 @@
 		const newModes = checked ? [...localDisplayModes, mode] : localDisplayModes.filter((m) => m !== mode);
 
 		if (newModes.length === 0) {
-			toast.error('At least one display mode must be selected');
+			toast.error('Debés seleccionar al menos un modo de visualización');
 			return;
 		}
 
@@ -80,16 +80,16 @@
 			await onUpdateSettings(localEnabled, newModes);
 
 			const option = displayModeOptions.find((opt) => opt.value === mode);
-			const action = checked ? 'enabled' : 'disabled';
+			const action = checked ? 'activado' : 'desactivado';
 			toast.success(`${option?.label} ${action}`);
 		} catch (error) {
 			localDisplayModes = previousModes;
 			console.error('Failed to update display modes:', error);
 
 			if (error instanceof Error && error.message.includes('validation')) {
-				toast.error('Invalid display mode selection');
+				toast.error('Selección de modo de visualización inválida');
 			} else {
-				toast.error('Failed to update display modes');
+				toast.error('No se pudieron actualizar los modos de visualización');
 			}
 		} finally {
 			isUpdating = false;
@@ -108,11 +108,11 @@
 
 		try {
 			await onUpdateSettings(localEnabled, allModes);
-			toast.success('All display modes enabled');
+			toast.success('Se activaron todos los modos de visualización');
 		} catch (error) {
 			localDisplayModes = previousModes;
 			console.error('Failed to select all modes:', error);
-			toast.error('Failed to enable all modes');
+			toast.error('No se pudieron activar todos los modos');
 		} finally {
 			isUpdating = false;
 		}
@@ -127,11 +127,11 @@
 
 		try {
 			await onUpdateSettings(localEnabled, [QuotesDisplayMode.PRE_WORKOUT]);
-			toast.success('Reset to Pre-Workout only');
+			toast.success('Se restableció solo a Antes del entrenamiento');
 		} catch (error) {
 			localDisplayModes = previousModes;
 			console.error('Failed to clear modes:', error);
-			toast.error('Failed to reset modes');
+			toast.error('No se pudieron restablecer los modos');
 		} finally {
 			isUpdating = false;
 		}
@@ -145,16 +145,16 @@
 	<Card.Header>
 		<Card.Title class="flex items-center gap-2">
 			<Quote class="h-5 w-5" />
-			Motivational Quotes
+			Frases Motivacionales
 		</Card.Title>
-		<Card.Description>Get inspired with motivational quotes during your workouts</Card.Description>
+		<Card.Description>Inspirate con frases motivacionales durante tus entrenamientos</Card.Description>
 	</Card.Header>
 
 	<Card.Content class="space-y-6">
 		<div class="flex items-center space-x-4 rounded-md border p-4">
 			<div class="flex-1 space-y-1">
-				<p class="text-sm font-medium leading-none">Enable Motivational Quotes</p>
-				<p class="text-xs text-muted-foreground">Display inspirational quotes to keep you motivated</p>
+				<p class="text-sm font-medium leading-none">Activar Frases Motivacionales</p>
+				<p class="text-xs text-muted-foreground">Mostrar frases inspiradoras para mantenerte motivado</p>
 			</div>
 
 			<div class="flex items-center gap-2">
@@ -169,9 +169,9 @@
 			<div class="animate-in slide-in-from-top-2 space-y-4 duration-300">
 				<div class="flex items-center justify-between">
 					<div class="space-y-1">
-						<h4 class="text-sm font-medium">Display Modes</h4>
+						<h4 class="text-sm font-medium">Modos de Visualización</h4>
 						<p class="text-xs text-muted-foreground">
-							Choose when to show quotes ({selectedCount} selected)
+							Elegí cuándo mostrar las frases ({selectedCount} seleccionados)
 						</p>
 					</div>
 
@@ -183,7 +183,7 @@
 							onclick={selectAllModes}
 							disabled={isUpdating || isAllSelected}
 						>
-							Select All
+							Seleccionar todo
 						</Button>
 						<Button
 							variant="destructive"
@@ -192,7 +192,7 @@
 							disabled={isUpdating || selectedCount <= 1}
 							class="text-xs"
 						>
-							Reset
+							Restablecer
 						</Button>
 					</div>
 				</div>

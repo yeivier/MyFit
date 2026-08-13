@@ -15,10 +15,10 @@
 <InfiniteLoading on:infinite={loadMore} {identifier}>
 	<div class="flex items-center justify-center gap-2 py-2 text-muted-foreground" slot="noMore">
 		<Separator class="w-20" />
-		That's all
+		Eso es todo
 		<Separator class="w-20" />
 	</div>
-	<div class="muted-text-box text-left" slot="noResults">No {entityPlural} found</div>
+	<div class="muted-text-box text-left" slot="noResults">No se encontraron {entityPlural}</div>
 	<div slot="spinner">
 		<LoaderCircle class="mx-auto my-2 animate-spin" />
 	</div>

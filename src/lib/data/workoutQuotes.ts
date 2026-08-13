@@ -10,270 +10,270 @@ export interface WorkoutQuote {
 export const workoutQuotes: WorkoutQuote[] = [
 	{
 		id: '1',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'PRE_WORKOUT',
-		quote: "The only bad workout is the one that didn't happen."
+		quote: 'El único mal entrenamiento es el que no pasó.'
 	},
 	{
 		id: '2',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'PRE_WORKOUT',
-		quote: "Your body can stand almost anything. It's your mind you have to convince."
+		quote: 'Tu cuerpo aguanta casi cualquier cosa. Es tu mente la que tenés que convencer.'
 	},
 	{
 		id: '3',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'PRE_WORKOUT',
-		quote: "Don't wish for it, work for it."
+		quote: 'No lo desees, trabajá por ello.'
 	},
 	{
 		id: '4',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'PRE_WORKOUT',
-		quote: 'Champions train, losers complain.'
+		quote: 'Los campeones entrenan, los perdedores se quejan.'
 	},
 	{
 		id: '5',
 		author: 'Jerry Rice',
 		category: 'PRE_WORKOUT',
-		quote: "Today I will do what others won't, so tomorrow I can accomplish what others can't."
+		quote: 'Hoy voy a hacer lo que otros no harán, para que mañana pueda lograr lo que otros no pueden.'
 	},
 	{
 		id: '6',
 		author: 'Leigh Hunt',
 		category: 'PRE_WORKOUT',
-		quote: 'The groundwork for all happiness is good health.'
+		quote: 'La base de toda felicidad es una buena salud.'
 	},
 	{
 		id: '7',
 		author: 'Rikki Rogers',
 		category: 'PRE_WORKOUT',
 		quote:
-			"Strength doesn't come from what you can do. It comes from overcoming the things you once thought you couldn't."
+			'La fuerza no viene de lo que podés hacer. Viene de superar las cosas que alguna vez pensaste que no podías.'
 	},
 	{
 		id: '8',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: 'You are stronger than you think. Prove it to yourself.'
+		quote: 'Sos más fuerte de lo que pensás. Demostrátelo a vos mismo.'
 	},
 	{
 		id: '9',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: 'Every rep, every set, every drop of sweat was worth it.'
+		quote: 'Cada repetición, cada serie, cada gota de sudor valió la pena.'
 	},
 	{
 		id: '10',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: "Success isn't given. It's earned in the gym."
+		quote: 'El éxito no se regala. Se gana en el gimnasio.'
 	},
 	{
 		id: '11',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: "You just proved to yourself that you're capable of more than you imagined."
+		quote: 'Acabás de demostrarte que sos capaz de más de lo que imaginabas.'
 	},
 	{
 		id: '12',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: 'The pain you feel today will be the strength you feel tomorrow.'
+		quote: 'El dolor que sentís hoy será la fuerza que sentirás mañana.'
 	},
 	{
 		id: '13',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: "Recovery is not a sign of weakness, it's a sign of wisdom."
+		quote: 'La recuperación no es una señal de debilidad, es una señal de sabiduría.'
 	},
 	{
 		id: '14',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'POST_WORKOUT',
-		quote: "You conquered another workout. Tomorrow, you'll conquer another goal."
+		quote: 'Conquistaste otro entrenamiento. Mañana conquistarás otra meta.'
 	},
 	{
 		id: '15',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'BETWEEN_SETS',
-		quote: 'Rest, recover, repeat.'
+		quote: 'Descansá, recuperate, repetí.'
 	},
 	{
 		id: '16',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'BETWEEN_SETS',
-		quote: 'One more set, one step closer to your goal.'
+		quote: 'Una serie más, un paso más cerca de tu meta.'
 	},
 	{
 		id: '17',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'BETWEEN_SETS',
-		quote: 'Breathe deep, stay focused.'
+		quote: 'Respirá profundo, mantené el foco.'
 	},
 	{
 		id: '18',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'BETWEEN_SETS',
-		quote: 'This is where champions are made.'
+		quote: 'Acá es donde se hacen los campeones.'
 	},
 	{
 		id: '19',
 		category: 'BETWEEN_SETS',
 		author: 'Vincent Williams Sr.',
-		quote: 'Push harder than yesterday if you want a different tomorrow.'
+		quote: 'Esforzate más que ayer si querés un mañana diferente.'
 	},
 	{
 		id: '20',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'BETWEEN_SETS',
-		quote: "The weight doesn't know how tired you are."
+		quote: 'El peso no sabe lo cansado que estás.'
 	},
 	{
 		id: '21',
-		author: 'Unknown',
+		author: 'Anónimo',
 		category: 'BETWEEN_SETS',
-		quote: 'Focus on form, not just numbers.'
+		quote: 'Enfocate en la técnica, no solo en los números.'
 	},
 	// Dr. Mike Israetel / Renaissance Periodization quotes
 	{
 		id: '22',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: 'Progressive overload is the fundamental principle of growth. Make every session count.'
+		quote: 'La sobrecarga progresiva es el principio fundamental del crecimiento. Que cada sesión cuente.'
 	},
 	{
 		id: '23',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: 'The best program is the one you can consistently execute with proper form and progression.'
+		quote: 'El mejor programa es el que podés ejecutar de forma constante con buena técnica y progresión.'
 	},
 	{
 		id: '24',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: 'Volume, intensity, and frequency - master these variables and you master growth.'
+		quote: 'Volumen, intensidad y frecuencia: dominá estas variables y dominarás el crecimiento.'
 	},
 	{
 		id: '25',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: "Training is not about suffering - it's about intelligent progression toward your goals."
+		quote: 'Entrenar no se trata de sufrir, sino de progresar de forma inteligente hacia tus metas.'
 	},
 	{
 		id: '26',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: 'Your genetics load the gun, but your training and diet pull the trigger.'
+		quote: 'Tu genética carga el arma, pero tu entrenamiento y tu dieta aprietan el gatillo.'
 	},
 	{
 		id: '27',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'Rest enough to perform your next set with quality. Rushing leads to junk volume.'
+		quote: 'Descansá lo suficiente para hacer tu próxima serie con calidad. Apurarte lleva a volumen basura.'
 	},
 	{
 		id: '28',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'Each set should take you closer to failure, but not into form breakdown.'
+		quote: 'Cada serie debería acercarte al fallo, pero sin romper la técnica.'
 	},
 	{
 		id: '29',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'The pump is temporary, but the adaptation is permanent. Focus on the process.'
+		quote: 'El pump es temporal, pero la adaptación es permanente. Enfocate en el proceso.'
 	},
 	{
 		id: '30',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'Small progressions consistently applied lead to massive changes over time.'
+		quote: 'Pequeños progresos aplicados de forma constante generan cambios enormes con el tiempo.'
 	},
 	{
 		id: '31',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'Technique first, load second. Always.'
+		quote: 'Primero la técnica, después la carga. Siempre.'
 	},
 	{
 		id: '32',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: "Every rep is a chance to get better. Don't waste it on ego lifting."
+		quote: 'Cada repetición es una oportunidad de mejorar. No la desperdicies por levantar con el ego.'
 	},
 	{
 		id: '33',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'Recovery is where the magic happens. Train hard, but recover harder.'
+		quote: 'La magia ocurre durante la recuperación. Entrená duro, pero recuperate más duro todavía.'
 	},
 	{
 		id: '34',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'You just invested in your future self. The compound interest starts now.'
+		quote: 'Acabás de invertir en tu yo futuro. El interés compuesto empieza ahora.'
 	},
 	{
 		id: '35',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'Muscle grows during recovery, not during training. Respect the process.'
+		quote: 'El músculo crece durante la recuperación, no durante el entrenamiento. Respetá el proceso.'
 	},
 	{
 		id: '36',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'Consistency beats perfection. Another quality session in the books.'
+		quote: 'La constancia le gana a la perfección. Otra sesión de calidad en tu haber.'
 	},
 	{
 		id: '37',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'Fatigue masks fitness. Rest well and let your true strength emerge.'
+		quote: 'La fatiga esconde tu nivel real. Descansá bien y dejá que salga tu verdadera fuerza.'
 	},
 	{
 		id: '38',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'The work you did today will compound into the results you see tomorrow.'
+		quote: 'El trabajo que hiciste hoy se va a acumular en los resultados que verás mañana.'
 	},
 	// Additional RP-inspired quotes based on training principles
 	{
 		id: '39',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: 'Minimum effective dose means maximum sustainable progress.'
+		quote: 'La dosis mínima efectiva significa el máximo progreso sostenible.'
 	},
 	{
 		id: '40',
 		author: 'Dr. Mike Israetel',
 		category: 'PRE_WORKOUT',
-		quote: "Science-based training isn't about complexity - it's about effectiveness."
+		quote: 'El entrenamiento basado en ciencia no se trata de complejidad, sino de efectividad.'
 	},
 	{
 		id: '41',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'Your maximum recoverable volume is your pathway to maximum gains.'
+		quote: 'Tu volumen máximo recuperable es tu camino hacia las máximas ganancias.'
 	},
 	{
 		id: '42',
 		author: 'Dr. Mike Israetel',
 		category: 'BETWEEN_SETS',
-		quote: 'Effort without intelligence is just suffering. Train smart.'
+		quote: 'El esfuerzo sin inteligencia es solo sufrimiento. Entrená con cabeza.'
 	},
 	{
 		id: '43',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: "Deloads aren't steps backward - they're strategic resets for greater progress."
+		quote: 'Los deloads no son un paso atrás: son resets estratégicos para lograr más progreso.'
 	},
 	{
 		id: '44',
 		author: 'Dr. Mike Israetel',
 		category: 'POST_WORKOUT',
-		quote: 'Your next workout starts with how well you recover from this one.'
+		quote: 'Tu próximo entrenamiento empieza con qué tan bien te recuperás de este.'
 	}
 ];
 

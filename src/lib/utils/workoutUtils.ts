@@ -194,7 +194,7 @@ export function getRIRForWeek(rirArray: number[], cycle: number): number {
 		cumulativeWeeks += rirArray[i];
 		if (cycle <= cumulativeWeeks) return rirArray.length - i - 1;
 	}
-	throw new Error('Cycle number is out of range.');
+	throw new Error('El número de ciclo está fuera de rango.');
 }
 
 function generateAveragePerformanceDropOffs(performances: PreviousPerformance[]) {

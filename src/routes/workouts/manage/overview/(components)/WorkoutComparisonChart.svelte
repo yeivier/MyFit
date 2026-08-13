@@ -24,15 +24,15 @@
 	let chartCanvas: HTMLCanvasElement;
 	let chart: Chart<'bar', number[], string>;
 
-	const chartTypes = ['Work volume', 'Sets'] as const;
+	const chartTypes = ['Volumen de trabajo', 'Series'] as const;
 	let selectedChartType: Selected<(typeof chartTypes)[number]> = $state({
-		value: 'Work volume',
-		label: 'Work volume'
+		value: 'Volumen de trabajo',
+		label: 'Volumen de trabajo'
 	});
 
 	$effect(() => {
 		if (chart) chart.destroy();
-		if (selectedChartType.value === 'Work volume') {
+		if (selectedChartType.value === 'Volumen de trabajo') {
 			const previousWorkoutVolume = previousWorkoutData.exercises.reduce((volume, exercise) => {
 				return volume + getExerciseVolume(exercise, previousWorkoutData.userBodyweight);
 			}, 0);
@@ -53,7 +53,7 @@
 			chart = new Chart(chartCanvas, {
 				type: 'bar',
 				data: {
-					labels: ['Previous', 'Today'],
+					labels: ['Anterior', 'Hoy'],
 					datasets: [
 						{
 							label: selectedChartType.value,
@@ -72,7 +72,7 @@
 			chart = new Chart(chartCanvas, {
 				type: 'bar',
 				data: {
-					labels: ['Previous', 'Today'],
+					labels: ['Anterior', 'Hoy'],
 					datasets: [
 						{
 							label: selectedChartType.value,
@@ -88,9 +88,9 @@
 <Card.Root class="space-y-2 p-4">
 	<canvas bind:this={chartCanvas} id="chart-canvas"></canvas>
 	<Select.Root bind:selected={selectedChartType}>
-		<Select.Label class="p-0">Chart</Select.Label>
+		<Select.Label class="p-0">Gráfico</Select.Label>
 		<Select.Trigger class="mb-2 w-full">
-			<Select.Value placeholder="Select chart" />
+			<Select.Value placeholder="Selecciona un gráfico" />
 		</Select.Trigger>
 		<Select.Content class="max-h-48 overflow-y-auto">
 			{#each chartTypes as chartType}

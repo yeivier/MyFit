@@ -266,13 +266,13 @@ export const workouts = t.router({
 			if (lastSplitDayPerformed !== wom.splitDayIndex) {
 				throw new TRPCError({
 					code: 'BAD_REQUEST',
-					message: `You can only delete the latest workout of the active mesocycle: ${mesocycle.mesocycleExerciseSplitDays[lastSplitDayPerformed].name} (Day ${lastSplitDayPerformed + 1})`
+					message: `Solo podés eliminar el último entrenamiento del mesociclo activo: ${mesocycle.mesocycleExerciseSplitDays[lastSplitDayPerformed].name} (Día ${lastSplitDayPerformed + 1})`
 				});
 			}
 		}
 
 		await prisma.workout.delete({ where: { id: input, userId: ctx.userId } });
-		return { message: 'Workout deleted successfully' };
+		return { message: 'Entrenamiento eliminado correctamente' };
 	}),
 
 	getTodaysWorkoutData: t.procedure.query(async ({ ctx }) => {
@@ -536,7 +536,7 @@ export const workouts = t.router({
 
 		if (!workoutOfMesocycle) {
 			await prisma.$transaction(transactionQueries);
-			return { message: 'Workout created successfully' };
+			return { message: 'Entrenamiento creado correctamente' };
 		}
 
 		// Update mesocycle data using this new workout
@@ -553,14 +553,14 @@ export const workouts = t.router({
 		});
 
 		if (!mesocycleData) {
-			throw new TRPCError({ code: 'BAD_REQUEST', message: 'Mesocycle not found' });
+			throw new TRPCError({ code: 'BAD_REQUEST', message: 'Mesociclo no encontrado' });
 		}
 
 		// Update mesocycle's exercise templates according to new workout
 		if (workoutOfMesocycle.workoutStatus === null) {
 			const todaysSplitDay = mesocycleData.mesocycleExerciseSplitDays[workoutOfMesocycle.splitDayIndex];
 			if (!todaysSplitDay) {
-				throw new TRPCError({ code: 'BAD_REQUEST', message: 'Related mesocycle exercise split day not found' });
+				throw new TRPCError({ code: 'BAD_REQUEST', message: 'No se encontró el día de la rutina del mesociclo relacionado' });
 			}
 
 			transactionQueries.push(
@@ -616,12 +616,12 @@ export const workouts = t.router({
 
 		await prisma.$transaction(transactionQueries);
 
-		let message = 'Workout created successfully';
+		let message = 'Entrenamiento creado correctamente';
 		if (workoutOfMesocycle?.workoutStatus === 'RestDay') {
-			message = 'Rest day completed successfully';
+			message = 'Día de descanso completado correctamente';
 		}
 		if (workoutOfMesocycle?.workoutStatus === 'Skipped') {
-			message = 'Workout skipped successfully';
+			message = 'Entrenamiento omitido correctamente';
 		}
 		return { message, mesocycleCompleted };
 	}),
@@ -686,7 +686,7 @@ export const workouts = t.router({
 			];
 
 			await prisma.$transaction(transactionQueries);
-			return { message: 'Workout edited successfully' };
+			return { message: 'Entrenamiento editado correctamente' };
 		}),
 
 	getExerciseHistory: t.procedure

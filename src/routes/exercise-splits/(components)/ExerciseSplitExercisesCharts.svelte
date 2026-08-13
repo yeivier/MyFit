@@ -37,7 +37,7 @@
 	type PropsType = { exercises: SplitExerciseTemplateWithoutIdsOrIndex[] };
 
 	let { exercises }: PropsType = $props();
-	const chartTypes = ['Bodyweight & weighted', 'Rep ranges', 'Set types'];
+	const chartTypes = ['Peso corporal y con peso', 'Rangos de repeticiones', 'Tipos de series'];
 
 	let chart:
 		| Chart<'doughnut', number[], string>
@@ -58,7 +58,7 @@
 			chart = new Chart(chartCanvas, {
 				type: 'doughnut',
 				data: {
-					labels: ['Weighted', 'Bodyweight'],
+					labels: ['Con peso', 'Peso corporal'],
 					datasets: [
 						{
 							data: [exercises.length - bodyweightExercises, bodyweightExercises],
@@ -124,11 +124,11 @@
 
 <canvas
 	bind:this={chartCanvas}
-	class={cn('my-4 max-h-96', { 'max-h-56': selectedChartType.value === 'Bodyweight & weighted' })}
+	class={cn('my-4 max-h-96', { 'max-h-56': selectedChartType.value === 'Peso corporal y con peso' })}
 ></canvas>
 
 <Select.Root bind:selected={selectedChartType}>
-	<Select.Label class="mb-0.5 p-0">Chart type</Select.Label>
+	<Select.Label class="mb-0.5 p-0">Tipo de gráfico</Select.Label>
 	<Select.Trigger class="w-full">
 		<Select.Value />
 	</Select.Trigger>

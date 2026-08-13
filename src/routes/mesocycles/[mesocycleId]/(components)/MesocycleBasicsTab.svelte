@@ -147,16 +147,16 @@
 				<DropdownMenu.Content align="end">
 					<DropdownMenu.Group>
 						<DropdownMenu.Item class="gap-2" onclick={() => loadMesocycle('edit')}>
-							<EditIcon /> Edit
+							<EditIcon /> Editar
 						</DropdownMenu.Item>
 						<DropdownMenu.Item class="gap-2" onclick={() => loadMesocycle('clone')}>
-							<CloneIcon /> Clone
+							<CloneIcon /> Clonar
 						</DropdownMenu.Item>
 						<DropdownMenu.Item class="gap-2" onclick={() => (extractSplitConfirmDrawerOpen = true)}>
-							<ExtractIcon /> Extract split
+							<ExtractIcon /> Extraer split
 						</DropdownMenu.Item>
 						<DropdownMenu.Item class="gap-2 text-red-500" on:click={() => (deleteConfirmDrawerOpen = true)}>
-							<DeleteIcon /> Delete
+							<DeleteIcon /> Eliminar
 						</DropdownMenu.Item>
 					</DropdownMenu.Group>
 				</DropdownMenu.Content>
@@ -168,18 +168,18 @@
 					{#if mesocycle.startDate}
 						<span>{mesocycle.startDate.toLocaleDateString()}</span>
 					{:else}
-						No dates available
+						No hay fechas disponibles
 					{/if}
 					{#if mesocycle.endDate}
-						to <span>{mesocycle.endDate.toLocaleDateString()}</span>
+						hasta <span>{mesocycle.endDate.toLocaleDateString()}</span>
 					{/if}
 				</p>
 				{#if !mesocycle.startDate}
-					<Badge variant="secondary">Unused</Badge>
+					<Badge variant="secondary">Sin usar</Badge>
 				{:else if !mesocycle.endDate}
-					<Badge>Active</Badge>
+					<Badge>Activo</Badge>
 				{:else}
-					<Badge variant="outline">Completed</Badge>
+					<Badge variant="outline">Completado</Badge>
 				{/if}
 			</div>
 		</Card.Description>
@@ -187,8 +187,8 @@
 	<Card.Content class="flex flex-col gap-3">
 		<div class="flex flex-col gap-1">
 			<div class="flex justify-between">
-				<span class="text-sm text-muted-foreground">RIR progression</span>
-				<Badge variant="outline">{arraySum(mesocycle.RIRProgression)} cycles</Badge>
+				<span class="text-sm text-muted-foreground">Progresión de RIR</span>
+				<Badge variant="outline">{arraySum(mesocycle.RIRProgression)} ciclos</Badge>
 			</div>
 			<Resizable.PaneGroup class="min-h-10 w-full rounded-lg border" direction="horizontal">
 				{#each mesocycle.RIRProgression.toReversed() as cycles, idx}
@@ -200,7 +200,7 @@
 							</Popover.Trigger>
 							<Popover.Content class="flex w-fit flex-col p-2 text-sm">
 								<span>{mesocycle.RIRProgression.length - idx - 1} RIR</span>
-								<span class="text-muted-foreground">{cycles} cycles</span>
+								<span class="text-muted-foreground">{cycles} ciclos</span>
 							</Popover.Content>
 						</Popover.Root>
 					</Resizable.Pane>
@@ -211,23 +211,23 @@
 			</Resizable.PaneGroup>
 		</div>
 		<div class="flex flex-col">
-			<span class="text-sm text-muted-foreground">Start exercise template</span>
+			<span class="text-sm text-muted-foreground">Plantilla de ejercicios inicial</span>
 			{#if mesocycle.exerciseSplit}
 				<a class="font-semibold underline" href="/exercise-splits/{mesocycle.exerciseSplit.id}">
 					{mesocycle.exerciseSplit.name}
 				</a>
 			{:else}
-				<span class="font-semibold text-red-500">Deleted</span>
+				<span class="font-semibold text-red-500">Eliminado</span>
 			{/if}
 		</div>
 		<div class="flex flex-col">
-			<span class="text-sm text-muted-foreground">Start overload percentage</span>
+			<span class="text-sm text-muted-foreground">Porcentaje de sobrecarga inicial</span>
 			<span class="font-semibold capitalize">
 				{mesocycle.startOverloadPercentage}%
 			</span>
 		</div>
 		<div class="flex flex-col gap-1">
-			<span id="last-set-to-failure-label" class="text-sm text-muted-foreground"> Last set to failure </span>
+			<span id="last-set-to-failure-label" class="text-sm text-muted-foreground"> Última serie al fallo </span>
 			<Switch
 				name="mesocycle-last-set-to-failure"
 				aria-labelledby="last-set-to-failure-label"
@@ -236,7 +236,7 @@
 			/>
 		</div>
 		<div class="flex flex-col gap-1">
-			<span id="force-RIR-matching-label" class="text-sm text-muted-foreground"> Force RIR matching </span>
+			<span id="force-RIR-matching-label" class="text-sm text-muted-foreground"> Forzar coincidencia de RIR </span>
 			<Switch
 				name="mesocycle-force-RIR-matching"
 				aria-labelledby="force-RIR-matching-label"
@@ -251,40 +251,40 @@
 				{#if callingPatchEndpoint}
 					<LoaderCircle class="animate-spin" />
 				{:else}
-					{!mesocycle.startDate ? 'Start mesocycle' : 'Stop mesocycle'}
+					{!mesocycle.startDate ? 'Iniciar mesociclo' : 'Detener mesociclo'}
 				{/if}
 			</Button>
 		</Card.Footer>
 	{/if}
 </Card.Root>
 
-<ResponsiveDialog title="Delete mesocycle?" bind:open={deleteConfirmDrawerOpen}>
+<ResponsiveDialog title="¿Eliminar mesociclo?" bind:open={deleteConfirmDrawerOpen}>
 	{#snippet description()}
-		This action cannot be undone.
+		Esta acción no se puede deshacer.
 	{/snippet}
 	<Button class="gap-2" disabled={callingDeleteEndpoint} onclick={deleteMesocycle} variant="destructive">
 		{#if callingDeleteEndpoint}
 			<LoaderCircle class="animate-spin" />
 		{:else}
-			Yes, delete
+			Sí, eliminar
 		{/if}
 	</Button>
 </ResponsiveDialog>
 
-<ResponsiveDialog title="Extract split?" bind:open={extractSplitConfirmDrawerOpen}>
+<ResponsiveDialog title="¿Extraer split?" bind:open={extractSplitConfirmDrawerOpen}>
 	{#snippet description()}
-		Extract the mesocycle's exercise split into an independent exercise split
+		Extrae el split de ejercicios del mesociclo en un split de ejercicios independiente
 	{/snippet}
 	<form class="contents" onsubmit={extractExerciseSplit}>
 		<div class="flex w-full max-w-sm flex-col gap-1.5">
-			<Label for="extracted-split-name">Exercise split name</Label>
-			<Input id="extracted-split-name" placeholder="Type here" required bind:value={extractedExerciseSplitName} />
+			<Label for="extracted-split-name">Nombre del split de ejercicios</Label>
+			<Input id="extracted-split-name" placeholder="Escribe aquí" required bind:value={extractedExerciseSplitName} />
 		</div>
 		<Button class="gap-2" disabled={callingCreateExerciseSplitEndpoint} type="submit">
 			{#if callingCreateExerciseSplitEndpoint}
 				<LoaderCircle class="animate-spin" />
 			{:else}
-				Yes, extract
+				Sí, extraer
 			{/if}
 		</Button>
 	</form>

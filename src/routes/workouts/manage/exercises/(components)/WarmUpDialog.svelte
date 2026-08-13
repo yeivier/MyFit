@@ -63,41 +63,47 @@
 <Sheet.Root bind:open={workoutRunes.exerciseWarmUpDialogOpen}>
 	<Sheet.Content class="w-5/6">
 		<Sheet.Header>
-			<Sheet.Title>Warm up</Sheet.Title>
+			<Sheet.Title>Calentamiento</Sheet.Title>
 			<Sheet.Description>{exercise?.name}</Sheet.Description>
 		</Sheet.Header>
 		{#if exercise}
 			<form class="grid gap-2 py-4" onsubmit={generateWarmUp}>
 				<div class="flex w-full max-w-sm flex-col gap-1.5">
-					<Label for="one-rep-max">One rep max</Label>
-					<Input required id="one-rep-max" type="number" step={0.25} placeholder="Type here" bind:value={oneRepMax} />
+					<Label for="one-rep-max">Repetición máxima (1RM)</Label>
+					<Input required id="one-rep-max" type="number" step={0.25} placeholder="Escribe aquí" bind:value={oneRepMax} />
 				</div>
 				<div class="flex w-full max-w-sm flex-col gap-1.5">
-					<Label for="total-warm-up-sets">Total warm-up sets</Label>
-					<Input required id="total-warm-up-sets" type="number" placeholder="Type here" bind:value={totalWarmUpSets} />
+					<Label for="total-warm-up-sets">Total de series de calentamiento</Label>
+					<Input
+						required
+						id="total-warm-up-sets"
+						type="number"
+						placeholder="Escribe aquí"
+						bind:value={totalWarmUpSets}
+					/>
 				</div>
 				<Popover.Root bind:open={oneRepMaxCalculatorOpen} onOpenChange={(v) => (oneRepMaxCalculatorOpen = v)}>
 					<Popover.Trigger asChild let:builder>
 						<Button variant="secondary" builders={[builder]} class="gap-2">
-							1-RM calculator
+							Calculadora de 1RM
 							<CalculatorIcon />
 						</Button>
 					</Popover.Trigger>
 					<Popover.Content>
 						<form onsubmit={submitOneRepMax} class="grid grid-cols-2 gap-1">
 							<div class="flex w-full max-w-sm flex-col gap-1.5">
-								<Label for="weight">Weight</Label>
-								<Input required id="weight" type="number" step={0.25} placeholder="Type here" bind:value={weight} />
+								<Label for="weight">Peso</Label>
+								<Input required id="weight" type="number" step={0.25} placeholder="Escribe aquí" bind:value={weight} />
 							</div>
 							<div class="flex w-full max-w-sm flex-col gap-1.5">
 								<Label for="reps">Reps</Label>
-								<Input required id="reps" type="number" placeholder="Type here" bind:value={reps} />
+								<Input required id="reps" type="number" placeholder="Escribe aquí" bind:value={reps} />
 							</div>
-							<Button type="submit" class="col-span-full">Calculate</Button>
+							<Button type="submit" class="col-span-full">Calcular</Button>
 						</form>
 					</Popover.Content>
 				</Popover.Root>
-				<Button type="submit">Generate warm up</Button>
+				<Button type="submit">Generar calentamiento</Button>
 			</form>
 		{/if}
 		{#if warmUpSets}
@@ -106,7 +112,7 @@
 					<Table.Row>
 						<Table.Head></Table.Head>
 						<Table.Head>Reps</Table.Head>
-						<Table.Head>Load</Table.Head>
+						<Table.Head>Peso</Table.Head>
 						<Table.Head>%RM</Table.Head>
 					</Table.Row>
 				</Table.Header>

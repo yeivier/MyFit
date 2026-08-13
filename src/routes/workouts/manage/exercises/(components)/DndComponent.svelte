@@ -39,7 +39,7 @@
 			{/if}
 		</div>
 	{:else}
-		<div class="flex flex-col p-2 border rounded-md text-muted-foreground">No exercises added</div>
+		<div class="flex flex-col p-2 border rounded-md text-muted-foreground">No se agregaron ejercicios</div>
 	{/each}
 </div>
 

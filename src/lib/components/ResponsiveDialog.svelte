@@ -92,7 +92,7 @@
 			</div>
 			<Drawer.Footer class="my-0 shrink pt-2">
 				<Drawer.Close asChild let:builder>
-					<Button builders={[builder]} variant={cancelButtonVariant}>Cancel</Button>
+					<Button builders={[builder]} variant={cancelButtonVariant}>Cancelar</Button>
 				</Drawer.Close>
 			</Drawer.Footer>
 		</Drawer.Content>

@@ -28,22 +28,22 @@
 		if (serverMesocycle) {
 			mesocycle = serverMesocycle;
 		} else {
-			toast.error('Mesocycle not found');
+			toast.error('Mesociclo no encontrado');
 		}
 	});
 </script>
 
-<H2 showChartIcon bind:chartMode>View mesocycle</H2>
+<H2 showChartIcon bind:chartMode>Ver mesociclo</H2>
 
 {#if mesocycle === 'loading'}
 	<MesocycleSkeleton />
 {:else}
 	<Tabs.Root class="flex w-full grow flex-col" bind:value={selectedTabValue}>
 		<Tabs.List class="grid grid-cols-4">
-			<Tabs.Trigger value="basics">Basics</Tabs.Trigger>
+			<Tabs.Trigger value="basics">Básicos</Tabs.Trigger>
 			<Tabs.Trigger value="split">Split</Tabs.Trigger>
-			<Tabs.Trigger value="volume">Volume</Tabs.Trigger>
-			<Tabs.Trigger value="workouts">Workouts</Tabs.Trigger>
+			<Tabs.Trigger value="volume">Volumen</Tabs.Trigger>
+			<Tabs.Trigger value="workouts">Entrenamientos</Tabs.Trigger>
 		</Tabs.List>
 		<Tabs.Content value="basics">
 			{#if !chartMode}
@@ -82,8 +82,8 @@
 	</Tabs.Root>
 {/if}
 
-<ResponsiveDialog open={completion} title="Congratulations! 🎉">
+<ResponsiveDialog open={completion} title="¡Felicidades! 🎉">
 	{#snippet description()}
-		You have successfully completed this mesocycle
+		Completaste este mesociclo exitosamente
 	{/snippet}
 </ResponsiveDialog>

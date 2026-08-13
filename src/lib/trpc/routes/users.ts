@@ -36,22 +36,22 @@ async function getPrismaAndMongoUser(userId: string) {
 		select: { email: true, accounts: { select: { providerAccountId: true } }, migratedFromV2: true }
 	});
 	if (!prismaUser) {
-		throw new TRPCError({ message: 'User not found in current database', code: 'BAD_REQUEST' });
+		throw new TRPCError({ message: 'Usuario no encontrado en la base de datos actual', code: 'BAD_REQUEST' });
 	}
 
 	if (prismaUser.migratedFromV2) {
-		throw new TRPCError({ message: 'Migration has already been performed', code: 'CONFLICT' });
+		throw new TRPCError({ message: 'La migración ya se realizó', code: 'CONFLICT' });
 	}
 
 	if (!clientPromise) {
-		throw new TRPCError({ message: "Couldn't connect V2's Mongo database", code: 'INTERNAL_SERVER_ERROR' });
+		throw new TRPCError({ message: 'No se pudo conectar a la base de datos Mongo de V2', code: 'INTERNAL_SERVER_ERROR' });
 	}
 
 	const client = await clientPromise;
 	const mongoUser = await client.db().collection('users').findOne({ email: prismaUser?.email });
 	if (!mongoUser) {
 		throw new TRPCError({
-			message: 'User not found in old database, did you login with the same email?',
+			message: 'Usuario no encontrado en la base de datos anterior, ¿iniciaste sesión con el mismo correo?',
 			code: 'NOT_FOUND'
 		});
 	}
@@ -62,7 +62,7 @@ async function getPrismaAndMongoUser(userId: string) {
 		.findOne({ providerAccountId: { $in: prismaUser.accounts.map((account) => account.providerAccountId) } });
 	if (!mongoAccount) {
 		throw new TRPCError({
-			message: 'Account not found in old database, did you login with the same provider (Google, GitHub)?',
+			message: 'Cuenta no encontrada en la base de datos anterior, ¿iniciaste sesión con el mismo proveedor (Google, GitHub)?',
 			code: 'NOT_FOUND'
 		});
 	}
@@ -73,7 +73,7 @@ async function getPrismaAndMongoUser(userId: string) {
 		.findOne({ userId: mongoUser._id, endTimestamp: { $exists: false } });
 	if (activeMesocycle) {
 		throw new TRPCError({
-			message: `A mesocycle is active in your V2 account, try again after stopping/finishing it.`,
+			message: `Tenés un mesociclo activo en tu cuenta V2, intentá de nuevo después de detenerlo o finalizarlo.`,
 			code: 'BAD_REQUEST'
 		});
 	}
@@ -103,7 +103,7 @@ export const users = t.router({
 		try {
 			const { mongoUser } = await getPrismaAndMongoUser(ctx.userId);
 			if (!clientPromise) {
-				throw new TRPCError({ message: "Couldn't connect V2's Mongo database", code: 'INTERNAL_SERVER_ERROR' });
+				throw new TRPCError({ message: 'No se pudo conectar a la base de datos Mongo de V2', code: 'INTERNAL_SERVER_ERROR' });
 			}
 			const client = await clientPromise;
 
@@ -127,7 +127,7 @@ export const users = t.router({
 			if (error instanceof TRPCError) {
 				return error.message;
 			}
-			return 'Internal server error';
+			return 'Error interno del servidor';
 		}
 	}),
 
@@ -136,7 +136,7 @@ export const users = t.router({
 		.mutation(async ({ ctx, input }) => {
 			const { mongoUser } = await getPrismaAndMongoUser(ctx.userId);
 			if (!clientPromise) {
-				throw new TRPCError({ message: "Couldn't connect V2's Mongo database", code: 'INTERNAL_SERVER_ERROR' });
+				throw new TRPCError({ message: 'No se pudo conectar a la base de datos Mongo de V2', code: 'INTERNAL_SERVER_ERROR' });
 			}
 
 			const client = await clientPromise;

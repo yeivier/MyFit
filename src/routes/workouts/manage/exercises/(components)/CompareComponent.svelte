@@ -82,10 +82,10 @@
 	<div class="custom-grid grid grid-cols-4 place-items-center gap-y-2">
 		<span class="text-sm font-medium">Reps</span>
 		<span class="text-sm font-medium">
-			Load
+			Peso
 			{#if exercise.bodyweightFraction !== null}
 				<Popover.Root>
-					<Popover.Trigger class="text-xs font-semibold text-muted-foreground underline">(BW)</Popover.Trigger>
+					<Popover.Trigger class="text-xs font-semibold text-muted-foreground underline">(PC)</Popover.Trigger>
 					<Popover.Content class="w-48 text-center text-base">
 						<span class="text-muted-foreground">
 							{workoutRunes.previousWorkoutData?.userBodyweight} -&gt;
@@ -178,7 +178,7 @@
 						</span>
 					{:else}
 						<Separator />
-						<span class="text-center text-sm text-muted-foreground">new mini set</span>
+						<span class="text-center text-sm text-muted-foreground">mini serie nueva</span>
 						<Separator />
 						<span></span>
 					{/if}
@@ -187,11 +187,11 @@
 				<Separator />
 				<span class="text-center text-sm text-muted-foreground">
 					{#if set.skipped}
-						skipped
+						omitida
 					{:else if prevSet?.skipped}
-						skipped last time
+						omitida la última vez
 					{:else}
-						new set
+						serie nueva
 					{/if}
 				</span>
 				<Separator />
@@ -200,7 +200,7 @@
 		{/each}
 	</div>
 {:else}
-	<span class="text-center text-sm">Reference exercise not found</span>
+	<span class="text-center text-sm">Ejercicio de referencia no encontrado</span>
 {/if}
 
 <style lang="postcss">

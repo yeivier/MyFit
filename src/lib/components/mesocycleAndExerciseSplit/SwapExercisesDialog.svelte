@@ -23,31 +23,31 @@
 	}
 </script>
 
-<ResponsiveDialog title="Swap exercises" bind:open>
+<ResponsiveDialog title="Intercambiar ejercicios" bind:open>
 	{#snippet description()}
-		Swap <span class="font-semibold">
+		Intercambiar los ejercicios de <span class="font-semibold">
 			{splitDays[selectedSplitDayIndex].name}
-			<span class="text-muted-foreground">(Day {selectedSplitDayIndex + 1})</span>
-		</span> exercises with:
+			<span class="text-muted-foreground">(Día {selectedSplitDayIndex + 1})</span>
+		</span> con:
 	{/snippet}
 	<form class="flex w-full gap-2" onsubmit={startSwap}>
 		<Select.Root required bind:selected={swapExercisesFrom}>
 			<Select.Trigger class="grow">
-				<Select.Value placeholder="Select one" />
+				<Select.Value placeholder="Elegí uno" />
 			</Select.Trigger>
 			<Select.Content>
 				{#each splitDays as splitDay, idx}
 					{@const isSelectedDay = idx === selectedSplitDayIndex}
 					{#if !splitDay.isRestDay}
 						<Select.Item class={cn({ 'text-primary': isSelectedDay })} disabled={isSelectedDay} value={idx}>
-							{splitDay.name} (Day {idx + 1})
+							{splitDay.name} (Día {idx + 1})
 						</Select.Item>
 					{:else if splitDay}
-						<Select.Item disabled value={idx}>Rest (Day {idx + 1})</Select.Item>
+						<Select.Item disabled value={idx}>Descanso (Día {idx + 1})</Select.Item>
 					{/if}
 				{/each}
 			</Select.Content>
 		</Select.Root>
-		<Button class="shrink-0" type="submit">Swap exercises</Button>
+		<Button class="shrink-0" type="submit">Intercambiar ejercicios</Button>
 	</form>
 </ResponsiveDialog>

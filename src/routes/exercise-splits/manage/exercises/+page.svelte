@@ -27,8 +27,8 @@
 			return !splitDay.isRestDay && exerciseSplitRunes.splitExercises[idx].length === 0;
 		});
 		if (noExerciseAddedDays.length > 0) {
-			toast.error(`Add at least one exercise to each workout`, {
-				description: `Missing in: ${noExerciseAddedDays.map((splitDay) => splitDay.name).join(', ')}`
+			toast.error(`Agrega al menos un ejercicio a cada entrenamiento`, {
+				description: `Falta en: ${noExerciseAddedDays.map((splitDay) => splitDay.name).join(', ')}`
 			});
 			return;
 		}
@@ -36,7 +36,7 @@
 	}
 </script>
 
-<H3>Exercises</H3>
+<H3>Ejercicios</H3>
 <Tabs.Root
 	class="flex w-full grow flex-col"
 	onValueChange={(v) => {
@@ -50,7 +50,7 @@
 		{#each exerciseSplitRunes.splitExercises as _, idx}
 			{@const { name, isRestDay } = exerciseSplitRunes.splitDays[idx]}
 			<Tabs.Trigger class="px-4" disabled={isRestDay} value={name}>
-				{name !== '' ? name : 'Rest'}
+				{name !== '' ? name : 'Descanso'}
 			</Tabs.Trigger>
 		{/each}
 	</Tabs.List>
@@ -60,7 +60,7 @@
 				<div class="mr-auto flex flex-col">
 					<span class="text-xl font-semibold">{splitDayName}</span>
 					<span class="font-medium text-muted-foreground">
-						Day {exerciseSplitRunes.selectedSplitDayIndex + 1}
+						Día {exerciseSplitRunes.selectedSplitDayIndex + 1}
 					</span>
 				</div>
 				<AddEditExerciseDrawer
@@ -90,24 +90,24 @@
 								disabled={selectedSplitDayExercises.length === 0}
 								onclick={exerciseSplitRunes.cutExercises}
 							>
-								<CutIcon /> Cut
+								<CutIcon /> Cortar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item
 								class="gap-2"
 								disabled={selectedSplitDayExercises.length === 0}
 								onclick={exerciseSplitRunes.copyExercises}
 							>
-								<CopyIcon /> Copy
+								<CopyIcon /> Copiar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item
 								class="gap-2"
 								disabled={exerciseSplitRunes.copiedExercises === undefined}
 								onclick={exerciseSplitRunes.pasteExercises}
 							>
-								<PasteIcon /> Paste
+								<PasteIcon /> Pegar
 							</DropdownMenu.Item>
 							<DropdownMenu.Item class="gap-2" onclick={() => (swapDialogOpen = true)}>
-								<SwapIcon /> Swap
+								<SwapIcon /> Intercambiar
 							</DropdownMenu.Item>
 						</DropdownMenu.Group>
 					</DropdownMenu.Content>
@@ -127,8 +127,8 @@
 </Tabs.Root>
 
 <div class="mt-2 grid grid-cols-2 gap-1">
-	<Button href="./structure" variant="secondary">Previous</Button>
-	<Button onclick={submitExercises}>Next</Button>
+	<Button href="./structure" variant="secondary">Anterior</Button>
+	<Button onclick={submitExercises}>Siguiente</Button>
 </div>
 
 <SwapExercisesDialog

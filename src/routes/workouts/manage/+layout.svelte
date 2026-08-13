@@ -8,5 +8,5 @@
 	let editing = $derived(workoutRunes.editingWorkoutId !== null);
 </script>
 
-<H2>{editing ? 'Edit' : 'New'} workout</H2>
+<H2>{editing ? 'Editar' : 'Nuevo'} entrenamiento</H2>
 {@render children(data)}

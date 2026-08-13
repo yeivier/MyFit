@@ -74,18 +74,18 @@
 		if (totalSets === null || completedSets === null) return;
 		if (workoutExercises === null) return;
 		if (workoutExercises.length === 0) {
-			toast.error('Add at least one exercise');
+			toast.error('Agrega al menos un ejercicio');
 			return;
 		}
 		if (completedSets < totalSets) {
-			toast.error('Complete all sets to proceed');
+			toast.error('Completa todas las series para continuar');
 			return;
 		}
 		goto('./overview');
 	}
 </script>
 
-<H3>Exercises</H3>
+<H3>Ejercicios</H3>
 
 {#if workoutData !== null}
 	<div class="flex items-end">
@@ -95,8 +95,9 @@
 					{workoutData.workoutOfMesocycle.splitDayName}
 				</span>
 				<span class="flex items-center gap-2 text-sm text-muted-foreground">
-					Day {workoutData.workoutOfMesocycle?.splitDayIndex + 1}, Cycle {workoutData.workoutOfMesocycle?.cycleNumber}
-					<InfoPopover align="center" ariaLabel="mesocycle-info">
+					Día {workoutData.workoutOfMesocycle?.splitDayIndex + 1}, Ciclo {workoutData.workoutOfMesocycle
+						?.cycleNumber}
+					<InfoPopover align="center" ariaLabel="informacion-mesociclo">
 						<span class="text-sm text-foreground">
 							<p class="font-semibold">{workoutData.workoutOfMesocycle.mesocycle.name}</p>
 							{getFormattedDate(workoutData.startedAt)}
@@ -108,13 +109,13 @@
 					{getFormattedDate(workoutData.startedAt)}
 				</span>
 				<p class="text-sm text-muted-foreground">
-					{workoutRunes.editingWorkoutId === null ? 'Without mesocycle' : 'Edit mode'}
+					{workoutRunes.editingWorkoutId === null ? 'Sin mesociclo' : 'Modo edición'}
 				</p>
 			{/if}
 		</div>
 		<div class="grid grid-cols-4 gap-1">
 			<Button
-				aria-label="reorder-toggle"
+				aria-label="alternar-reordenar"
 				disabled={comparing}
 				onclick={() => (reordering = !reordering)}
 				size="icon"
@@ -127,7 +128,7 @@
 				{/if}
 			</Button>
 			<Button
-				aria-label="compare-exercises"
+				aria-label="comparar-ejercicios"
 				disabled={reordering || workoutRunes.editingWorkoutId !== null}
 				onclick={() => (comparing = !comparing)}
 				size="icon"
@@ -159,7 +160,7 @@
 
 {#if workoutRunes.workoutExercises === null}
 	<div class="flex h-full w-full items-center justify-center text-muted-foreground">
-		Fetching exercises
+		Cargando ejercicios
 		<LoaderCircle class="ml-2 animate-spin" />
 	</div>
 {:else}
@@ -169,8 +170,8 @@
 {/if}
 
 <div class="mt-2 grid grid-cols-2 gap-1">
-	<Button href="./start" variant="secondary">Previous</Button>
-	<Button onclick={submitWorkoutExercises}>Next</Button>
+	<Button href="./start" variant="secondary">Anterior</Button>
+	<Button onclick={submitWorkoutExercises}>Siguiente</Button>
 </div>
 
 <ExerciseHistorySheet />

@@ -42,7 +42,7 @@
 		if (Notification.permission !== 'granted') {
 			Notification.requestPermission().then((result) => {
 				settingsRunes.pushNotificationsEnabled = result === 'granted';
-				if (result === 'denied') toast.error('Permission denied');
+				if (result === 'denied') toast.error('Permiso denegado');
 			});
 		} else settingsRunes.pushNotificationsEnabled = true;
 	}
@@ -50,10 +50,10 @@
 	function clearAllNotifications() {
 		try {
 			settingsRunes.clearAllNotifications();
-			toast.success('All notifications cleared');
+			toast.success('Se borraron todas las notificaciones');
 		} catch (error) {
 			console.error('Failed to clear notifications:', error);
-			toast.error('Failed to clear notifications');
+			toast.error('No se pudieron borrar las notificaciones');
 		}
 	}
 
@@ -68,24 +68,24 @@
 			if (modes) quotesDisplayModes = modes;
 		} catch (error) {
 			console.error('Failed to update settings:', error);
-			toast.error('Failed to update settings');
+			toast.error('No se pudieron actualizar los ajustes');
 			throw error;
 		}
 	};
 </script>
 
-<H2>Settings</H2>
+<H2>Ajustes</H2>
 
 <div class="space-y-6">
 	<Card.Root class="w-full">
 		<Card.Header>
-			<Card.Title>Notifications</Card.Title>
+			<Card.Title>Notificaciones</Card.Title>
 		</Card.Header>
 		<Card.Content class="grid gap-4">
 			<div class="flex items-center space-x-4 rounded-md border p-4">
 				<BellRing />
 				<div class="flex-1 space-y-1">
-					<p class="text-sm font-medium leading-none">Push Notifications</p>
+					<p class="text-sm font-medium leading-none">Notificaciones push</p>
 				</div>
 				<Switch
 					name="enable-push-notifications"
@@ -121,14 +121,14 @@
 					</div>
 				{:else}
 					<div class="rounded-md bg-muted/50 p-4 text-center text-sm text-muted-foreground">
-						No notifications to show
+						No hay notificaciones para mostrar
 					</div>
 				{/each}
 			</div>
 		</Card.Content>
 		<Card.Footer>
 			<Button class="w-full gap-2" onclick={clearAllNotifications}>
-				Clear all <ClearIcon />
+				Borrar todas <ClearIcon />
 			</Button>
 		</Card.Footer>
 	</Card.Root>
@@ -138,13 +138,13 @@
 			<Card.Header class="pb-2">
 				<Card.Title class="flex items-center gap-2 text-lg font-semibold text-destructive">
 					<Bug class="h-5 w-5" />
-					Failed to Load Settings
+					No se pudieron cargar los ajustes
 				</Card.Title>
 			</Card.Header>
 
 			<Card.Content class="space-y-4">
 				<p class="text-sm text-muted-foreground">
-					We couldn't load your quote settings. You can try again or check your connection.
+					No pudimos cargar tus ajustes de frases. Puedes intentarlo de nuevo o revisar tu conexión.
 				</p>
 				<Button
 					variant="default"
@@ -154,7 +154,7 @@
 					}}
 				>
 					<RefreshCcw class="mr-2 h-4 w-4" />
-					Retry
+					Reintentar
 				</Button>
 			</Card.Content>
 		</Card.Root>
