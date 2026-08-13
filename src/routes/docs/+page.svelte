@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Docs - MyFit</title>
+	<title>Documentación - MyFit</title>
 	<meta name="description" content="Lee la documentación de MyFit para aprender a usar la app de forma efectiva." />
 </svelte:head>
 

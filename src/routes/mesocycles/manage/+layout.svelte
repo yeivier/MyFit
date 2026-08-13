@@ -5,5 +5,5 @@
 	const { children } = $props();
 </script>
 
-<H2>{mesocycleRunes.editingMesocycleId ? 'Edit' : 'New'} mesocycle</H2>
+<H2>{mesocycleRunes.editingMesocycleId ? 'Editar' : 'Nuevo'} mesociclo</H2>
 {@render children()}

@@ -26,7 +26,7 @@ export default defineConfig({
 				background_color: '#0a0a0a',
 				theme_color: '#3079ca',
 				orientation: 'portrait',
-				description: "A fitness app with all the logging and tracking options you'll ever need",
+				description: 'Una app de fitness con todas las opciones de registro y seguimiento que necesitarás',
 				icons: [
 					{
 						src: 'maskable_icon_x192.png',

@@ -59,12 +59,12 @@
 	}
 </script>
 
-<H3>Basics</H3>
+<H3>Básicos</H3>
 
 <form class="flex grow flex-col gap-2" onsubmit={saveBasics}>
 	<div class="flex w-full flex-col gap-1.5">
-		<Label for="mesocycle-name">Mesocycle name</Label>
-		<Input id="mesocycle-name" placeholder="Type here" required bind:value={mesocycleRunes.mesocycle.name} />
+		<Label for="mesocycle-name">Nombre del mesociclo</Label>
+		<Input id="mesocycle-name" placeholder="Escribe aquí" required bind:value={mesocycleRunes.mesocycle.name} />
 	</div>
 
 	<div class="flex gap-2">
@@ -78,9 +78,9 @@
 				}}
 				selected={selectedRIRs.map((rir) => ({ value: rir, label: `${rir} RIR` }))}
 			>
-				<Select.Label class="p-0 text-sm font-medium leading-none">Select RIRs</Select.Label>
+				<Select.Label class="p-0 text-sm font-medium leading-none">Selecciona RIR</Select.Label>
 				<Select.Trigger>
-					<Select.Value placeholder="Select RIRs" />
+					<Select.Value placeholder="Selecciona RIR" />
 				</Select.Trigger>
 				<Select.Content>
 					<Select.Group>
@@ -94,7 +94,7 @@
 			</Select.Root>
 		</div>
 		<div class="flex basis-1/2 flex-col gap-1.5">
-			<Label for="mesocycle-duration">Mesocycle duration</Label>
+			<Label for="mesocycle-duration">Duración del mesociclo</Label>
 			<Input
 				id="mesocycle-duration"
 				max={20}
@@ -103,7 +103,7 @@
 					totalDuration = e.currentTarget.valueAsNumber;
 					if (!isNaN(totalDuration)) generateRIRDistribution(selectedRIRs, totalDuration);
 				}}
-				placeholder="Type here"
+				placeholder="Escribe aquí"
 				required
 				type="number"
 				value={totalDuration}
@@ -111,7 +111,7 @@
 		</div>
 	</div>
 
-	<span class="text-sm font-medium leading-none">RIR progression</span>
+	<span class="text-sm font-medium leading-none">Progresión de RIR</span>
 	<Resizable.PaneGroup class="rounded-lg border" direction="vertical">
 		{#each selectedRIRs as rir, idx}
 			{#key selectedRIRs.join(',') + totalDuration}
@@ -126,7 +126,7 @@
 				>
 					<div class="flex h-full items-center justify-between px-4">
 						<span class="text-center font-semibold">{rir} RIR</span>
-						<span class="text-center text-sm text-muted-foreground">{RIRProgression[rir] || 0} cycles</span>
+						<span class="text-center text-sm text-muted-foreground">{RIRProgression[rir] || 0} ciclos</span>
 					</div>
 				</Resizable.Pane>
 			{/key}
@@ -142,5 +142,5 @@
 		{/each}
 	</Resizable.PaneGroup>
 
-	<Button type="submit">Next</Button>
+	<Button type="submit">Siguiente</Button>
 </form>

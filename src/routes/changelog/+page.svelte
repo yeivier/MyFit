@@ -8,11 +8,11 @@
 </script>
 
 <svelte:head>
-	<title>Changelog - MyFit</title>
+	<title>Registro de cambios - MyFit</title>
 	<meta name="description" content="Descubre las novedades de MyFit con actualizaciones y mejoras regulares." />
 </svelte:head>
 
-<H2>Changelog</H2>
+<H2>Registro de cambios</H2>
 {#each data.releases as { body }, idx}
 	<article class="prose prose-sm dark:prose-invert md:prose-base">
 		{#await marked.parse(body) then body}

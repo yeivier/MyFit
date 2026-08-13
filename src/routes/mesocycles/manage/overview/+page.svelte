@@ -82,13 +82,13 @@
 	}
 </script>
 
-<H3>Overview</H3>
+<H3>Resumen</H3>
 
 {#if mesocycleRunes.editingMesocycleId === null}
 	<Card.Root class="p-4">
 		<div class="grid grid-cols-2">
 			<div class="flex items-center">
-				<Label for="start-mesocycle-immediately">Start immediately</Label>
+				<Label for="start-mesocycle-immediately">Empezar inmediatamente</Label>
 			</div>
 			{#await data.activeMesocycle}
 				<Skeleton class="switch-skeleton" />
@@ -102,7 +102,7 @@
 				/>
 				{#if activeMesocycle !== null}
 					<span class="col-span-2 text-sm text-muted-foreground">
-						<b>{activeMesocycle.name}</b> is already active
+						<b>{activeMesocycle.name}</b> ya está activo
 					</span>
 				{/if}
 			{/await}
@@ -115,12 +115,12 @@
 </Card.Root>
 
 <div class="mt-auto grid grid-cols-2 gap-1">
-	<Button onclick={() => window.history.back()} variant="secondary">Previous</Button>
+	<Button onclick={() => window.history.back()} variant="secondary">Anterior</Button>
 	<Button disabled={savingMesocycle} onclick={createOrEditMesocycle}>
 		{#if savingMesocycle}
 			<LoaderCircle class="animate-spin" />
 		{:else}
-			Save
+			Guardar
 		{/if}
 	</Button>
 </div>

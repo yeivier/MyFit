@@ -20,8 +20,8 @@
 
 	async function submitStructure(warningAcknowledged = false) {
 		if (!mesocycleExerciseSplitRunes.validateSplitStructure()) {
-			toast.error('Workout names should be unique', {
-				description: 'For example: Push A, Push B'
+			toast.error('Los nombres de los entrenamientos deben ser únicos', {
+				description: 'Por ejemplo: Push A, Push B'
 			});
 			return;
 		}
@@ -36,7 +36,7 @@
 	}
 </script>
 
-<H3>Structure</H3>
+<H3>Estructura</H3>
 <form
 	id="exercise-split-structure-form"
 	class="contents"
@@ -45,7 +45,7 @@
 		submitStructure();
 	}}
 >
-	<span class="mb-1.5 text-sm font-medium">Exercise split structure</span>
+	<span class="mb-1.5 text-sm font-medium">Estructura del split de ejercicios</span>
 	<Table.Root>
 		<Table.Header class="border-t">
 			<Table.Row>
@@ -59,12 +59,13 @@
 							<LockIcon class="h-4 w-4" />
 						</Popover.Trigger>
 						<Popover.Content class="w-60 text-sm" align="start">
-							Cannot change the length or rest days of the mesocycle's exercise split after workouts have been added
+							No se puede cambiar la duración ni los días de descanso del split del mesociclo después de agregar
+							entrenamientos
 						</Popover.Content>
 					</Popover.Root>
 				</Table.Head>
-				<Table.Head>Name</Table.Head>
-				<Table.Head class="text-center">Rest</Table.Head>
+				<Table.Head>Nombre</Table.Head>
+				<Table.Head class="text-center">Descanso</Table.Head>
 			</Table.Row>
 		</Table.Header>
 		<Table.Body>
@@ -75,7 +76,7 @@
 						<Input
 							id="exercise-split-day-{dayNumber + 1}-name"
 							disabled={splitDay.isRestDay}
-							placeholder={splitDay.isRestDay ? 'Rest' : `Day ${dayNumber + 1}`}
+							placeholder={splitDay.isRestDay ? 'Descanso' : `Día ${dayNumber + 1}`}
 							required
 							bind:value={splitDay.name}
 						/>
@@ -103,7 +104,7 @@
 		onclick={mesocycleExerciseSplitRunes.removeSplitDay}
 		variant="secondary"
 	>
-		<RemoveIcon /> Remove
+		<RemoveIcon /> Quitar
 	</Button>
 	<Button
 		class="gap-2"
@@ -111,17 +112,17 @@
 		disabled={exerciseSplitLocked}
 		variant="secondary"
 	>
-		<AddIcon /> Add
+		<AddIcon /> Agregar
 	</Button>
 </div>
-<Button form="exercise-split-structure-form" type="submit">Next</Button>
+<Button form="exercise-split-structure-form" type="submit">Siguiente</Button>
 
-<ResponsiveDialog title="Warning" bind:open={warningDialogOpen}>
+<ResponsiveDialog title="Advertencia" bind:open={warningDialogOpen}>
 	{#snippet description()}
-		You'll lose exercise data from the following days:
+		Perderás los datos de ejercicios de los siguientes días:
 		<span class="font-semibold text-yellow-500">
-			{dataLossDays.map((day) => `Day ${day + 1}`).join(', ')}
-		</span>. Continue?
+			{dataLossDays.map((day) => `Día ${day + 1}`).join(', ')}
+		</span>. ¿Continuar?
 	{/snippet}
-	<Button onclick={() => submitStructure(true)} variant="destructive">Continue</Button>
+	<Button onclick={() => submitStructure(true)} variant="destructive">Continuar</Button>
 </ResponsiveDialog>

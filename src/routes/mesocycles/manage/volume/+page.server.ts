@@ -7,7 +7,7 @@ export const load = async (event) => {
 	if (editing) return { editing };
 
 	const exerciseSplitId = event.url.searchParams.get('exerciseSplitId');
-	if (!exerciseSplitId) error(400, 'No exercise split ID given');
+	if (!exerciseSplitId) error(400, 'No se indicó el ID del split de ejercicios');
 
 	const trpc = createCaller(await createContext(event));
 	const exerciseSplit = trpc.exerciseSplits.findById(exerciseSplitId);

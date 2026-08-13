@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>Terms of Service - MyFit</title>
+	<title>Términos de servicio - MyFit</title>
 	<meta name="description" content="Términos de Servicio y avisos legales de la aplicación de seguimiento de entrenamientos MyFit." />
 </svelte:head>
 

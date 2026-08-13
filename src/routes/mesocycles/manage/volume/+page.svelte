@@ -17,7 +17,7 @@
 		if (data.editing) return;
 		const serverExerciseSplit = await data.exerciseSplit;
 		if (!serverExerciseSplit) {
-			toast.error('Exercise split not found');
+			toast.error('No se encontró el split de ejercicios');
 			return;
 		} else if (mesocycleRunes.selectedExerciseSplit?.id !== serverExerciseSplit.id) {
 			mesocycleRunes.selectedExerciseSplit = serverExerciseSplit;
@@ -31,18 +31,18 @@
 	}
 </script>
 
-<H3>Volume</H3>
+<H3>Volumen</H3>
 {#if exerciseSplit !== 'loading' || data.editing}
 	<ScrollArea class="h-px grow" orientation="both">
 		<MesocycleStartVolumesSetupTable />
 	</ScrollArea>
 	<div class="grid grid-cols-2 gap-1">
-		<Button href="./progression" variant="secondary">Previous</Button>
-		<Button onclick={submitVolume}>Next</Button>
+		<Button href="./progression" variant="secondary">Anterior</Button>
+		<Button onclick={submitVolume}>Siguiente</Button>
 	</div>
 {:else}
 	<div class="flex h-full w-full items-center justify-center text-muted-foreground">
-		Fetching exercises
+		Cargando ejercicios
 		<LoaderCircle class="ml-2 animate-spin" />
 	</div>
 {/if}

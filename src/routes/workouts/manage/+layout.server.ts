@@ -44,7 +44,7 @@ export const load: LayoutServerLoad = async (event) => {
 				motivationalQuotesEnabled: false,
 				quotesDisplayModes: [QuotesDisplayModeSchema.Values.PRE_WORKOUT as QuotesDisplayMode]
 			},
-			errorMessage: error instanceof Error ? error.message : 'Failed to load settings'
+			errorMessage: error instanceof Error ? error.message : 'No se pudo cargar la configuración'
 		};
 	}
 };

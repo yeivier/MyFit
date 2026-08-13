@@ -108,7 +108,7 @@
 	async function completeWorkout(workoutStatus: WorkoutStatus, force = false) {
 		if (workoutData === 'loading') return;
 		if (typeof userBodyweight !== 'number') {
-			toast.error('Enter your bodyweight');
+			toast.error('Ingresa tu peso corporal');
 			return;
 		}
 		if (workoutRunes.workoutExercises !== null && !force) {
@@ -142,7 +142,7 @@
 	}
 </script>
 
-<H3>Start</H3>
+<H3>Empezar</H3>
 
 {#if shouldShowQuote}
 	<Quotes mode="PRE_WORKOUT" class="mb-1" />
@@ -157,15 +157,15 @@
 	{#if workoutData.isLastWorkout}
 		<Card.Root class="mb-1">
 			<Card.Header>
-				<Card.Title>Last workout for the mesocycle &nbsp;🎉</Card.Title>
+				<Card.Title>Último entrenamiento del mesociclo &nbsp;🎉</Card.Title>
 				<Card.Description>
-					If you complete this workout, this mesocycle will be marked as completed and you'll have to start a new one to
-					continue training. If you don't want to go through that hassle, you can edit the duration and extend it now.
+					Si completas este entrenamiento, el mesociclo se marcará como finalizado y tendrás que empezar uno nuevo para
+					seguir entrenando. Si no quieres pasar por eso, puedes editar la duración y extenderlo ahora.
 				</Card.Description>
 			</Card.Header>
 			<Card.Footer>
 				<Button class="ml-auto" href={`/mesocycles/${workoutData.workoutOfMesocycle?.mesocycle.id}`}>
-					Edit mesocycle
+					Editar mesociclo
 				</Button>
 			</Card.Footer>
 		</Card.Root>
@@ -173,7 +173,7 @@
 	{#if workoutRunes.editingWorkoutId === null}
 		<div class="mb-1 flex items-center justify-between gap-2 rounded-lg border bg-card p-4">
 			<Label for="use-active-mesocycle">
-				{workoutData.workoutOfMesocycle === undefined ? 'No' : 'Use'} active mesocycle
+				{workoutData.workoutOfMesocycle === undefined ? 'Sin' : 'Usar'} mesociclo activo
 			</Label>
 			{#if workoutData.workoutOfMesocycle === undefined}
 				<Switch id="use-active-mesocycle" name="use-active-mesocycle" disabled />
@@ -192,10 +192,10 @@
 				startWorkout();
 			}}
 		>
-			<Label for="user-bodyweight">Bodyweight</Label>
+			<Label for="user-bodyweight">Peso corporal</Label>
 			<Input
 				id="user-bodyweight"
-				placeholder="Type here"
+				placeholder="Escribe aquí"
 				type="number"
 				min={1}
 				step={0.01}
@@ -203,8 +203,8 @@
 			/>
 			{#if workoutRunes.editingWorkoutId !== null && workoutRunes.workoutData}
 				<div class="grid grid-cols-2 gap-x-2 gap-y-1.5">
-					<Label for="start-date">Start date</Label>
-					<Label for="end-date">End date</Label>
+					<Label for="start-date">Fecha de inicio</Label>
+					<Label for="end-date">Fecha de fin</Label>
 					<Input
 						id="start-date"
 						type="datetime-local"
@@ -231,8 +231,8 @@
 	{#if skippedWorkoutsOfCycle && skippedWorkoutsOfCycle.length > 0}
 		<Card.Root class="mb-1">
 			<Card.Header>
-				<Card.Title>Skipped days</Card.Title>
-				<Card.Description>for this cycle</Card.Description>
+				<Card.Title>Días saltados</Card.Title>
+				<Card.Description>en este ciclo</Card.Description>
 			</Card.Header>
 			<Card.Content class="flex flex-wrap gap-1">
 				{#each skippedWorkoutsOfCycle as skippedWorkout}
@@ -254,12 +254,12 @@
 		<Card.Root>
 			<Card.Header>
 				<Card.Title class={cn({ 'text-primary': splitDayName === '' })}>
-					{splitDayName === '' ? 'Rest' : splitDayName}
+					{splitDayName === '' ? 'Descanso' : splitDayName}
 				</Card.Title>
 				<Card.Description class="pb-1">
-					Day {workoutData.workoutOfMesocycle.splitDayIndex + 1}, Cycle {workoutData.workoutOfMesocycle.cycleNumber}
+					Día {workoutData.workoutOfMesocycle.splitDayIndex + 1}, Ciclo {workoutData.workoutOfMesocycle.cycleNumber}
 					{#if $page.url.searchParams.get('repeatSkipped')}
-						(Repeating skipped)
+						(Repitiendo salteado)
 					{/if}
 				</Card.Description>
 				<div class="flex flex-wrap gap-1">
@@ -278,7 +278,7 @@
 					{#if completingWorkout}
 						<LoaderCircle class="animate-spin" />
 					{:else}
-						{workoutStatus === 'RestDay' ? 'Complete' : 'Skip'}
+						{workoutStatus === 'RestDay' ? 'Completar' : 'Saltar'}
 						{#if workoutStatus === 'RestDay'}
 							<CheckIcon />
 						{:else}
@@ -299,29 +299,29 @@
 			{#if $navigating}
 				<LoaderCircle class="animate-spin" />
 			{:else}
-				Next
+				Siguiente
 			{/if}
 		</Button>
 	{/if}
 {/if}
 
-<ResponsiveDialog title="Warning" bind:open={overwriteWorkoutDialogOpen}>
+<ResponsiveDialog title="Advertencia" bind:open={overwriteWorkoutDialogOpen}>
 	{#snippet description()}
-		A workout is already in progress with <span class="font-semibold"
-			>{workoutRunes.workoutExercises?.length} exercises</span
-		>, do you want to overwrite it?
+		Ya hay un entrenamiento en curso con <span class="font-semibold"
+			>{workoutRunes.workoutExercises?.length} ejercicios</span
+		>, ¿quieres sobrescribirlo?
 	{/snippet}
 	<div class="grid grid-cols-2 gap-1.5">
-		<Button onclick={() => startWorkout(true, 'keepCurrent')}>Keep current</Button>
-		<Button onclick={() => startWorkout(true, 'overwrite')} variant="destructive">Overwrite</Button>
+		<Button onclick={() => startWorkout(true, 'keepCurrent')}>Mantener actual</Button>
+		<Button onclick={() => startWorkout(true, 'overwrite')} variant="destructive">Sobrescribir</Button>
 	</div>
 </ResponsiveDialog>
 
-<ResponsiveDialog title="Warning" bind:open={skipWorkoutWithWorkoutExercisesDialogOpen}>
+<ResponsiveDialog title="Advertencia" bind:open={skipWorkoutWithWorkoutExercisesDialogOpen}>
 	{#snippet description()}
-		A workout is already in progress with <span class="font-semibold"
-			>{workoutRunes.workoutExercises?.length} exercises</span
-		>, skipping will get rid of it.
+		Ya hay un entrenamiento en curso con <span class="font-semibold"
+			>{workoutRunes.workoutExercises?.length} ejercicios</span
+		>, saltarlo lo eliminará.
 	{/snippet}
-	<Button onclick={() => completeWorkout('Skipped', true)} variant="destructive">Skip</Button>
+	<Button onclick={() => completeWorkout('Skipped', true)} variant="destructive">Saltar</Button>
 </ResponsiveDialog>

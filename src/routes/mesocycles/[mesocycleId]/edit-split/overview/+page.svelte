@@ -35,14 +35,14 @@
 	}
 </script>
 
-<H3>Overview</H3>
+<H3>Resumen</H3>
 
 <MesocycleExerciseSplitStats splitExercises={mesocycleExerciseSplitRunes.splitExercises} />
 <div class="mt-2 grid grid-cols-2 gap-1">
-	<Button href="./exercises" variant="secondary">Previous</Button>
+	<Button href="./exercises" variant="secondary">Anterior</Button>
 	<Button disabled={savingMesocycleExerciseSplit} onclick={saveMesocycleExerciseSplit}>
 		{#if !savingMesocycleExerciseSplit}
-			Save
+			Guardar
 		{:else}
 			<LoaderCircle class="animate-spin" />
 		{/if}

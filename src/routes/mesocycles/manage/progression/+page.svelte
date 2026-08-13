@@ -41,7 +41,7 @@
 			return;
 		}
 		if (selectedExerciseSplit === null) {
-			toast.error('Select an exercise split');
+			toast.error('Selecciona un split de ejercicios');
 			return;
 		}
 		mesocycleRunes.saveStoresToLocalStorage();
@@ -49,24 +49,24 @@
 	}
 </script>
 
-<H3>Progression</H3>
+<H3>Progresión</H3>
 
 {#if mesocycleRunes.editingMesocycleId === null}
-	<span class="mb-0.5 text-sm font-medium">Starting exercise split</span>
+	<span class="mb-0.5 text-sm font-medium">Split de ejercicios inicial</span>
 	<Popover.Root>
 		<Popover.Trigger asChild let:builder>
 			<Button class="w-full justify-between" builders={[builder]} role="combobox" variant="outline">
 				{#if exerciseSplits !== 'loading'}
-					{selectedExerciseSplit === null ? 'Pick one' : selectedExerciseSplit.name}
+					{selectedExerciseSplit === null ? 'Elige uno' : selectedExerciseSplit.name}
 				{:else}
-					{exerciseSplits === 'loading' ? 'Loading...' : 'An error occurred'}
+					{exerciseSplits === 'loading' ? 'Cargando...' : 'Ocurrió un error'}
 				{/if}
 				<CaretSort class="ml-2 h-4 w-4 shrink-0 opacity-50" />
 			</Button>
 		</Popover.Trigger>
 		<Popover.Content class="mt-0.5 p-0" align="start">
 			<Command.Root shouldFilter={false}>
-				<Command.Input class="h-9" placeholder="Search" bind:value={searchString} />
+				<Command.Input class="h-9" placeholder="Buscar" bind:value={searchString} />
 				{#if exerciseSplits === 'loading'}
 					<Command.Empty class="flex items-center justify-center gap-2">
 						<LoaderCircle class="h-5 w-5 animate-spin" />
@@ -92,7 +92,7 @@
 									{exerciseSplit.name}
 								</Command.Item>
 							{:else}
-								<div class="text-sm p-2">No exercise splits found</div>
+								<div class="text-sm p-2">No se encontraron splits de ejercicios</div>
 							{/each}
 						</div>
 					{/if}
@@ -102,9 +102,9 @@
 	</Popover.Root>
 {:else}
 	<div class="muted-text-box flex justify-between gap-2 text-sm">
-		Starting exercise split cannot be changed
+		El split de ejercicios inicial no se puede cambiar
 		<InfoPopover ariaLabel="exercise-split-editing-info">
-			To modify the split, use the <b>Split</b> tab in <b>View mesocycle</b>
+			Para modificar el split, usa la pestaña <b>Split</b> en <b>Ver mesociclo</b>
 		</InfoPopover>
 	</div>
 {/if}
@@ -114,7 +114,7 @@
 		<Card.Root>
 			<Card.Header>
 				<Card.Title class="flex items-center justify-between">
-					<span>Progression settings</span>
+					<span>Ajustes de progresión</span>
 				</Card.Title>
 			</Card.Header>
 			<Card.Content class="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -123,7 +123,7 @@
 						class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 						for="mesocycle-last-set-to-failure"
 					>
-						Take last set to failure
+						Llevar la última serie al fallo
 					</Label>
 					<Switch
 						id="mesocycle-last-set-to-failure"
@@ -134,7 +134,7 @@
 						ariaLabel="mesocycle-last-set-to-failure-info"
 						triggerClasses="absolute -right-0.5 -top-2.5 focus:outline-none"
 					>
-						Take the last set of each exercise to 0 RIR
+						Llevar la última serie de cada ejercicio a 0 RIR
 					</InfoPopover>
 				</div>
 				<div class="relative flex items-center justify-between rounded-md border p-2">
@@ -142,7 +142,7 @@
 						class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 						for="mesocycle-last-set-to-failure"
 					>
-						Force RIR matching
+						Forzar coincidencia de RIR
 					</Label>
 					<Switch
 						id="mesocycle-force-RIR-matching"
@@ -153,22 +153,22 @@
 						ariaLabel="mesocycle-force-RIR-matching-info"
 						triggerClasses="absolute -right-0.5 -top-2.5 focus:outline-none"
 					>
-						Whether or not to reduce reps/load to match planned RIR
+						Si se deben reducir repeticiones/carga para igualar el RIR planeado
 					</InfoPopover>
 				</div>
 				{#if mesocycleRunes.editingMesocycleId === null}
 					<div class="flex w-full max-w-sm flex-col gap-1.5">
 						<Label class="flex items-center justify-between" for="distribution-min-sets-per-exercise">
-							Minimum sets per exercise
+							Series mínimas por ejercicio
 							<InfoPopover ariaLabel="distribution-min-sets-per-exercise-info">
-								To avoid excessive exercise variation at the start of the mesocycle
+								Para evitar variación excesiva de ejercicios al inicio del mesociclo
 							</InfoPopover>
 						</Label>
 						<Input
 							id="distribution-min-sets-per-exercise"
 							max={maxMinSetsValue}
 							min={0}
-							placeholder="Type here"
+							placeholder="Escribe aquí"
 							required
 							step={1}
 							type="number"
@@ -178,7 +178,7 @@
 				{/if}
 				<div class="flex flex-col gap-2 md:col-span-2">
 					<div class="flex items-center justify-between text-sm font-medium">
-						<span>Start overload percentage</span>
+						<span>Porcentaje de sobrecarga inicial</span>
 						<span class="text-muted-foreground">
 							{mesocycleRunes.mesocycle.startOverloadPercentage}%
 						</span>
@@ -197,8 +197,8 @@
 
 	<div class="grid grid-cols-2 gap-1">
 		<Button variant="secondary">
-			<a class="w-full" href="./basics">Previous</a>
+			<a class="w-full" href="./basics">Anterior</a>
 		</Button>
-		<Button onclick={savePreferencesAndExerciseSplit}>Next</Button>
+		<Button onclick={savePreferencesAndExerciseSplit}>Siguiente</Button>
 	</div>
 </div>

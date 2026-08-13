@@ -40,7 +40,7 @@
 			value: firstSetChange.startVolume,
 			min: 0,
 			max: 100,
-			description: 'The starting volume of a muscle group for the first microcycle'
+			description: 'El volumen inicial de un grupo muscular para el primer microciclo'
 		},
 		{
 			setChangeProperty: 'maxVolume',
@@ -48,7 +48,7 @@
 			value: firstSetChange.maxVolume,
 			min: 0,
 			max: 100,
-			description: 'The maximum volume of a muscle group to be performed in the mesocycle'
+			description: 'El volumen máximo de un grupo muscular a realizar en el mesociclo'
 		},
 		{
 			setChangeProperty: 'setIncreaseAmount',
@@ -56,13 +56,13 @@
 			value: firstSetChange.setIncreaseAmount,
 			min: 0,
 			max: 3,
-			description: 'Number of sets to increase every microcycle for a muscle group'
+			description: 'Cantidad de series a aumentar cada microciclo para un grupo muscular'
 		},
 		{
 			setChangeProperty: 'regardlessOfProgress',
 			open: false,
 			value: firstSetChange.regardlessOfProgress,
-			description: "Apply set increases even if performance doesn't improve"
+			description: 'Aplicar aumentos de series aunque el rendimiento no mejore'
 		}
 	]);
 
@@ -83,7 +83,7 @@
 			muscleGroupPopoverOpen = false;
 			selectedMuscleGroup = { value: 'Chest', label: 'Chest' };
 		} else {
-			toast.error('Muscle group already present in the table');
+			toast.error('El grupo muscular ya está presente en la tabla');
 		}
 	}
 
@@ -104,7 +104,7 @@
 			<Table.Head>
 				<Popover.Root bind:open={muscleGroupPopoverOpen}>
 					<Popover.Trigger class="flex items-center text-left" aria-label="add-muscle-group">
-						Muscle Group
+						Grupo muscular
 						<Plus class="shrink-0 basis-4" />
 					</Popover.Trigger>
 					<Popover.Content class="flex flex-col gap-2">
@@ -122,9 +122,9 @@
 										label: convertCamelCaseToNormal(selectedMuscleGroup?.value)
 									}}
 								>
-									<Select.Label class="p-0 text-sm font-medium leading-none">Add muscle group</Select.Label>
+									<Select.Label class="p-0 text-sm font-medium leading-none">Agregar grupo muscular</Select.Label>
 									<Select.Trigger>
-										<Select.Value placeholder="Pick one" />
+										<Select.Value placeholder="Elige uno" />
 									</Select.Trigger>
 									<Select.Content class="h-48 overflow-y-auto">
 										{#each Object.values(MuscleGroup) as muscleGroup}
@@ -135,18 +135,18 @@
 							</div>
 							{#if selectedMuscleGroup.value === 'Custom'}
 								<div class="flex w-full flex-col gap-1.5">
-									<Label for="exercise-custom-muscle-group">Muscle group</Label>
+									<Label for="exercise-custom-muscle-group">Grupo muscular</Label>
 									<Input
 										id="exercise-custom-muscle-group"
-										placeholder="Type here"
+										placeholder="Escribe aquí"
 										required
 										bind:value={customMuscleGroup}
 									/>
 								</div>
 							{/if}
-							<Button type="submit">Add</Button>
+							<Button type="submit">Agregar</Button>
 							<p class="text-sm leading-tight text-muted-foreground">
-								Add muscle groups not currently in the exercise split if you plan to use them later
+								Agrega grupos musculares que no estén actualmente en el split si planeas usarlos más adelante
 							</p>
 						</form>
 					</Popover.Content>
@@ -178,14 +178,14 @@
 											id="replace-all-{state.setChangeProperty}"
 											max={state.max}
 											min={state.min}
-											placeholder="Type here"
+											placeholder="Escribe aquí"
 											required
 											type="number"
 											bind:value={state.value}
 										/>
 									</div>
 								{/if}
-								<Button type="submit">Replace all</Button>
+								<Button type="submit">Reemplazar todo</Button>
 							</form>
 							<span class="text-sm leading-tight text-muted-foreground">
 								{state.description}
